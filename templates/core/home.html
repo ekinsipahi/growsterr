@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero wrap">
+  <p class="eyebrow">Launching soon</p>
+  <h1>Grow your <span>Instagram</span>, <span>TikTok</span> and <span>YouTube</span>.</h1>
+  <p class="lead">Simple monthly packages for followers, subscribers, likes and views. Pick a platform, pick a package, and watch your account move.</p>
+  <a class="btn" href="mailto:{{ contact_email }}?subject=Growsterr">Get notified</a>
+</section>
+<section class="platforms wrap">
+  {% for name, what in platforms %}
+  <article class="platform">
+    <h2>{{ name }}</h2>
+    <p>{{ what }}</p>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}
