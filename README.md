@@ -22,8 +22,9 @@ Tests always run on SQLite: `python manage.py test apps`.
 - Coral `#FF6B4A`: energy; used for the rising arrow and for buttons.
 - Ink `#17142E` and paper `#FAF9FF`.
 - Display font: Outfit.
-- Logo drafts are in `design/logo-draft/` (`logo-directions.png` compares the three directions).
-  The site uses the "G + rising arrow" draft (`static/img/logo.svg`) until the final logo arrives.
+- Logo: a violet G whose top end becomes a coral arrow, wordmark "grow" + "sterr". Light and dark
+  versions, icons and exports are in `design/logo/` (see its README); the site uses the copies in
+  `static/img/`.
 
 ## Deploy
 
