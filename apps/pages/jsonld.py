@@ -61,15 +61,20 @@ def article(headline, description, url, modified=None, image=""):
     return data
 
 
-def product(name, description, url, offers, image=""):
-    """offers: [{"name", "price" ("79.99"), "url"}]: the monthly packages."""
+def service(name, description, url, offers, site, image=""):
+    """The monthly packages as a Service with Offers. Not Product: Google reads Product as a
+    shippable merchant listing (image, shipping, returns) and a subscription service is none of that.
+    offers: [{"name", "price" ("79.99"), "url"}]."""
     data = {
         "@context": CONTEXT,
-        "@type": "Product",
+        "@type": "Service",
         "name": name,
         "description": description,
-        "brand": {"@type": "Brand", "name": BRAND},
         "url": url,
+        "serviceType": "Social media growth",
+        "areaServed": "Worldwide",
+        "provider": {"@type": "Organization", "name": BRAND, "url": site,
+                     "parentOrganization": {"@type": "Organization", "name": "Sterr Agency", "url": "https://sterragency.com"}},
         "offers": [
             {
                 "@type": "Offer",

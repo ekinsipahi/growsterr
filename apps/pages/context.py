@@ -360,7 +360,7 @@ def build(request, page, registry):
         main = jsonld.article("".join(headline(r.p.get("h1"))), r.p.get("description", ""), canonical,
                               page.lastmod, image=image_url)
     else:
-        main = jsonld.product(r.ui.get("product_name", ""), r.p.get("description", ""), canonical, offers, image=image_url)
+        main = jsonld.service(r.ui.get("product_name", ""), r.p.get("description", ""), canonical, offers, site, image=image_url)
     blocks = [jsonld.breadcrumbs(crumbs, site), main]
     if faqs:
         blocks.append(jsonld.faq(faqs))

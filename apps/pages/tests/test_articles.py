@@ -48,7 +48,7 @@ class ArticleRegistryTests(TestCase):
             html = self.client.get("/guides/can-you-buy-instagram-followers/").content.decode()
         types = [block["@type"] for block in jsonld(html)]
         self.assertIn("Article", types)
-        self.assertNotIn("Product", types)
+        self.assertNotIn("Service", types)
         self.assertIn(">Guide<", html)
 
     def test_articles_are_in_the_sitemap(self):
