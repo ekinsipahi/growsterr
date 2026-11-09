@@ -1,0 +1,132 @@
+{% extends "growth/_layout.html" %}
+{# The customer's dashboard (/account/) and the staff's read-only copy of it (/account/view/<id>/).
+   Context: accounts._dashboard: subs (one dict per package: s, ui, status, name, amount, started, renews, today,
+   tiles, visits, countries, projection, days, more_days, now, updated, bars, can_pay/manage/cancel/resume),
+   summary [(value, label)]; plus flags, payments, needs_verify, owner_email, readonly, admin_back. #}
+{% block title %}{{ gu.acc_title }} · Growsterr{% endblock %}
+{% block body_class %}growth growth--dashboard{% endblock %}
+{% block content %}
+<section class="section section--tight g-dash">
+  <div class="wrap">
+    {% if readonly %}<div class="alert alert--warning g-readonly" lang="tr" dir="ltr" role="note">Yönetici görünümü · salt okunur: {{ owner_email }} kullanıcısının paneli, müşterinin gördüğü haliyle. Buradan hiçbir şey değiştirilemez ve bu ziyaret müşterinin hareketi olarak kaydedilmez. <a href="{{ admin_back }}">Admin'e dön</a></div>{% endif %}
+    <header class="g-dash__head">
+      <div>
+        <p class="eyebrow eyebrow--plain g-dash__who">{{ owner_email }}</p>
+        <h1 class="h1">{{ gu.acc_title }}</h1>
+      </div>
+      {% if not readonly %}
+      <div class="btn-row">
+        <a class="btn btn--primary" href="{{ order_url }}">{{ gu.acc_new }}</a>
+        <form method="post" action="{% url 'growth:logout' %}">{% csrf_token %}<input type="hidden" name="lang" value="{{ code }}"><button class="btn btn--ghost" type="submit">{{ gu.sign_out }}</button></form>
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="g-alerts">
+      {% if flags.verify == "sent" %}<div class="alert alert--success" role="status">{{ gu.verify_sent }}</div>{% endif %}
+      {% if flags.verify == "invalid" %}<div class="alert alert--error" role="alert">{{ gu.verify_invalid }}</div>{% endif %}
+      {% if flags.verified %}<div class="alert alert--success" role="status">{{ gu.verify_done }}</div>{% endif %}
+      {% if flags.reset %}<div class="alert alert--success" role="status">{{ gu.reset_done }}</div>{% endif %}
+      {% if flags.error == "payment" %}<div class="alert alert--error" role="alert">{{ gu.acc_payment_error }}</div>{% endif %}
+      {% if flags.resumed %}<div class="alert alert--success" role="status">{{ gu.acc_resumed }}</div>{% endif %}
+      {% if flags.video == "saved" %}<div class="alert alert--success" role="status">{{ gu.acc_video_saved }}</div>{% endif %}
+      {% if flags.video == "invalid" %}<div class="alert alert--error" role="alert">{{ gu.err_video }}</div>{% endif %}
+      {% if needs_verify and payments and flags.verify != "sent" %}
+      <div class="alert alert--warning">
+        <span>{{ gu.acc_unverified }}</span>
+        <form method="post" action="{% url 'growth:verify_again' %}">{% csrf_token %}<input type="hidden" name="lang" value="{{ code }}"><button class="link-btn" type="submit">{{ gu.acc_resend }}</button></form>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if summary %}
+    <div class="g-summary">{% for value, label in summary %}<div class="metric"><span class="metric__value">{{ value }}</span><span class="metric__label">{{ label }}</span></div>{% endfor %}</div>
+    {% endif %}
+
+    <h2 class="h3 g-dash__subtitle">{{ gu.acc_orders }}</h2>
+    {% if not subs %}
+    <div class="card card--soft g-empty">
+      <p>{{ gu.acc_empty }}</p>
+      {% if not readonly %}<a class="btn btn--primary" href="{{ order_url }}">{{ gu.cta }}</a>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="g-subs">
+      {% for item in subs %}{% with s=item.s ui=item.ui %}
+      <article class="card g-sub g-sub--{{ s.status }}" id="sub-{{ s.pk }}">
+        <header class="g-sub__head">
+          <div>
+            <h3 class="g-sub__title">{{ item.name }} · {{ s.platform_name }} <span class="muted">@{{ s.handle }}</span></h3>
+            <p class="g-sub__meta">{{ item.started }} · {{ s.location }} · {{ item.amount }} {{ ui.per_month }}{% if item.renews %} · {{ item.renews }}{% endif %}</p>
+          </div>
+          <span class="status status--{{ s.status }}">{{ item.status }}</span>
+        </header>
+
+        {% if s.platform == "youtube" and s.status != "canceled" %}
+        <form class="g-sub__block g-video" method="post" action="{% url 'growth:video' s.pk %}">{% csrf_token %}
+          <input type="hidden" name="lang" value="{{ code }}">
+          <label class="g-label" for="video-{{ s.pk }}">{{ gu.f_video }}</label>
+          <div class="g-video__row">
+            <input id="video-{{ s.pk }}" type="url" name="video_url" value="{% if s.video_url != 'channel' %}{{ s.video_url }}{% endif %}" placeholder="{{ gu.f_video_ph }}" inputmode="url" autocomplete="off" spellcheck="false">
+            <button class="btn btn--outline btn--sm" type="submit">{{ gu.acc_video_save }}</button>
+          </div>
+          <p class="form-note">{{ gu.f_video_help }}</p>
+        </form>
+        {% endif %}
+
+        {% if s.status == "active" or s.status == "past_due" or s.status == "canceled" %}
+        {% if item.today %}
+        <div class="g-sub__block">
+          <p class="g-label">{{ ui.acc_today }}</p>
+          <div class="g-tiles">{% for value, label in item.today %}<div class="metric"><b class="metric__value">{{ value }}</b><span class="metric__label">{{ label }}</span></div>{% endfor %}</div>
+        </div>
+        <div class="g-sub__block">
+          <p class="g-label">{{ ui.acc_month }}</p>
+          <div class="g-tiles">{% for value, label in item.tiles %}<div class="metric"><b class="metric__value">{{ value }}</b><span class="metric__label">{{ label }}</span></div>{% endfor %}</div>
+          {% if item.projection %}<p class="g-projection">{{ item.projection }}</p>{% endif %}
+          {% if item.countries %}<p class="g-countries"><span class="muted">{{ ui.acc_countries }}</span>{% for c in item.countries %} <span class="g-chip"><span data-region="{{ c.code }}">{{ c.code }}</span> <b>{{ c.share }}</b></span>{% endfor %}</p>{% endif %}
+        </div>
+        {% if item.bars %}
+        <figure class="g-chart">
+          <figcaption class="g-label">{{ ui.acc_chart }}</figcaption>
+          <svg viewBox="0 0 320 72" preserveAspectRatio="none" role="img" aria-label="{{ ui.acc_chart }}">{% for bar in item.bars %}<rect x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.w }}" height="{{ bar.h }}" rx="1.5" fill="currentColor"><title>{{ bar.title }}</title></rect>{% endfor %}</svg>
+        </figure>
+        {% endif %}
+        <div class="g-sub__block">
+          <p class="g-label">{{ ui.acc_daily }}</p>
+          <div class="g-table-wrap"><table class="g-days">
+            <thead><tr><th scope="col">{{ ui.acc_day }}</th><th scope="col">{{ ui.acc_gained }}</th>{% if item.visits %}<th scope="col">{{ ui.acc_visits }}</th>{% endif %}</tr></thead>
+            <tbody>{% for d in item.days %}<tr><td>{{ d.label }}</td><td class="g-days__gain">{{ d.gained }}</td>{% if item.visits %}<td>{{ d.visits }}</td>{% endif %}</tr>{% endfor %}</tbody>
+            {% if item.more_days %}<tbody class="g-days__more" hidden>{% for d in item.more_days %}<tr><td>{{ d.label }}</td><td class="g-days__gain">{{ d.gained }}</td>{% if item.visits %}<td>{{ d.visits }}</td>{% endif %}</tr>{% endfor %}</tbody>{% endif %}
+          </table></div>
+          {% if item.more_days %}<button class="link-btn" type="button" data-show-days>{{ ui.acc_all_days }}</button>{% endif %}
+        </div>
+        <div class="g-sub__now">{% if item.now %}<span>{{ item.now }}</span>{% endif %}{% if item.updated %}<span class="muted">{{ item.updated }}</span>{% endif %}</div>
+        <p class="form-note">{{ ui.acc_count_note }}</p>
+        {% else %}
+        <p class="g-sub__waiting">{{ ui.acc_no_data }}</p>
+        {% endif %}
+        {% endif %}
+
+        {% if item.can_pay or item.can_manage or item.can_cancel or item.can_resume %}
+        <div class="btn-row g-sub__actions">
+          {% if item.can_pay %}
+          <form method="post" action="{% url 'growth:pay' s.pk %}">{% csrf_token %}<input type="hidden" name="lang" value="{{ code }}"><button class="btn btn--primary btn--sm" type="submit">{{ ui.acc_pay }} · {{ item.amount }} {{ ui.per_month }}</button></form>
+          {% endif %}
+          {% if item.can_manage and s.status != "canceled" %}
+          <form method="post" action="{% url 'growth:billing' %}">{% csrf_token %}<input type="hidden" name="lang" value="{{ code }}"><button class="btn btn--outline btn--sm" type="submit">{{ ui.acc_manage }}</button></form>
+          {% endif %}
+          {% if item.can_cancel %}
+          <a class="btn btn--ghost btn--sm" href="{% url 'growth:cancel' s.pk %}?lang={{ code }}">{{ ui.acc_cancel }}</a>
+          {% elif item.can_resume %}
+          <form method="post" action="{% url 'growth:resume' s.pk %}">{% csrf_token %}<input type="hidden" name="lang" value="{{ code }}"><button class="btn btn--primary btn--sm" type="submit">{{ ui.acc_resume }}</button></form>
+          {% endif %}
+        </div>
+        {% endif %}
+      </article>
+      {% endwith %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% if signup_event %}{{ signup_event|json_script:"signup-event" }}{% endif %}
+{% endblock %}

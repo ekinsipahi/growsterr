@@ -1,0 +1,48 @@
+{% extends "legal/_base.html" %}
+{% load legal_tags %}
+{# Section titles and their order: apps/legal/pages.py. Cookie names and lifetimes come from the settings
+   (apps/legal/views.py). Adding analytics, ads or any new cookie or browser storage? Update this page first. #}
+{% block legal_body %}
+{% section "what" %}
+<p>Cookies are small text files a website stores in your browser, so it can remember things from one page to the next, such as the fact that you're signed in. Websites can also keep small pieces of data in your browser's local storage, which stays on your device.</p>
+{% endsection %}
+
+{% section "cookies-we-use" %}
+<p>Growsterr ({{ site_host }}) sets only these cookies. They're strictly necessary for the site to work, so they don't need your consent, and we never use them to track you.</p>
+<table class="legal-table legal-table--names">
+  <thead><tr><th scope="col">Cookie</th><th scope="col">What it does</th><th scope="col">Expires</th></tr></thead>
+  <tbody>
+    <tr><th scope="row" data-label="Cookie"><code>{{ session_cookie }}</code></th><td data-label="What it does">Keeps you signed in, and remembers where you are in steps such as signing in with Google.</td><td data-label="Expires">{{ session_expires }}</td></tr>
+    {% if csrf_cookie %}<tr><th scope="row" data-label="Cookie"><code>{{ csrf_cookie }}</code></th><td data-label="What it does">Protects our forms: it proves that a form was sent from our own site, which blocks cross-site request forgery.</td><td data-label="Expires">{{ csrf_expires }}</td></tr>{% endif %}
+    {% if messages_cookie %}<tr><th scope="row" data-label="Cookie"><code>{{ messages_cookie }}</code></th><td data-label="What it does">Carries a one-time notice to the next page, such as “Your password has been changed”. Set only when there's a notice to show.</td><td data-label="Expires">As soon as the notice is shown, or when you close your browser</td></tr>{% endif %}
+  </tbody>
+</table>
+{% endsection %}
+
+{% section "browser-storage" %}
+<p>One small setting lives in your browser's local storage instead of a cookie:</p>
+<table class="legal-table legal-table--names">
+  <thead><tr><th scope="col">Key</th><th scope="col">What it does</th><th scope="col">Expires</th></tr></thead>
+  <tbody>
+    <tr><th scope="row" data-label="Key"><code>theme</code></th><td data-label="What it does">Remembers whether you chose light or dark mode. It stays on your device and is never sent to us.</td><td data-label="Expires">When you clear your browser's site data</td></tr>
+  </tbody>
+</table>
+{% endsection %}
+
+{% section "payment-and-sign-in" %}
+<p>When you pay, you go to Stripe's secure checkout, and when you choose “Continue with Google”, to Google's sign-in page. Those pages belong to Stripe and Google, which set their own cookies there for security and fraud prevention, under their own policies: <a href="https://stripe.com/cookies-policy/legal">Stripe's cookie policy</a> and <a href="https://policies.google.com/technologies/cookies">Google's</a>.</p>
+<p>Our pages also load their typefaces from Google Fonts, which doesn't set cookies. Our <a href="{% url 'legal:privacy' %}#providers">Privacy Policy</a> lists every service we work with.</p>
+{% endsection %}
+
+{% section "no-tracking" %}
+<p>We don't use analytics, advertising or social media cookies, tracking pixels or anything similar. If we ever add them, we'll update this page first and ask for your consent wherever the law requires it.</p>
+{% endsection %}
+
+{% section "control" %}
+<p>Your browser settings let you see and delete cookies, and block them for any site. If you block ours, you won't be able to sign in or order a package. Clearing your browser's site data for our website also resets your light or dark choice.</p>
+{% endsection %}
+
+{% section "contact" %}
+<p>Questions about cookies? Write to us at <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. How we handle personal data is explained in our <a href="{% url 'legal:privacy' %}">Privacy Policy</a>.</p>
+{% endsection %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load growsterr %}
+<section class="page-hero pg-hero" aria-labelledby="page-title">
+  <div class="wrap">
+    {% include "pages/_crumbs.html" %}
+    <div class="hero__grid pg-hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">{{ eyebrow }}</p>
+        <h1 class="h1" id="page-title">{{ h1.0 }}{% if h1.1 %}<span class="hl">{{ h1.1 }}</span>{% endif %}</h1>
+        <p class="lead">{{ p.intro }}</p>
+        <div class="btn-row hero__actions" data-pg-hero>
+          <a class="btn btn--primary btn--lg" href="{{ order_url }}">{{ pu.cta }} {% icon "arrow" %}</a>
+          <a class="btn btn--outline btn--lg" href="#packages">{{ pu.cta_more }}</a>
+        </div>
+        <ul class="trust">{% for item in pu.trust %}<li>{% icon "check" %}<span>{{ item }}</span></li>{% endfor %}</ul>
+      </div>
+      <div class="pg-hero__media">{% include "pages/_figure.html" with img=hero variant="violet" %}</div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+{% load growsterr %}{% site_ui lang as chrome %}{# Who is behind the page (E-E-A-T): the team, the founder, the last real update. Strings: core CHROME author_*. #}
+<aside class="section section--line pg-author" aria-labelledby="author-title">
+  <div class="wrap">
+    <div class="card pg-author__card">
+      <h2 class="h3" id="author-title">{{ chrome.author_title }}</h2>
+      <p>{{ chrome.author_team }}</p>
+      <p>{{ chrome.author_founder }} <a href="{{ founder.url }}" rel="noopener" target="_blank">{{ founder.name }} (@{{ founder.handle }})</a>, {{ chrome.author_since }}</p>
+      {% if updated %}<p class="pg-author__date">{{ chrome.author_updated }} <time datetime="{{ updated.iso }}">{{ updated.text }}</time></p>{% endif %}
+    </div>
+  </div>
+</aside>

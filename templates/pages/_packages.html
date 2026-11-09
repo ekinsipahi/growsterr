@@ -1,0 +1,11 @@
+{# The packages, the order links carry plan/platform/lang (templates/partials/plans.html). #}
+<section class="section section--alt" id="packages" aria-labelledby="packages-title">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <h2 class="h2" id="packages-title">{{ pu.packages_title }}</h2>
+      <p class="lead">{{ pu.packages_lead }}</p>
+    </div>
+    {% include "partials/plans.html" %}
+    <p class="plans-note">{{ pu.packages_note }}</p>
+  </div>
+</section>

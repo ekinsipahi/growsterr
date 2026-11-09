@@ -1,0 +1,68 @@
+{% extends "pages/_layout.html" %}{% load growsterr %}
+{# A platform hub (/instagram/, /de/instagram/...): presents the platform and links to every page of it. #}
+{% block content %}
+{% include "pages/_hero.html" %}
+
+<section class="section" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 class="h2" id="services-title">{{ pu.services_title }}</h2>
+      <p class="lead">{{ pu.services_lead }}</p>
+    </div>
+    <ul class="grid grid--4 pg-services">
+      {% for s in services %}
+      <li class="card{% if s.url %} card--link{% else %} card--flat{% endif %} pg-service">
+        <span class="card__icon">{% icon s.icon %}</span>
+        <h3 class="h3">{{ s.name }}</h3>
+        <p>{{ s.teaser }}</p>
+        <p class="card__foot">
+          {% if s.url %}<a class="stretched link-arrow" href="{{ s.url }}">{{ s.label }} {% icon "arrow" size=18 %}</a>
+          {% else %}<span class="badge badge--muted">{{ pu.in_package }}</span>{% endif %}
+        </p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include "pages/_packages.html" %}
+{% include "pages/_steps.html" %}
+{% include "pages/_story.html" %}
+{% include "pages/_compare.html" %}
+
+{% if goals %}
+<section class="section section--line" id="goals" aria-labelledby="goals-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h2" id="goals-title">{{ pu.goals_title }}</h2>
+    </div>
+    {% include "pages/_links.html" with groups=goals %}
+  </div>
+</section>
+{% endif %}
+
+{% include "pages/_faq.html" %}
+
+{% if other_hubs %}
+<section class="section section--alt" id="platforms" aria-labelledby="platforms-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h2" id="platforms-title">{{ pu.other_hubs_title }}</h2>
+    </div>
+    <ul class="grid grid--2 pg-hubs">
+      {% for hub in other_hubs %}
+      <li class="card card--link platform-card">
+        <figure class="media media--soft" aria-hidden="true"><span class="media__ph">{% include "partials/art.html" with art="platform" glyph=hub.platform %}</span></figure>
+        <h3 class="h3"><a class="stretched" href="{{ hub.url }}">{{ hub.label }}</a></h3>
+        <p class="card__foot"><span class="link-arrow">{{ pu.explore }} {% icon "arrow" size=18 %}</span></p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}
+
+{% include "pages/_author.html" %}
+{% include "pages/_cta.html" %}
+{% include "pages/_sticky.html" %}
+{% endblock %}

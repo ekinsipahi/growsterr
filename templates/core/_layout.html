@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% comment %} Shared frame of the core pages (home, pricing, how it works, about) in every language. Context from
+   apps.core.views._context: c (the page's copy), title, description, lang, rtl, og_locale, og_alternates,
+   alternates (hreflang), lang_links (language menu), canonical_url, cta. {% endcomment %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block head %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:locale" content="{{ og_locale }}">
+  {% for locale in og_alternates %}<meta property="og:locale:alternate" content="{{ locale }}">
+  {% endfor %}
+{% endblock %}

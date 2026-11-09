@@ -1,0 +1,1 @@
+"""Irish money pages."""

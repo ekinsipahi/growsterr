@@ -1,0 +1,11 @@
+{# Questions (the FAQPage JSON-LD is built from the same list). Context: faqs = [(question, answer)]. #}
+{% if faqs %}
+<section class="section section--line" id="faq" aria-labelledby="faq-title">
+  <div class="wrap"><div class="split">
+    <div class="pg-faq__head">
+      <h2 class="h2" id="faq-title">{{ pu.faq_title }}</h2>
+    </div>
+    <div>{% include "partials/faq.html" %}</div>
+  </div></div>
+</section>
+{% endif %}

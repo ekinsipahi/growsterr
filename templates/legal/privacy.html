@@ -1,0 +1,123 @@
+{% extends "legal/_base.html" %}
+{% load legal_tags %}
+{# Section titles and their order: apps/legal/pages.py. Keep the lists of data and services in step with
+   what the growth app stores and with the services in config/settings.py. #}
+{% block legal_body %}
+<div class="legal-summary">
+  <h2 class="legal-summary__title">The short version</h2>
+  <ul>
+    <li>We collect what we need to run your account and your package, take payments and answer payment disputes.</li>
+    <li>We never ask for the password of your Instagram, TikTok or YouTube account, and your card details go straight to Stripe.</li>
+    <li>We never sell your personal data.</li>
+    <li>No analytics or advertising cookies.</li>
+    <li>You can ask to see, correct or delete your data at any time.</li>
+  </ul>
+</div>
+
+{% section "who-we-are" %}
+<p><strong>{{ company.legal_name }}</strong> runs Growsterr and is the controller of your personal data under the EU General Data Protection Regulation (GDPR). We're a private limited company registered in Estonia under registry code {{ company.registry_code }}, at {{ company.address }}.</p>
+<p>This policy covers our website ({{ site_host }}), your Growsterr account and our packages. For anything about your data, write to <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>.</p>
+{% endsection %}
+
+{% section "data" %}
+<ul>
+  <li><strong>Your account.</strong> Your email address and your password, which we store only as a one-way hash, so nobody can read it. If you continue with Google, Google shares your name and email address with us. We also note the language you use on our site.</li>
+  <li><strong>Your package.</strong> The platform, your public username and profile link, the location you'd like most of your audience to come from, the package and its price, and when it started, renews or ends.</li>
+  <li><strong>Your phone number.</strong> You give it on the order form so we can stay in touch with you about your package, by phone or message.</li>
+  <li><strong>Payments.</strong> Stripe handles them. We keep the amount, date and status of your payments, and Stripe's reference numbers for you, your subscription and your payments. Your card details never reach us.</li>
+  <li><strong>Delivery numbers.</strong> For each day of your package, Linksterr, our delivery network, measures how many people your profile was shown to, the visits it got, the new followers counted and the countries the visits came from. We also keep your account's public follower count and an estimate for the next 30 days. Your dashboard shows the visits, countries and new followers; we keep all of these numbers as delivery records.</li>
+  <li><strong>Your acceptance of the terms.</strong> When you tick the box on the order form: the date and time, the version of the terms, your IP address and your browser.</li>
+  <li><strong>Account activity.</strong> Sign-ins, visits to your dashboard (at most one record an hour) and visits to the cancel page, each with the time, IP address and browser. We keep these as evidence in case a payment is disputed.</li>
+  <li><strong>How you found us.</strong> The page you ordered from, and any campaign tags or ad click ID in the link that brought you, such as <code>utm_source</code> or <code>gclid</code>.</li>
+  <li><strong>Messages.</strong> What you write to us, and the emails we send you.</li>
+  <li><strong>Server logs.</strong> Like any website, our servers log requests: IP address, page, time and browser.</li>
+</ul>
+<p>We never ask for the password of your Instagram, TikTok or YouTube account, and we don't need any access to it.</p>
+{% endsection %}
+
+{% section "purposes" %}
+<p>We use your data only for what we collected it for, and each use has a legal basis under the GDPR:</p>
+<table class="legal-table">
+  <thead><tr><th scope="col">What we do</th><th scope="col">Legal basis</th></tr></thead>
+  <tbody>
+    <tr><th scope="row" data-label="What we do">Run your account and sign you in</th><td data-label="Legal basis">Our contract with you (Art. 6(1)(b))</td></tr>
+    <tr><th scope="row" data-label="What we do">Run your package: promote your profile, measure delivery and fill your dashboard</th><td data-label="Legal basis">Our contract with you (Art. 6(1)(b))</td></tr>
+    <tr><th scope="row" data-label="What we do">Take payments and send the emails your subscription needs: confirmations, renewal reminders, payment problems and cancellations</th><td data-label="Legal basis">Our contract with you (Art. 6(1)(b))</td></tr>
+    <tr><th scope="row" data-label="What we do">Stay in touch with you about your package by phone or message</th><td data-label="Legal basis">Our contract with you (Art. 6(1)(b)), and our legitimate interest in looking after our customers (Art. 6(1)(f))</td></tr>
+    <tr><th scope="row" data-label="What we do">Keep records of your order, your acceptance of the terms, delivery and account activity, and use them to answer payment disputes and prevent fraud</th><td data-label="Legal basis">Legitimate interests (Art. 6(1)(f)): preventing fraud, and establishing or defending legal claims</td></tr>
+    <tr><th scope="row" data-label="What we do">Keep our website secure and working</th><td data-label="Legal basis">Legitimate interests (Art. 6(1)(f))</td></tr>
+    <tr><th scope="row" data-label="What we do">Keep accounting and tax records</th><td data-label="Legal basis">Legal obligation (Art. 6(1)(c))</td></tr>
+  </tbody>
+</table>
+<p>Where we rely on legitimate interests, we've weighed them against your rights and interests, and you can object at any time ({% ref "rights" %}). We don't send marketing emails. If that ever changes, we'll ask for your consent first.</p>
+{% endsection %}
+
+{% section "providers" %}
+<p>We never sell your personal data. We share it only with the services that help us run Growsterr, and only what each one needs:</p>
+<table class="legal-table legal-table--names">
+  <thead><tr><th scope="col">Service</th><th scope="col">What it does for us</th><th scope="col">What it receives</th></tr></thead>
+  <tbody>
+    <tr><th scope="row" data-label="Service">Stripe</th><td data-label="What it does for us">Payments, the billing page and fraud checks</td><td data-label="What it receives">Your email address, your payment details and the IP address you pay from</td></tr>
+    <tr><th scope="row" data-label="Service">Google</th><td data-label="What it does for us">“Continue with Google” sign-in, only if you use it</td><td data-label="What it receives">Google tells us your name and email address</td></tr>
+    <tr><th scope="row" data-label="Service">Resend</th><td data-label="What it does for us">Sends our emails</td><td data-label="What it receives">Your email address and the emails we send you</td></tr>
+    <tr><th scope="row" data-label="Service">Supabase</th><td data-label="What it does for us">Our database and file storage</td><td data-label="What it receives">The data in your account</td></tr>
+    <tr><th scope="row" data-label="Service">Render</th><td data-label="What it does for us">Hosts our website and servers</td><td data-label="What it receives">Everything that passes through our website, including server logs</td></tr>
+    <tr><th scope="row" data-label="Service">Linksterr</th><td data-label="What it does for us">Our delivery network: runs the promoted campaigns that show your profile to people, and measures delivery</td><td data-label="What it receives">Your platform, username and target location, your package with its price and dates, and your account's follower count. Never your email address, phone number or payment details</td></tr>
+    <tr><th scope="row" data-label="Service">Google Fonts</th><td data-label="What it does for us">Delivers our typefaces when a page loads</td><td data-label="What it receives">Your IP address and browser details</td></tr>
+  </tbody>
+</table>
+<p>Stripe and Google also handle some of this data as independent controllers, under their own privacy policies: Stripe for its own fraud prevention and legal duties, Google for your Google account. When we talk on WhatsApp, WhatsApp handles those messages under its own terms.</p>
+<p>We may also share data when the law requires it, for example with tax authorities or courts, and with Stripe and your card issuer when a payment is disputed (<a href="{% url 'legal:terms' %}#disputes">Terms, payment disputes</a>).</p>
+{% endsection %}
+
+{% section "transfers" %}
+<p>Our company is registered in the EU, in Estonia. Some of the services above are based in the United States or process data there, and our own team also works from outside the European Economic Area, including from Turkey, reaching your data only through our own systems and under this policy.</p>
+<p>When a service outside the European Economic Area receives personal data, it's protected by the EU–US Data Privacy Framework, where the provider is certified under it, or by the European Commission's Standard Contractual Clauses. Write to us if you'd like the details.</p>
+{% endsection %}
+
+{% section "retention" %}
+<ul>
+  <li><strong>Your account, packages, delivery numbers and activity records:</strong> for as long as your account is open.</li>
+  <li><strong>When you ask us to delete your account:</strong> we delete or anonymize your data within 30 days, except what we must keep. That's the payment and invoice records accounting law requires us to keep (in Estonia, generally 7 years), and the records about a subscription that we need while a payment can still be disputed (up to 18 months after your last payment) or while a dispute is open.</li>
+  <li><strong>Orders you started but didn't pay for:</strong> they stay in your account so you can finish them, until you ask us to delete them or your account.</li>
+  <li><strong>Server logs:</strong> kept for a short time by our host, then deleted.</li>
+</ul>
+{% endsection %}
+
+{% section "security" %}
+<p>We use encrypted connections (HTTPS) everywhere, store passwords only as one-way hashes, give access only to the people who need it, and choose providers that protect data to high standards. If a breach ever puts your data at risk, we'll tell you and the authorities as the law requires.</p>
+{% endsection %}
+
+{% section "rights" %}
+<p>Under the GDPR, you can ask us to:</p>
+<ul>
+  <li><strong>show</strong> you the personal data we hold about you, and give you a copy;</li>
+  <li><strong>correct</strong> anything that's wrong or incomplete;</li>
+  <li><strong>delete</strong> your data, with the exceptions in {% ref "retention" %};</li>
+  <li><strong>restrict</strong> how we use it;</li>
+  <li><strong>hand over</strong> the data you gave us in a machine-readable format;</li>
+  <li><strong>stop</strong> using it where we rely on legitimate interests, if you object;</li>
+  <li><strong>stop</strong> using it where you gave consent, if you withdraw it.</li>
+</ul>
+<p>Write to us at <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>, ideally from the email address on your account. We may ask you to confirm it's you. We answer within one month, and we don't charge for it.</p>
+<p>We don't make decisions about you based only on automated processing that have legal or similarly significant effects.</p>
+<p>You can also complain to the Estonian Data Protection Inspectorate (Andmekaitse Inspektsioon, <a href="https://www.aki.ee/en">aki.ee</a>) or to the data protection authority where you live or work.</p>
+{% endsection %}
+
+{% section "age" %}
+<p>Growsterr is for adults. You must be 18 or older to create an account or buy a package, and we don't knowingly collect personal data from children. If you think a child has given us personal data, tell us and we'll delete it.</p>
+{% endsection %}
+
+{% section "cookies" %}
+<p>We use only the cookies our website needs to work, and no analytics or advertising cookies. Our <a href="{% url 'legal:cookies' %}">Cookie Policy</a> lists them.</p>
+{% endsection %}
+
+{% section "changes" %}
+<p>We'll update this policy when our service or the law changes, and change the date at the top of this page. If a change matters, we'll tell account holders by email before it applies.</p>
+{% endsection %}
+
+{% section "contact" %}
+{% include "legal/_company.html" %}
+<p>Questions or requests about your data? Write to us; a person on our team will answer.</p>
+{% endsection %}
+{% endblock %}

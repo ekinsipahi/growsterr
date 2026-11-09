@@ -1,0 +1,18 @@
+{% load growsterr %}
+<section class="section" id="included" aria-labelledby="included-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 class="h2" id="included-title">{{ pu.included_title }}</h2>
+      <p class="lead">{{ pu.included_lead }}</p>
+    </div>
+    <ul class="grid grid--3 pg-included">
+      {% for item in included %}
+      <li class="card card--flat">
+        <span class="card__icon">{% icon item.icon %}</span>
+        <h3 class="h3">{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

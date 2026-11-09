@@ -1,0 +1,49 @@
+{% extends "growth/_layout.html" %}
+{# Sign in, create an account, reset the password (request and new password). Context: accounts._ctx with
+   mode (login | signup | reset | reset_confirm), form, next, sent, invalid, google, google_failed. #}
+{% block title %}{% if mode == "login" %}{{ gu.login_title }}{% elif mode == "signup" %}{{ gu.signup_title }}{% else %}{{ gu.reset_title }}{% endif %} · Growsterr{% endblock %}
+{% block description %}{{ gu.login_lead }}{% endblock %}
+{% block body_class %}growth growth--auth{% endblock %}
+{% block content %}
+<section class="section section--tight g-auth">
+  <div class="wrap g-auth__grid">
+    <header class="g-auth__intro">
+      <p class="eyebrow">Growsterr</p>
+      <h1 class="h1">{% if mode == "login" %}{{ gu.login_title }}{% elif mode == "signup" %}{{ gu.signup_title }}{% else %}{{ gu.reset_title }}{% endif %}</h1>
+      <p class="lead">{% if mode == "login" %}{{ gu.login_lead }}{% elif mode == "signup" %}{{ gu.signup_lead }}{% else %}{{ gu.reset_lead }}{% endif %}</p>
+    </header>
+    <form class="form-card g-auth__card" method="post"{% if form_action %} action="{{ form_action }}"{% endif %} novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="lang" value="{{ code }}">
+      {% if next %}<input type="hidden" name="next" value="{{ next }}">{% endif %}
+      {% if invalid %}<div class="alert alert--error" role="alert">{{ gu.reset_invalid }}</div>{% endif %}
+      {% if sent %}<div class="alert alert--success" role="status">{{ gu.reset_sent }}</div>{% endif %}
+      {% if form.non_field_errors %}<div class="alert alert--error" role="alert">{{ form.non_field_errors|join:" " }}</div>{% endif %}
+      {% if google_failed %}<div class="alert alert--error" role="alert">{{ gu.google_failed }}</div>{% endif %}
+      {% if mode == "login" or mode == "signup" %}{% include "growth/_google.html" with google_next=next %}{% endif %}
+      {% for field in form %}{% if field.name == "consent" %}
+      <div class="g-consent{% if field.errors %} field--error{% endif %}">
+        <label class="consent">{{ field }}<span>{{ field.label }}</span></label>
+        <p class="form-note g-consent__links"><a href="{{ terms_url }}" target="_blank" rel="noopener">{{ gu.terms_link }}</a> · <a href="{{ privacy_url }}" target="_blank" rel="noopener">{{ gu.privacy_link }}</a></p>
+        {{ field.errors }}
+      </div>
+      {% else %}
+      <div class="field{% if field.errors %} field--error{% endif %}">
+        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+        {{ field }}{{ field.errors }}
+      </div>
+      {% endif %}{% endfor %}
+      <button class="btn btn--primary btn--lg btn--block" type="submit">{% if mode == "login" %}{{ gu.login_submit }}{% elif mode == "signup" %}{{ gu.signup_submit }}{% elif mode == "reset_confirm" %}{{ gu.reset_save }}{% else %}{{ gu.reset_submit }}{% endif %}</button>
+      {% if mode == "login" %}
+      <p class="form-note"><a href="{% url 'growth:reset' %}?lang={{ code }}">{{ gu.forgot }}</a></p>
+      <p class="form-note">{{ gu.no_account }} <a href="{% url 'growth:signup' %}?lang={{ code }}{% if next %}&amp;next={{ next|urlencode }}{% endif %}">{{ gu.signup_submit }}</a></p>
+      {% elif mode == "signup" %}
+      <p class="form-note">{{ gu.have_account }} <a href="{% url 'growth:login' %}?lang={{ code }}{% if next %}&amp;next={{ next|urlencode }}{% endif %}">{{ gu.login_submit }}</a></p>
+      {% elif mode == "reset" %}
+      <p class="form-note"><a href="{% url 'growth:login' %}?lang={{ code }}">{{ gu.login_title }}</a></p>
+      {% endif %}
+    </form>
+  </div>
+</section>
+{% if signup_event %}{{ signup_event|json_script:"signup-event" }}{% endif %}
+{% endblock %}

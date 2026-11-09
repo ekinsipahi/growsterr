@@ -1,0 +1,22 @@
+{% extends "growth/_layout.html" %}
+{# After the order: paid (Stripe confirmed) or a request / awaiting payment. Context: views.success:
+   gu, sub, paid, success_text, purchase_event, lead_event, signup_event (analytics data for app.js). #}
+{% block title %}{% if paid %}{{ gu.success_title }}{% else %}{{ gu.pending_title }}{% endif %} · Growsterr{% endblock %}
+{% block body_class %}growth growth--success{% endblock %}
+{% block content %}
+<section class="section g-done">
+  <div class="wrap wrap--narrow">
+    <div class="g-done__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <p class="eyebrow">{{ gu.eyebrow }}</p>
+    <h1 class="h1">{% if paid %}{{ gu.success_title }}{% else %}{{ gu.pending_title }}{% endif %}</h1>
+    {% if success_text %}<p class="lead g-done__text">{{ success_text }}</p>{% endif %}
+    <div class="btn-row g-done__actions">
+      <a class="btn btn--primary btn--lg" href="{{ account_url }}">{{ gu.to_account }}</a>
+      <a class="btn btn--outline btn--lg" href="{{ whatsapp_url }}" target="_blank" rel="noopener">WhatsApp {{ whatsapp_display }}</a>
+    </div>
+  </div>
+</section>
+{% if purchase_event %}{{ purchase_event|json_script:"purchase-event" }}{% endif %}
+{% if lead_event %}{{ lead_event|json_script:"lead-event" }}{% endif %}
+{% if signup_event %}{{ signup_event|json_script:"signup-event" }}{% endif %}
+{% endblock %}

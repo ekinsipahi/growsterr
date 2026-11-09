@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{# Layout of the legal pages. Context (apps/legal/views.py): page, toc, company, legal_nav, site_host. #}
+{% block title %}{{ page.title }} | Growsterr{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
+{% block head %}<link rel="stylesheet" href="{% static 'css/legal.css' %}">{% endblock %}
+{% block body_class %}legal-page{% endblock %}
+{% block content %}
+<header class="legal-hero">
+  <div class="wrap legal-wrap legal-hero__inner">
+    <p class="legal-eyebrow">Legal</p>
+    <h1>{{ page.title }}</h1>
+    <p class="legal-lead">{{ page.lead }}</p>
+    <p class="legal-meta">
+      <span>Last updated <time datetime="{{ page.updated|date:'Y-m-d' }}">{{ page.updated|date:'j F Y' }}</time></span>
+      {% block legal_meta %}{% endblock %}
+    </p>
+    <nav class="legal-tabs" aria-label="Legal pages">
+      {% for item in legal_nav %}<a href="{{ item.url }}"{% if item.current %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
+    </nav>
+  </div>
+</header>
+<div class="wrap legal-wrap legal">
+  {# Wide screens: a sticky list beside the text. Narrow screens: a collapsible list above it. #}
+  <nav class="toc toc-side" aria-label="On this page">
+    <p class="toc-title">On this page</p>
+    {% include "legal/_toc.html" %}
+  </nav>
+  <details class="toc toc-inline">
+    <summary>On this page</summary>
+    <nav aria-label="On this page">{% include "legal/_toc.html" %}</nav>
+  </details>
+  <article class="legal-doc">
+    {% block legal_body %}{% endblock %}
+  </article>
+</div>
+{% endblock %}

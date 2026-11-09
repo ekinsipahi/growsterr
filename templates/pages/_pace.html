@@ -1,0 +1,45 @@
+{% load growsterr %}{# Quantity pages: how a monthly package gets to the goal (apps/pages/context.pace). Typical ranges only. #}
+<section class="section" id="pace" aria-labelledby="pace-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h2" id="pace-title">{{ quantity.title }}</h2>
+      <p class="lead">{{ quantity.lead }}</p>
+      {% if quantity.text %}<p class="pg-pace__text">{{ quantity.text }}</p>{% endif %}
+    </div>
+    {% if quantity.rows %}
+    <div class="pg-pace">
+      <figure class="card pg-pace__chart">
+        <figcaption class="pg-pace__caption">
+          <span class="h3">{{ quantity.pace_title }}</span>
+          <span class="badge pg-goal">{{ quantity.goal_label }}</span>
+        </figcaption>
+        <ol class="pg-pace__rows" style="--goal: {{ quantity.goal }}">
+          {% for row in quantity.rows %}
+          <li class="pg-pace__row">
+            <span class="pg-pace__month">{{ row.label }}</span>
+            <span class="pg-pace__track" aria-hidden="true"><span class="pg-pace__band" style="--start: {{ row.start }}; --end: {{ row.end }}"></span></span>
+            <span class="pg-pace__range">{{ row.range }}</span>
+          </li>
+          {% endfor %}
+        </ol>
+      </figure>
+      <div class="card card--flat pg-pace__plans">
+        <h3 class="h3">{{ quantity.by_plan_title }}</h3>
+        <ul class="pg-pace__list">
+          {% for plan in quantity.by_plan %}
+          <li class="pg-pace__plan{% if plan.pick %} is-pick{% endif %}">
+            <span class="pg-pace__name">{{ plan.name }}</span>
+            <span class="pg-pace__price">{{ plan.amount }} {{ gu.per_month }}</span>
+            <span class="pg-pace__per">{{ plan.range }}</span>
+            <span class="pg-pace__when">{% icon "clock" size=16 %}<span>{{ plan.when }}</span></span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <p class="plans-note">{{ quantity.note }}</p>
+    {% elif quantity.fallback %}
+    <p class="lead">{{ quantity.fallback }}</p>
+    {% endif %}
+  </div>
+</section>

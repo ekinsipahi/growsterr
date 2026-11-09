@@ -1,0 +1,13 @@
+{% extends "pages/_layout.html" %}
+{# A guide (content kind "guide"): reading first, then the packages. Other articles use page.html. #}
+{% block content %}
+{% include "pages/_hero.html" %}
+{% if tool %}{% include "pages/_tool.html" %}{% endif %}
+{% include "pages/_story.html" %}
+{% include "pages/_faq.html" %}
+{% include "pages/_packages.html" %}
+{% include "pages/_included.html" %}
+{% include "pages/_author.html" %}
+{% include "pages/_related.html" %}
+{% include "pages/_cta.html" %}
+{% endblock %}

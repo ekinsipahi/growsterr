@@ -1,0 +1,33 @@
+{% spaceless %}{# Inline icons, 24px grid, 1.8 stroke, currentColor. Use {% load growsterr %}{% icon "check" %}. #}
+<svg class="icon icon--{{ name }}{% if cls %} {{ cls }}{% endif %}" viewBox="0 0 24 24" width="{{ size }}" height="{{ size }}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+{% if name == "check" %}<path d="M5 12.5l4.5 4.5L19 7.5"/>
+{% elif name == "x" %}<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+{% elif name == "arrow" %}<path d="M5 12h14M13 6l6 6-6 6"/>
+{% elif name == "arrow-up-right" %}<path d="M7 17L17 7M8.5 7H17v8.5"/>
+{% elif name == "rise" %}<path d="M3.5 18.5c6.5 0 10.4-3.6 12.9-10.4"/><path d="M11.6 8.6l5-1.1 1.6 4.9"/>
+{% elif name == "menu" %}<path d="M4 7h16M4 12h16M4 17h16"/>
+{% elif name == "user-plus" %}<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M19 7.5v6M16 10.5h6"/>
+{% elif name == "users" %}<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.6 3.4-5.5 6.5-5.5s5.7 1.9 6.5 5.5"/><path d="M15.5 4.7a3.5 3.5 0 0 1 0 6.6M18 14.9c1.9.8 3.1 2.4 3.5 5.1"/>
+{% elif name == "heart" %}<path d="M12 20s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.3a4.4 4.4 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/>
+{% elif name == "eye" %}<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>
+{% elif name == "comment" %}<path d="M20 15a2 2 0 0 1-2 2H8.5L4 20.5V6.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/>
+{% elif name == "lock" %}<rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/>
+{% elif name == "calendar" %}<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>
+{% elif name == "pin" %}<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.5"/>
+{% elif name == "chart" %}<path d="M4 4v16h16"/><path d="M8.5 15.5v-3M12.5 15.5v-6M16.5 15.5v-8"/>
+{% elif name == "refresh" %}<path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/>
+{% elif name == "card" %}<rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19M6.5 15h4"/>
+{% elif name == "shield" %}<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M8.8 12l2.3 2.3 4.2-4.6"/>
+{% elif name == "bot" %}<rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 4.5V8M9.5 13.2v.1M14.5 13.2v.1M2.5 12.5v3M21.5 12.5v3"/>
+{% elif name == "bolt" %}<path d="M13 2.5L4.5 13.5H12l-1 8 8.5-11H12z"/>
+{% elif name == "mail" %}<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5L12 13l8.5-6.5"/>
+{% elif name == "globe" %}<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.6 5.6 3.6 9s-1.1 6.4-3.6 9c-2.5-2.6-3.6-5.6-3.6-9S9.5 5.6 12 3z"/>
+{% elif name == "sparkle" %}<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>
+{% elif name == "dashboard" %}<rect x="3.5" y="3.5" width="7" height="8" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="5" rx="1.6"/><rect x="13.5" y="11.5" width="7" height="9" rx="1.6"/><rect x="3.5" y="14.5" width="7" height="6" rx="1.6"/>
+{% elif name == "clock" %}<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>
+{% elif name == "info" %}<circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.8v.1"/>
+{% elif name == "alert" %}<path d="M10.3 4.2L2.8 17.5A2 2 0 0 0 4.5 20.5h15a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0z"/><path d="M12 9.5v4M12 16.8v.1"/>
+{% elif name == "instagram" %}<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8v.1" stroke-width="2.4"/>
+{% elif name == "tiktok" %}<path d="M14 3.5v11.2a3.9 3.9 0 1 1-3.9-3.9"/><path d="M14 3.5c.5 2.7 2.4 4.6 5.2 4.9"/>
+{% elif name == "youtube" %}<rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.3v5.4l4.6-2.7z" fill="currentColor"/>
+{% endif %}</svg>{% endspaceless %}

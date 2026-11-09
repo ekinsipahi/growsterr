@@ -1,0 +1,6 @@
+{% load growsterr %}{% comment %} Phones: a slim bar with the preselected package once the hero's buttons scroll away
+   (static/js/pages.js shows it and keeps it inert while it is off screen; without JS it stays hidden). {% endcomment %}
+<div class="pg-sticky" data-pg-sticky hidden>
+  <p class="pg-sticky__text"><b>{{ pick.name }}</b> <span>{{ pick.amount }} {{ gu.per_month }}</span></p>
+  <a class="btn btn--primary" href="{{ order_url }}">{{ pu.sticky_cta }} {% icon "arrow" size=18 %}</a>
+</div>

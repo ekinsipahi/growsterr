@@ -71,8 +71,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# Postgres on Supabase ("Session pooler": Render has no IPv6) from DATABASE_URL, or from
-# DB_HOST/DB_PORT/DB_NAME/DB_USER/DB_PASSWORD. Otherwise SQLite. Tests always use SQLite.
+# SQLite for now: SQLITE_PATH (on Render a file on the persistent disk, e.g. /var/data/db.sqlite3;
+# the build step has no disk, so migrations run in the start command), default ./db.sqlite3.
+# Later production moves to Postgres on Supabase ("Session pooler": Render has no IPv6) through
+# DATABASE_URL, or DB_HOST/DB_PORT/DB_NAME/DB_USER/DB_PASSWORD; either one wins over SQLite.
+# Tests always use SQLite.
+SQLITE_PATH = env("SQLITE_PATH", default="") or str(BASE_DIR / "db.sqlite3")
+ON_RENDER = env.bool("RENDER", default=False)  # Render sets RENDER=true on its services
+_postgres = bool(env("DATABASE_URL", default="") or env("DB_HOST", default=""))
+if ON_RENDER and not TESTING and not _postgres and not env("SQLITE_PATH", default=""):
+    from django.core.exceptions import ImproperlyConfigured
+    # Without it the database would sit in the app folder, which every deploy wipes: all users lost.
+    raise ImproperlyConfigured("On Render set SQLITE_PATH to a file on the persistent disk "
+                               "(e.g. /var/data/db.sqlite3) or DATABASE_URL to Postgres.")
 if TESTING:
     DATABASES = {"default": env.db_url_config(f"sqlite:///{BASE_DIR / 'db.sqlite3'}")}
 elif env("DATABASE_URL", default=""):
@@ -87,11 +98,20 @@ elif env("DB_HOST", default=""):
         "PORT": env("DB_PORT", default="5432"),
     }}
 else:
-    DATABASES = {"default": env.db_url_config(f"sqlite:///{BASE_DIR / 'db.sqlite3'}")}
+    DATABASES = {"default": env.db_url_config(f"sqlite:///{SQLITE_PATH}")}
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)
 if DATABASES["default"]["ENGINE"].endswith("postgresql"):
     DATABASES["default"]["CONN_HEALTH_CHECKS"] = False
     DATABASES["default"].setdefault("OPTIONS", {})["sslmode"] = env("DB_SSLMODE", default="require")
+elif not TESTING:
+    # Several gunicorn workers share one file: WAL lets reads run during a write, IMMEDIATE takes
+    # the write lock up front (no "database is locked" when a read turns into a write), and a
+    # writer waits up to 30 s instead of failing (a Stripe webhook must not 500 over a lock).
+    DATABASES["default"].setdefault("OPTIONS", {}).update({
+        "init_command": "PRAGMA journal_mode=WAL; PRAGMA synchronous=NORMAL",
+        "transaction_mode": "IMMEDIATE",
+        "timeout": 30,
+    })
 
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
@@ -108,6 +128,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
+# Nothing is uploaded yet; if that changes, point MEDIA_ROOT at the persistent disk on Render.
 MEDIA_URL = "media/"
 MEDIA_ROOT = env.path("MEDIA_ROOT", default=BASE_DIR / "media")
 STORAGES = {
@@ -118,26 +139,6 @@ STORAGES = {
         else "django.contrib.staticfiles.storage.StaticFilesStorage"
     },
 }
-
-# Uploaded media on S3-compatible storage (Supabase Storage). Render's disk is wiped on every deploy.
-AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME", default="")
-if AWS_STORAGE_BUCKET_NAME:
-    STORAGES["default"] = {
-        "BACKEND": "storages.backends.s3.S3Storage",
-        "OPTIONS": {
-            "bucket_name": AWS_STORAGE_BUCKET_NAME,
-            "access_key": env("AWS_ACCESS_KEY_ID"),
-            "secret_key": env("AWS_SECRET_ACCESS_KEY"),
-            "endpoint_url": env("AWS_S3_ENDPOINT_URL", default=None),
-            "region_name": env("AWS_S3_REGION_NAME", default=None),
-            "custom_domain": env("AWS_S3_CUSTOM_DOMAIN", default=None),
-            "addressing_style": "path",
-            "signature_version": "s3v4",
-            "querystring_auth": False,
-            "file_overwrite": False,
-            "default_acl": None,
-        },
-    }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
@@ -150,7 +151,47 @@ DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="Growsterr <noreply@grows
 TEAM_NOTIFY_EMAILS = env.list("TEAM_NOTIFY_EMAILS", default=["ekinsipahi8@gmail.com"])
 CONTACT_EMAIL = env("CONTACT_EMAIL", default="hello@growsterr.com")
 
-CACHES = {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
+# --- Growth packages: accounts, Stripe subscriptions, the dashboard (apps.growth) ----------
+# Every package event (new request, payment, renewal, cancel, dispute) also goes to these,
+# on top of TEAM_NOTIFY_EMAILS.
+GROWTH_NOTIFY_EMAILS = env.list("GROWTH_NOTIFY_EMAILS", default=["ekinsipahi8@gmail.com"])
+# Tests never reach Stripe, Google or Linksterr: their secrets are empty there and the tests
+# that need them set their own.
+_secret = (lambda name: "") if TESTING else (lambda name: env(name, default=""))
+# The Stripe account is shared with Sterr Agency, Linksterr and other sites: Growsterr only
+# touches its own objects (lookup keys growsterr_<plan>_monthly, metadata site=growsterr, its
+# own webhook endpoint and portal configuration). Prices live in apps/growth/plan.py;
+# `python manage.py setup_stripe` creates the prices, the portal configuration and the webhook.
+STRIPE_SECRET_KEY = _secret("STRIPE_SECRET_KEY")
+STRIPE_PUBLISHABLE_KEY = _secret("STRIPE_PUBLISHABLE_KEY")
+STRIPE_WEBHOOK_SECRET = _secret("STRIPE_WEBHOOK_SECRET")
+# Off: orders are taken as requests (team email, English auto-reply). On: Stripe Checkout.
+GROWTH_PAYMENTS = env.bool("GROWTH_PAYMENTS", default=False)
+# A confirmed email before the first payment (keeps card-testing scripts out).
+GROWTH_VERIFY_EMAIL = env.bool("GROWTH_VERIFY_EMAIL", default=True)
+LOGIN_URL = "growth:login"
+# Sign in with Google (Google Cloud -> OAuth client, Web application). Authorized redirect URI:
+# https://growsterr.com/account/google/complete/
+GOOGLE_OAUTH_CLIENT_ID = _secret("GOOGLE_OAUTH_CLIENT_ID")
+GOOGLE_OAUTH_CLIENT_SECRET = _secret("GOOGLE_OAUTH_CLIENT_SECRET")
+# Bearer token of the growth system's API (/growth/api/...). Unset = API off.
+GROWTH_API_TOKEN = _secret("GROWTH_API_TOKEN")
+# Linksterr runs the promoted campaigns behind each package. GET /user-api/v1/agency/accounts/
+# brings the delivery numbers; the same token (set on Linksterr too) also lets Linksterr read
+# /growth/api/subscriptions/. Unset = no sync.
+LINKSTERR_API_URL = env("LINKSTERR_API_URL", default="https://linksterr.com")
+LINKSTERR_AGENCY_TOKEN = _secret("LINKSTERR_AGENCY_TOKEN")
+del _secret
+# WhatsApp line shown to customers (success page, emails).
+WHATSAPP_NUMBER = env("WHATSAPP_NUMBER", default="905414487561")
+WHATSAPP_DISPLAY = env("WHATSAPP_DISPLAY", default="+90 541 448 75 61")
+
+# Rate limits and throttles live in the cache, so every gunicorn worker must see the same one:
+# CACHE_DIR (on Render a folder on the persistent disk, e.g. /var/data/cache) = a file cache
+# shared by the workers. Empty = in-memory, fine for runserver and tests.
+CACHE_DIR = "" if TESTING else env("CACHE_DIR", default="")
+CACHES = {"default": {"BACKEND": "django.core.cache.backends.filebased.FileBasedCache", "LOCATION": CACHE_DIR}
+          if CACHE_DIR else {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -160,9 +201,22 @@ if not DEBUG:
     SECURE_HSTS_SECONDS = 60 * 60 * 24 * 30
     SECURE_CONTENT_TYPE_NOSNIFF = True
 
+# Errors by email: a 500 (a Stripe webhook included) or an error logged by our apps goes to
+# ERROR_EMAILS (default: the team inbox). Off with DEBUG and in tests.
+ADMINS = [("Growsterr", email) for email in env.list("ERROR_EMAILS", default=TEAM_NOTIFY_EMAILS)]
+SERVER_EMAIL = DEFAULT_FROM_EMAIL
+EMAIL_SUBJECT_PREFIX = "[Growsterr hata] "
+_alerts = not DEBUG and not TESTING
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
-    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "handlers": {
+        "console": {"class": "logging.StreamHandler"},
+        "mail_admins": {"class": "django.utils.log.AdminEmailHandler", "level": "ERROR"},
+    },
     "root": {"handlers": ["console"], "level": "INFO"},
+    "loggers": {
+        "django.request": {"handlers": ["mail_admins"] if _alerts else [], "level": "ERROR", "propagate": True},
+        "apps": {"handlers": ["mail_admins"] if _alerts else [], "level": "ERROR", "propagate": True},
+    },
 }

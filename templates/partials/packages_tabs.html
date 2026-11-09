@@ -1,0 +1,15 @@
+{% load growsterr %}{% comment %} Packages with a platform switcher. Context: packages = [{"key", "name", "title", "gu", "plans", "active"}]
+   (apps.core.views.packages), lang, tabs_label, id_prefix ("" gives /pricing/#tiktok). Without JS every platform
+   shows under its own heading and the switcher links jump to them; static/js/site.js turns them into tabs.{% endcomment %}
+<div class="tabs" data-tabs>
+  <div class="tabs__list" data-tabs-list aria-label="{{ tabs_label }}">
+    {% for pk in packages %}<a class="tabs__tab{% if pk.active %} is-active{% endif %}" href="#{{ id_prefix }}{{ pk.key }}" data-tab="{{ pk.key }}">{% icon pk.key %}<span>{{ pk.name }}</span></a>{% endfor %}
+  </div>
+  {% for pk in packages %}
+  <div class="tabs__panel{% if pk.active %} is-active{% endif %}" id="{{ id_prefix }}{{ pk.key }}" data-tab-panel="{{ pk.key }}">
+    <h3 class="tabs__panel-title h3">{{ pk.title }}</h3>
+    {% include "partials/plans.html" with plans=pk.plans gu=pk.gu platform=pk.key %}
+    {% if pk.gu.estimate_note %}<p class="plans-note">{{ pk.gu.estimate_note }}</p>{% endif %}
+  </div>
+  {% endfor %}
+</div>

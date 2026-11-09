@@ -1,0 +1,42 @@
+{% load static growsterr %}{% site_ui "en" as ui %}<!doctype html>
+{% comment %} Rendered by Django without a request context (no context processors, no user): keep it self-contained.
+   Strings: CHROME error_* in apps/core/i18n/en.py (always English: there is no request to take a language from). {% endcomment %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ ui.error_title }}</title>
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="icon" href="{% static 'img/favicon.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}">
+  <style>
+    /* Fallbacks in case the stylesheet itself can't load. */
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: #FAF9FF; color: #17142E; }
+    @media (prefers-color-scheme: dark) { body { background: #0F0D1F; color: #F4F2FF; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap site-header__bar">
+      <a href="/" class="brand" aria-label="{{ ui.home_label }}">
+        <img class="brand__logo only-light" src="{% static 'img/logo.svg' %}" alt="Growsterr" width="141" height="40">
+        <img class="brand__logo only-dark" src="{% static 'img/logo-dark.svg' %}" alt="" width="141" height="40">
+      </a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="error-page" aria-labelledby="error-title">
+      <div class="wrap wrap--narrow">
+        <p class="error-page__code" aria-hidden="true">500</p>
+        <h1 class="h1" id="error-title">{{ ui.error_h1 }}</h1>
+        <p class="lead">{{ ui.error_lead }}</p>
+        <div class="btn-row">
+          <a class="btn btn--primary btn--lg" href="/">{{ ui.error_home }}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

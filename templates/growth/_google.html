@@ -1,0 +1,3 @@
+{# "Continue with Google" for the sign-in and sign-up forms. Context: google, gu, code, google_next. #}
+{% if google %}<a class="btn btn--outline btn--lg btn--block g-google" href="{% url 'growth:google' %}?lang={{ code }}{% if google_next %}&amp;next={{ google_next|urlencode }}{% endif %}">{% include "growth/_google_icon.svg" %}<span>{{ gu.google_btn }}</span></a>
+<p class="g-or"><span>{{ gu.or }}</span></p>{% endif %}

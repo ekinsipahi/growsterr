@@ -1,0 +1,20 @@
+{% load growsterr %}{% comment %} The page's own sections (content "sections"): with an image they alternate text and picture,
+   without one the heading sits beside the text. {% endcomment %}
+{% if sections %}
+<div class="section section--line pg-story">
+  <div class="wrap"><div class="flow">
+    {% for s in sections %}
+    <section class="{% if s.image %}flow__item{% else %}split pg-story__split{% endif %}" aria-labelledby="story-{{ forloop.counter }}">
+      {% if s.image %}<div class="flow__text">{% endif %}
+        <h2 class="h2" id="story-{{ forloop.counter }}">{{ s.h2 }}</h2>
+        <div class="pg-story__body">
+          {% for para in s.p %}<p>{{ para }}</p>{% endfor %}
+          {% if s.ul %}<ul class="checklist">{% for item in s.ul %}<li>{% icon "check" %}<span>{{ item }}</span></li>{% endfor %}</ul>{% endif %}
+        </div>
+      {% if s.image %}</div>
+      <div class="flow__art">{% include "pages/_figure.html" with img=s.image variant="soft" %}</div>{% endif %}
+    </section>
+    {% endfor %}
+  </div></div>
+</div>
+{% endif %}

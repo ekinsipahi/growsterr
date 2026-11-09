@@ -1,0 +1,5 @@
+{% load static %}{% comment %} Language links: a compact grid of flags and native names (lang menu and footer). Context: lang_links =
+   [(apps.core.languages.Lang, path), ...] (only the languages this page exists in), lang. {% endcomment %}
+<ul class="lang-list">
+  {% for l, path in lang_links %}<li><a href="{{ path }}" hreflang="{{ l.code }}" lang="{{ l.code }}"{% if l.code == lang %} aria-current="true"{% endif %}><img class="flag" src="{% static l.flag %}" srcset="{% static l.flag_2x %} 2x" width="20" height="14" alt=""><span>{{ l.name }}</span></a></li>{% endfor %}
+</ul>

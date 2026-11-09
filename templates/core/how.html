@@ -1,0 +1,80 @@
+{% extends "core/_layout.html" %}{% load growsterr %}
+{# Copy: HOW in apps/core/i18n/<code>.py; photos and artwork: apps/core/content.py FLOW. #}
+{% block content %}
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="wrap page-hero__grid">
+    <div>
+      <p class="eyebrow">{{ c.eyebrow }}</p>
+      <h1 class="h1" id="page-title">{{ c.h1.0 }}<span class="hl">{{ c.h1.1 }}</span></h1>
+      <p class="lead">{{ c.lead }}</p>
+      <div class="btn-row mt-m">
+        <a class="btn btn--primary btn--lg" href="{{ site_links.order }}">{{ c.cta.primary }} {% icon "arrow" %}</a>
+        <a class="btn btn--outline btn--lg" href="{{ site_links.pricing }}">{{ c.cta.secondary }}</a>
+      </div>
+    </div>
+    <nav class="card glance" aria-labelledby="glance-title">
+      <h2 id="glance-title">{{ c.glance }}</h2>
+      <ol>{% for step in flow %}<li><a href="#step-{{ forloop.counter }}"><span aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>{{ step.title }}</a></li>{% endfor %}</ol>
+    </nav>
+  </div>
+</section>
+
+<section class="section section--line" aria-label="{{ c.eyebrow }}">
+  <div class="wrap">
+    <ol class="flow">
+      {% for step in flow %}
+      <li class="flow__item" id="step-{{ forloop.counter }}">
+        <div class="flow__text">
+          <span class="flow__num" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
+          <h2 class="h2">{{ step.title }}</h2>
+          <p>{{ step.text }}</p>
+          <ul class="checklist">{% for point in step.points %}<li>{% icon "check" %}<span>{{ point }}</span></li>{% endfor %}</ul>
+        </div>
+        <div class="flow__art">{% image_slot step.image alt=step.alt width=1000 height=800 variant=step.variant art=step.art %}</div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="month-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{{ c.month_eyebrow }}</p>
+      <h2 class="h2" id="month-title">{{ c.month_title.0 }}<span class="hl">{{ c.month_title.1 }}</span></h2>
+    </div>
+    <ol class="timeline">{% for when, what in c.month %}<li><b>{{ when }}</b><p>{{ what }}</p></li>{% endfor %}</ol>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="why-title">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">{{ c.why_eyebrow }}</p>
+      <h2 class="h2" id="why-title">{{ c.why_title.0 }}<span class="hl">{{ c.why_title.1 }}</span></h2>
+    </div>
+    <div>
+      {% for para in c.why_text %}<p class="lead{% if not forloop.first %} mt-s{% endif %}">{{ para }}</p>{% endfor %}
+      <div class="grid grid--2 mt-l">
+        <div class="card">
+          <h3 class="h3">{{ c.need_title }}</h3>
+          <ul class="checklist mt-s">{% for item in c.need %}<li>{% icon "check" %}<span>{{ item }}</span></li>{% endfor %}</ul>
+        </div>
+        <div class="card card--soft">
+          <h3 class="h3">{{ c.never_title }}</h3>
+          <ul class="checklist checklist--no mt-s">{% for item in c.never %}<li>{% icon "x" %}<span>{{ item }}</span></li>{% endfor %}</ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--line" aria-labelledby="faq-title">
+  <div class="wrap split">
+    <div class="split__sticky"><p class="eyebrow">{{ c.faq_eyebrow }}</p><h2 class="h2" id="faq-title">{{ c.faq_title.0 }}<span class="hl">{{ c.faq_title.1 }}</span></h2></div>
+    {% include "partials/faq.html" %}
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

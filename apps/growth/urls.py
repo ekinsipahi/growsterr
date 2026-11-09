@@ -1,20 +1,37 @@
 """URL contract other apps rely on (names and paths must stay):
     growth:order    /order/            GET ?plan=starter|rising|pro&platform=instagram|tiktok|youtube&lang=<code>
+                                       preselects; the form posts back to it
     growth:account  /account/          the customer's dashboard
     growth:login    /account/login/
     growth:signup   /account/signup/
-    growth:logout   /account/logout/
-PLACEHOLDER views until the port lands."""
+    growth:logout   /account/logout/   POST only
+Every page here is noindex; none of them belongs in the sitemap."""
 from django.urls import path
 
-from . import views
+from . import accounts, api, views
 
 app_name = "growth"
 
 urlpatterns = [
-    path("order/", views.placeholder, name="order"),
-    path("account/", views.placeholder, name="account"),
-    path("account/login/", views.placeholder, name="login"),
-    path("account/signup/", views.placeholder, name="signup"),
-    path("account/logout/", views.placeholder, name="logout"),
+    path("order/", views.order, name="order"),
+    path("growth/success/", views.success, name="success"),
+    path("growth/stripe/webhook/", views.webhook, name="webhook"),
+    path("growth/api/subscriptions/", api.subscriptions, name="api_subscriptions"),
+    path("growth/api/stats/", api.stats, name="api_stats"),
+    path("account/", accounts.account, name="account"),
+    path("account/login/", accounts.login_view, name="login"),
+    path("account/signup/", accounts.signup_view, name="signup"),
+    path("account/logout/", accounts.logout_view, name="logout"),
+    path("account/google/", accounts.google_start, name="google"),
+    path("account/google/complete/", accounts.google_complete, name="google_complete"),
+    path("account/verify/<str:token>/", accounts.verify, name="verify"),
+    path("account/verify-again/", accounts.resend_verification, name="verify_again"),
+    path("account/subscriptions/<int:sub_id>/start/", accounts.pay, name="pay"),
+    path("account/subscriptions/<int:sub_id>/cancel/", accounts.cancel, name="cancel"),
+    path("account/subscriptions/<int:sub_id>/resume/", accounts.resume, name="resume"),
+    path("account/subscriptions/<int:sub_id>/video/", accounts.video, name="video"),
+    path("account/view/<int:user_id>/", accounts.view_as, name="view_as"),
+    path("account/billing/", accounts.billing_portal, name="billing"),
+    path("account/password/", accounts.reset_request, name="reset"),
+    path("account/password/<str:uidb64>/<str:token>/", accounts.reset_confirm, name="reset_confirm"),
 ]

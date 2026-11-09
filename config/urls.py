@@ -11,3 +11,6 @@ urlpatterns = [
     # Last: the page engine owns the generated money-page paths and /sitemap.xml.
     path("", include("apps.pages.urls")),
 ]
+
+# The 404 page in the language of the path's prefix (/de/... in German once German has its copy).
+handler404 = "apps.core.views.not_found"

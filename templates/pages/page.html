@@ -1,0 +1,18 @@
+{% extends "pages/_layout.html" %}
+{# A money page: one variant (platform x service x quantity x modifier) in one language. #}
+{% block content %}
+{% include "pages/_hero.html" %}
+{% if tool %}{% include "pages/_tool.html" %}{% endif %}
+{% include "pages/_packages.html" %}
+{% if quantity %}{% include "pages/_pace.html" %}{% endif %}
+{% include "pages/_included.html" %}
+{% include "pages/_story.html" %}
+{% include "pages/_steps.html" %}
+{# Not next to a competitor's name: the "instant and bot services" column would read as a claim about them. #}
+{% if kind != "alternative" %}{% include "pages/_compare.html" %}{% endif %}
+{% include "pages/_faq.html" %}
+{% include "pages/_author.html" %}
+{% include "pages/_related.html" %}
+{% include "pages/_cta.html" %}
+{% include "pages/_sticky.html" %}
+{% endblock %}

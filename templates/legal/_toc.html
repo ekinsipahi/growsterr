@@ -1,0 +1,3 @@
+<ol>{% for s in toc %}
+  <li><a class="toc-link" href="#{{ s.id }}"><span class="toc-num">{{ s.number }}</span> {{ s.title }}</a></li>{% endfor %}
+</ol>

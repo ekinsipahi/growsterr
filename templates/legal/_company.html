@@ -1,0 +1,8 @@
+<dl class="legal-company">
+  <dt>Company</dt><dd>{{ company.legal_name }}</dd>
+  <dt>Registered in</dt><dd>{{ company.registry }}</dd>
+  <dt>Registry code</dt><dd>{{ company.registry_code }}</dd>
+  <dt>Address</dt><dd>{{ company.address }}</dd>
+  <dt>Email</dt><dd><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></dd>
+  {% if whatsapp_url %}<dt>WhatsApp</dt><dd><a href="{{ whatsapp_url }}">{{ whatsapp_display }}</a></dd>{% endif %}
+</dl>

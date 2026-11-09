@@ -1,0 +1,9 @@
+{# FAQ accordion (details/summary: works without JS). Context: faqs = [(question, answer), ...]. #}
+<div class="faq">
+  {% for q, a in faqs %}
+  <details class="faq__item">
+    <summary class="faq__q"><span>{{ q }}</span><span class="faq__icon" aria-hidden="true"></span></summary>
+    <div class="faq__a"><p>{{ a }}</p></div>
+  </details>
+  {% endfor %}
+</div>

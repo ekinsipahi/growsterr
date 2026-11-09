@@ -1,0 +1,13 @@
+{% load growsterr %}{# Groups of links to other pages. Context: groups = [{"title", "links": [{"label", "url"}]}]. #}
+<div class="pg-links">
+  {% for group in groups %}
+  <div class="pg-links__group{% if group.name == 'answers' %} pg-answers{% endif %}">
+    <h3 class="pg-links__title">{{ group.title }}</h3>
+    <ul>
+      {% for link in group.links %}
+      <li><a class="pg-link" href="{{ link.url }}"><span>{{ link.label }}</span>{% icon "arrow" size=18 %}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>

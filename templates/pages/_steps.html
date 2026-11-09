@@ -1,0 +1,18 @@
+{# How it works: the subscription, step by step (UI "steps", or the page's own "steps"). #}
+<section class="section section--alt" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 class="h2" id="how-title">{{ pu.steps_title }}</h2>
+      <p class="lead">{{ pu.steps_lead }}</p>
+    </div>
+    <ol class="steps steps--4">
+      {% for title, text in steps %}
+      <li class="step">
+        <span class="step__num" aria-hidden="true">{{ forloop.counter }}</span>
+        <h3 class="step__title">{{ title }}</h3>
+        <p class="step__text">{{ text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+{% comment %} An image slot (apps/core/templatetags/growsterr.py: image_slot). The brand placeholder always sits
+   underneath; the <img> appears once the file exists in static/.{% endcomment %}
+<figure class="media media--{{ variant }}{% if cls %} {{ cls }}{% endif %}" style="--ratio: {{ width }} / {{ height }}">
+  <span class="media__ph" aria-hidden="true">{% include "partials/art.html" %}</span>
+  {% if url %}<img src="{{ url }}" alt="{{ alt }}" width="{{ width }}" height="{{ height }}"{% if eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async"{% if sizes %} sizes="{{ sizes }}"{% endif %}>{% endif %}
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+</figure>

@@ -1,0 +1,19 @@
+{% load growsterr %}{# Closing call to action, in the site's .cta-band style; the button keeps the page's package preselected. #}
+<section class="section pg-cta" aria-labelledby="cta-title" data-pg-end>
+  <div class="wrap">
+    <div class="cta-band">
+      <svg class="cta-band__art" viewBox="0 0 400 300" aria-hidden="true" focusable="false">
+        <path d="M-20 290C140 282 262 226 330 70" fill="none" stroke="#FF6B4A" stroke-width="16" stroke-linecap="round"/>
+        <path d="M292 92L330 70L344 112" fill="none" stroke="#FF6B4A" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="330" cy="70" r="52" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="2"/>
+        <circle cx="330" cy="70" r="96" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="2"/>
+      </svg>
+      <h2 class="h2" id="cta-title">{{ pu.cta_title }}</h2>
+      <p>{{ pu.cta_text }}</p>
+      <div class="btn-row">
+        <a class="btn btn--light btn--lg" href="{{ order_url }}">{{ pu.cta }} {% icon "arrow" %}</a>
+        <a class="btn btn--on-band btn--lg" href="#packages">{{ pu.cta_more }}</a>
+      </div>
+    </div>
+  </div>
+</section>

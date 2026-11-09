@@ -1,0 +1,79 @@
+{% comment %} Placeholder artwork for a money-page image slot until its file exists (apps/pages/images.py "art").
+   The drawings the site already has (people, platform, rise) come from partials/art.html; likes,
+   views and comments are drawn here in the same style: the ph-* classes take their colors from
+   the slot's .media--<variant> (site.css), so they work on violet and soft slots, light and dark.
+   No numbers, no text. {% endcomment %}
+{% if art == "likes" %}
+<svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <circle class="ph-soft" cx="300" cy="225" r="178"/>
+  <circle class="ph-ring" cx="300" cy="225" r="120"/>
+  <circle class="ph-ring" cx="300" cy="225" r="212"/>
+  <rect class="ph-card" x="214" y="92" width="172" height="240" rx="22"/>
+  <rect class="ph-bar" x="230" y="108" width="140" height="140" rx="14"/>
+  <path class="ph-badge" d="M300 222C254 190.8 258 150.8 280 150.8C292 150.8 300 161.2 300 171.6C300 161.2 308 150.8 320 150.8C342 150.8 346 190.8 300 222Z"/>
+  <rect class="ph-bar" x="230" y="266" width="96" height="10" rx="5"/>
+  <rect class="ph-bar ph-faint" x="230" y="288" width="128" height="8" rx="4"/>
+  <rect class="ph-bar ph-faint" x="230" y="306" width="72" height="8" rx="4"/>
+  <path class="ph-line" d="M372 196C410 182 432 166 446 142S480 104 488 92S512 64 520 56"/>
+  <path class="ph-badge" d="M446 157.3C426.4 144 428.1 127 437.5 127C442.6 127 446 131.5 446 135.9C446 131.5 449.4 127 454.5 127C463.9 127 465.6 144 446 157.3Z"/>
+  <path class="ph-badge" d="M488 102.8C474.2 93.4 475.4 81.4 482 81.4C485.6 81.4 488 84.6 488 87.7C488 84.6 490.4 81.4 494 81.4C500.6 81.4 501.8 93.4 488 102.8Z"/>
+  <path class="ph-badge ph-faint" d="M520 63.2C510.8 57 511.6 49 516 49C518.4 49 520 51 520 53.1C520 51 521.6 49 524 49C528.4 49 529.2 57 520 63.2Z"/>
+  <path class="ph-badge ph-faint" d="M128 311.7C113 301.6 114.3 288.6 121.5 288.6C125.4 288.6 128 291.9 128 295.3C128 291.9 130.6 288.6 134.5 288.6C141.7 288.6 142.9 301.6 128 311.7Z"/>
+  <path class="ph-badge ph-faint" d="M96 128.1C85.7 121.1 86.5 112.1 91.5 112.1C94.2 112.1 96 114.4 96 116.8C96 114.4 97.8 112.1 100.5 112.1C105.5 112.1 106.3 121.1 96 128.1Z"/>
+  <circle class="ph-dot" cx="150" cy="168" r="11"/>
+  <circle class="ph-dot ph-faint" cx="176" cy="372" r="8"/>
+  <circle class="ph-dot ph-faint" cx="470" cy="338" r="9"/>
+  <circle class="ph-dot ph-faint" cx="540" cy="250" r="6"/>
+</svg>
+{% elif art == "views" %}
+<svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <circle class="ph-soft" cx="300" cy="225" r="182"/>
+  <rect class="ph-card" x="138" y="104" width="324" height="226" rx="24"/>
+  <rect class="ph-bar" x="156" y="122" width="288" height="160" rx="14"/>
+  <circle class="ph-ring" cx="300" cy="202" r="56"/>
+  <circle class="ph-ring" cx="300" cy="202" r="82"/>
+  <circle class="ph-card--hi" cx="300" cy="202" r="34"/>
+  <path class="ph-cta" d="M290 186L318 202L290 218Z"/>
+  <rect class="ph-bar ph-faint" x="156" y="300" width="288" height="8" rx="4"/>
+  <rect class="ph-badge" x="156" y="300" width="182" height="8" rx="4"/>
+  <circle class="ph-card--hi" cx="338" cy="304" r="9"/>
+  <g transform="translate(470 74)">
+    <circle class="ph-core" cx="0" cy="0" r="30"/>
+    <g class="ph-glyph" transform="translate(-18 -18) scale(1.5)"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g>
+  </g>
+  <g transform="translate(118 368)">
+    <circle class="ph-core" cx="0" cy="0" r="24"/>
+    <g class="ph-glyph" transform="translate(-14.4 -14.4) scale(1.2)"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></g>
+  </g>
+  <path class="ph-line" d="M440 96C420 110 410 118 402 130M140 344C150 338 156 334 162 326"/>
+  <path class="ph-arrow" d="M-10 432C150 426 300 410 404 372"/>
+  <circle class="ph-dot ph-faint" cx="88" cy="150" r="9"/>
+  <circle class="ph-dot ph-faint" cx="540" cy="300" r="8"/>
+  <circle class="ph-dot" cx="520" cy="200" r="6"/>
+</svg>
+{% elif art == "comments" %}
+<svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" focusable="false">
+  <circle class="ph-soft" cx="300" cy="225" r="184"/>
+  <circle class="ph-ring" cx="300" cy="225" r="216"/>
+  <path class="ph-card" d="M142 84H372A22 22 0 0 1 394 106V156A22 22 0 0 1 372 178H186L160 198V178H142A22 22 0 0 1 120 156V106A22 22 0 0 1 142 84Z"/>
+  <circle class="ph-dot" cx="156" cy="131" r="18"/>
+  <rect class="ph-bar" x="186" y="114" width="154" height="11" rx="5.5"/>
+  <rect class="ph-bar ph-faint" x="186" y="136" width="106" height="9" rx="4.5"/>
+  <path class="ph-card" d="M228 202H458A22 22 0 0 1 480 224V274A22 22 0 0 1 458 296H440V316L414 296H228A22 22 0 0 1 206 274V224A22 22 0 0 1 228 202Z"/>
+  <circle class="ph-dot" cx="444" cy="249" r="18"/>
+  <rect class="ph-bar" x="232" y="232" width="176" height="11" rx="5.5"/>
+  <rect class="ph-bar ph-faint" x="232" y="254" width="124" height="9" rx="4.5"/>
+  <path class="ph-card--hi" d="M156 320H330A22 22 0 0 1 352 342V384A22 22 0 0 1 330 406H190L164 424V406H156A22 22 0 0 1 134 384V342A22 22 0 0 1 156 320Z"/>
+  <circle class="ph-cta" cx="190" cy="363" r="7"/>
+  <circle class="ph-cta" cx="214" cy="363" r="7"/>
+  <circle class="ph-cta ph-faint" cx="238" cy="363" r="7"/>
+  <g class="ph-plus"><circle cx="388" cy="92" r="12"/><path d="M388 86v12M382 92h12"/></g>
+  <path class="ph-badge" d="M200 210.1C189.7 203.1 190.5 194.1 195.5 194.1C198.2 194.1 200 196.4 200 198.8C200 196.4 201.8 194.1 204.5 194.1C209.5 194.1 210.3 203.1 200 210.1Z"/>
+  <circle class="ph-dot ph-faint" cx="86" cy="250" r="9"/>
+  <circle class="ph-dot ph-faint" cx="520" cy="130" r="8"/>
+  <circle class="ph-dot" cx="508" cy="372" r="7"/>
+</svg>
+{% elif art == "hub" %}{% include "partials/art.html" with art="platform" glyph=platform %}
+{% elif art == "followers" or art == "subscribers" %}{% include "partials/art.html" with art="people" %}
+{% else %}{% include "partials/art.html" with art="rise" %}
+{% endif %}

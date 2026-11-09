@@ -1,12 +1,16 @@
 {
   "name": "Growsterr",
   "short_name": "Growsterr",
+  "description": "Monthly growth packages for creators on Instagram, TikTok and YouTube. Real people, never bots.",
+  "lang": "en",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#5B3DF5",
+  "background_color": "#FAF9FF",
   "icons": [
     {"src": "/static/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
     {"src": "/static/img/icon-512.png", "sizes": "512x512", "type": "image/png"}
-  ],
-  "theme_color": "#5B3DF5",
-  "background_color": "#FAF9FF",
-  "display": "standalone",
-  "start_url": "/"
+  ]
 }

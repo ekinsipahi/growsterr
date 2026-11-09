@@ -1,0 +1,25 @@
+{% extends "base.html" %}{% load growsterr %}
+{# Strings: CHROME not_found_* (apps/core/i18n); the language follows the path's prefix (apps.core.views.not_found). #}
+{% block title %}{{ ui.not_found_title }}{% endblock %}
+{% block description %}{{ ui.not_found_description }}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex">{% endblock %}
+{% block content %}
+<section class="error-page" aria-labelledby="error-title">
+  <div class="wrap wrap--narrow">
+    <p class="error-page__code" aria-hidden="true">404</p>
+    <h1 class="h1" id="error-title">{{ ui.not_found_h1 }}</h1>
+    <p class="lead">{{ ui.not_found_lead }}</p>
+    <div class="btn-row">
+      <a class="btn btn--primary btn--lg" href="{{ site_links.home }}">{{ ui.not_found_home }} {% icon "arrow" %}</a>
+    </div>
+    <ul class="error-links">
+      <li><a href="{{ site_links.pricing }}">{{ ui.nav_pricing }}</a></li>
+      <li><a href="{{ site_links.how }}">{{ ui.nav_how }}</a></li>
+      <li><a href="{{ site_links.instagram }}">{{ ui.nav_instagram }}</a></li>
+      <li><a href="{{ site_links.tiktok }}">{{ ui.nav_tiktok }}</a></li>
+      <li><a href="{{ site_links.youtube }}">{{ ui.nav_youtube }}</a></li>
+      <li><a href="{{ site_links.about }}">{{ ui.nav_about }}</a></li>
+    </ul>
+  </div>
+</section>
+{% endblock %}

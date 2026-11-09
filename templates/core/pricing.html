@@ -1,0 +1,76 @@
+{% extends "core/_layout.html" %}{% load growsterr %}
+{# Copy: PRICING in apps/core/i18n/<code>.py; packages: apps/growth (plan.py, i18n/<code>.py). #}
+{% block content %}
+<section class="page-hero page-hero--center" aria-labelledby="page-title">
+  <div class="wrap">
+    <p class="eyebrow">{{ c.eyebrow }}</p>
+    <h1 class="h1" id="page-title">{{ c.h1.0 }}<span class="hl">{{ c.h1.1 }}</span></h1>
+    <p class="lead">{{ c.lead }}</p>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-label="{{ c.tabs_label }}">
+  <div class="wrap">
+    {% include "partials/packages_tabs.html" with tabs_label=c.tabs_label id_prefix="" %}
+    {% if policy %}<p class="plans-note small">{{ policy }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="included-title">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">{{ c.included_eyebrow }}</p>
+      <h2 class="h2" id="included-title">{{ c.included_title.0 }}<span class="hl">{{ c.included_title.1 }}</span></h2>
+    </div>
+    <div class="grid grid--4">
+      {% for ic, t, x in included %}<div class="card card--flat"><span class="card__icon">{% icon ic %}</span><h3 class="h3">{{ t }}</h3><p>{{ x }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="compare-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <div><p class="eyebrow">{{ c.compare_eyebrow }}</p><h2 class="h2" id="compare-title">{{ c.compare_title.0 }}<span class="hl">{{ c.compare_title.1 }}</span></h2></div>
+      <p class="lead">{{ c.compare_lead }}</p>
+    </div>
+    <div class="table-card">
+      <table class="compare compare--plans" role="table">
+        <caption class="sr-only">{{ c.compare_caption }}</caption>
+        <thead role="rowgroup">
+          <tr role="row">
+            <th scope="col" role="columnheader">{{ c.compare_feature }}</th>
+            {% for p in plans %}<th scope="col" role="columnheader"{% if p.popular %} class="is-us"{% endif %}>{{ p.name }}</th>{% endfor %}
+          </tr>
+        </thead>
+        <tbody role="rowgroup">
+          {% for label, cells in compare_rows %}
+          <tr role="row">
+            <th scope="row" role="rowheader">{{ label }}</th>
+            {% for cell in cells %}<td role="cell"{% if cell.popular %} class="is-us"{% endif %}>{% if cell.text %}{{ cell.text }}{% elif cell.yes %}<span class="compare__cell compare__yes">{% icon "check" %}<span class="sr-only">{{ c.yes }}</span></span>{% else %}<span class="dash-mark" aria-hidden="true">–</span><span class="sr-only">{{ c.no }}</span>{% endif %}</td>{% endfor %}
+          </tr>
+          {% endfor %}
+          <tr role="row" class="compare__price">
+            <th scope="row" role="rowheader">{{ c.rows.price }}</th>
+            {% for cell in price_row %}<td role="cell"{% if cell.popular %} class="is-us"{% endif %}><b>{{ cell.text }}</b> <span class="muted small">{{ cell.per }}</span></td>{% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section section--line" aria-labelledby="billing-title">
+  <div class="wrap split">
+    <div class="split__sticky">
+      <p class="eyebrow">{{ c.billing_eyebrow }}</p>
+      <h2 class="h2" id="billing-title">{{ c.billing_title.0 }}<span class="hl">{{ c.billing_title.1 }}</span></h2>
+      <p class="lead mt-s">{{ c.billing_lead }}</p>
+      <p class="mt-m small muted">{{ c.billing_more }} <a href="{{ site_links.terms }}#subscription">{{ ui.terms }}</a> · <a href="{{ site_links.refunds }}">{{ ui.refunds }}</a></p>
+    </div>
+    {% include "partials/faq.html" %}
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

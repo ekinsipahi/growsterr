@@ -1,12 +1,16 @@
-"""English UI for the follower pages and the account area. {platform} becomes
-Instagram or TikTok. This is the source every other language mirrors key by key."""
+"""English UI of the growth system: packages, the order page, the account area and the shared
+blocks. {platform} becomes Instagram, TikTok or YouTube; {audience} the "audience" word.
+UI is worded for Instagram and TikTok (followers); PLATFORM_UI["youtube"] holds the keys
+YouTube words differently (subscribers, a channel). This is the source every other language
+mirrors key by key (`manage.py check_growth_ui`)."""
 
 UI = {
     # Hero and page chrome
     "eyebrow": "Real {platform} growth",
     "cta": "Choose your package",
     "nav_cta": "Get followers",
-    "trust": ["We never ask for your password", "Real people, never bots", "Every day, never instant"],
+    "audience": "followers",
+    "trust": ["We never ask for your {platform} password", "Real people, never bots", "Every day, never instant"],
     "agency_line": "We're a growth agency, not an instant service: we sell growth as packages, never thousands of numbers in minutes.",
     "faq_title": "Questions",
     "minutes": "min read",
@@ -20,7 +24,7 @@ UI = {
     "creators_more": ("Guides for ", "creators."),
     "steps_title": ("How it ", "works."),
     "compare_title": ("Instant followers vs ", "real people."),
-    "compare_cols": ("", "Instant / bot followers", "Sterr real followers"),
+    "compare_cols": ("", "Instant / bot followers", "Growsterr: real followers"),
     # Influencer packages ({followers}, {likes}, {comments} are monthly ranges)
     "packages_title": ("Influencer packages. ", "Followers, likes, views and comments in one."),
     "packages_lead": "We sell growth as packages, the way an agency works. Every package brings real people who follow you, like, watch and comment, spread over 30 days. Monthly, cancel any time.",
@@ -47,9 +51,17 @@ UI = {
     "from_price": "from {price} / month",
     "estimate_note": "Typical monthly numbers, not a fixed count: every follower is a real person who chooses to follow, so every month is a little different.",
     # Order form
+    "step_platform": "Choose your platform",
+    "step_plan": "Choose your package",
     "form_title": "Your details",
     "f_handle": "{platform} username",
     "f_handle_ph": "@yourbrand",
+    "f_video": "YouTube video (optional)",
+    "f_video_ph": "https://youtu.be/…",
+    "f_video_help": "New viewers are sent to this video: they subscribe to your channel first, then watch. Leave it empty to send them to your channel page. You can change it any time in your account.",
+    "err_video": "Paste a link to a YouTube video (youtube.com/watch, youtu.be or a Shorts link).",
+    "acc_video_save": "Save video",
+    "acc_video_saved": "Saved. New viewers are sent to this video from now on.",
     "f_location": "Where should your new followers be from?",
     "f_location_ph": "e.g. London, UK or Germany",
     "f_location_help": "We'll mostly try to bring your followers from here; wherever the best-matching audience is, more of them may come from there.",
@@ -61,6 +73,8 @@ UI = {
     "f_password": "Password",
     "f_password_help": "New here? This creates your account. Already have one? Enter your password.",
     "f_consent": "I agree to the terms and the privacy policy.",
+    "terms_link": "Read the terms",
+    "privacy_link": "Privacy policy",
     "signed_in_as": "Signed in as {email}",
     "submit": "Start the subscription",
     "secure_note": "Secure payment by Stripe: card, Apple Pay and Google Pay. Billed monthly, cancel any time.",
@@ -72,6 +86,7 @@ UI = {
     "err_handle": "Enter a valid {platform} username.",
     "err_phone": "Enter a valid phone number, ideally with the country code.",
     "err_plan": "Choose a package.",
+    "err_platform": "Choose a platform.",
     "err_password": "Use at least 8 characters.",
     "err_login": "This email already has an account and the password doesn't match. Forgot it? Reset it from the sign-in page.",
     "err_rate": "Too many attempts. Please try again later.",
@@ -86,7 +101,7 @@ UI = {
     "bots_text": "Bots don't watch, like or buy. Every one of them drags down the share of your audience that engages, and {platform} reads that as content nobody wants. It doesn't tell you: your posts just reach fewer people, quietly. Bot accounts also get deleted in waves, so the number drops, but the damage to your account's standing stays. Climbing back out can take months, sometimes years. Real people are the only followers that never cost you that.",
     # Success page
     "success_title": "Payment received. Your growth has started.",
-    "success_text": "Your {package} package for @{handle} is active. Real people start discovering your profile now; you'll see your followers, likes and comments in your account. A receipt is on its way to your inbox.",
+    "success_text": "Your {package} package for @{handle} is active. Real people start discovering your profile now; you'll see your new followers in your account. A receipt is on its way to your inbox.",
     "pending_title": "Thanks, we've got your request.",
     "pending_text": "Your request for the {package} package for @{handle} is in. We'll email you within 24 hours to get you started. You can follow it in your account.",
     "to_account": "Go to my account",
@@ -148,7 +163,7 @@ UI = {
     "login_submit": "Sign in",
     "login_error": "Wrong email or password.",
     "signup_title": "Create your account",
-    "signup_lead": "One account for your Instagram and TikTok subscriptions.",
+    "signup_lead": "One account for your Instagram, TikTok and YouTube packages.",
     "signup_submit": "Create account",
     "signup_exists": "There's already an account with this email. Sign in instead.",
     "no_account": "No account yet?",
@@ -162,4 +177,48 @@ UI = {
     "new_password": "New password",
     "reset_save": "Save new password",
     "reset_done": "Your password has been changed.",
+}
+
+# YouTube's audience subscribes to a channel: the keys worded differently there.
+PLATFORM_UI = {
+    "youtube": {
+        "nav_cta": "Get subscribers",
+        "audience": "subscribers",
+        "groups": {"followers": "Subscribers", "packages": "Influencer packages", "likes": "Likes", "views": "Views",
+                   "comments": "Comments", "guides": "Guides"},
+        "compare_title": ("Instant subscribers vs ", "real people."),
+        "compare_cols": ("", "Instant / bot subscribers", "Growsterr: real subscribers"),
+        "packages_title": ("Influencer packages. ", "Subscribers, likes, views and comments in one."),
+        "packages_lead": "We sell growth as packages, the way an agency works. Every package brings real people who subscribe, like, watch and comment, spread over 30 days. Monthly, cancel any time.",
+        "plan_items": [
+            "{followers} new subscribers",
+            "{likes} likes: 2–3 per new subscriber",
+            "{comments} comments written by real people",
+            "Views on your videos from the same people",
+            "Spread over 30 days, from the location you choose",
+        ],
+        "plan_rising_extra": ["You choose which videos get the attention"],
+        "plan_pro_extra": ["You choose which videos get the attention", "Priority placement and a direct WhatsApp line"],
+        "plan_followers": "{followers} subscribers / month",
+        "estimate_note": "Typical monthly numbers, not a fixed count: every subscriber is a real person who chooses to subscribe, so every month is a little different.",
+        "f_handle": "YouTube handle",
+        "f_location": "Where should your new subscribers be from?",
+        "f_location_help": "We'll mostly try to bring your subscribers from here; wherever the best-matching audience is, more of them may come from there.",
+        "err_handle": "Enter a valid YouTube handle: 3–30 letters, numbers, periods, underscores or hyphens.",
+        "engagement_text": "We don't sell likes, views or comments on their own. Anything that doesn't happen naturally gets penalized by the {platform} algorithm: you may not feel it, but the algorithm has already put a value on your channel, so don't create a value that isn't real. In our packages, likes and comments come from the real people who subscribe to you: typically 2–3 likes for every new subscriber and about one comment for every 10. That's what real engagement looks like.",
+        "instant_text": "No real person subscribes to a channel seconds after a payment. When subscribers land instantly, they are bots. Our growth is spread across the month because every subscriber is a real person who saw your channel and chose to subscribe.",
+        "bots_title": ("The hidden penalty ", "for fake subscribers."),
+        "bots_text": "Bots don't watch, like or buy. Every one of them drags down the share of your audience that engages, and {platform} reads that as content nobody wants. It doesn't tell you: your videos just reach fewer people, quietly. Bot accounts also get deleted in waves, so the number drops, but the damage to your channel's standing stays. Climbing back out can take months, sometimes years. Real people are the only subscribers that never cost you that.",
+        "success_text": "Your {package} package for @{handle} is active. Real people start discovering your channel now; you'll see your new subscribers in your account. A receipt is on its way to your inbox.",
+        "acc_gained": "New subscribers",
+        "acc_now": "Your channel now: {count} subscribers",
+        "acc_sum_gained": "New subscribers so far",
+        "acc_sum_visits": "Channel visits so far",
+        "acc_sum_now": "Your subscribers now",
+        "acc_chart": "New subscribers per day",
+        "acc_no_data": "Your numbers appear here once delivery starts.",
+        "acc_visits": "Channel visits",
+        "acc_count_note": "These numbers come from our delivery system: new subscribers are the real people we brought who subscribed to your channel, counted from their visits to it; channel visits are the people who opened your channel from our network. Your channel's own total also changes with your other growth and with people who unsubscribe.",
+        "acc_projection": "Next 30 days at today's pace: on average about {count} new subscribers ({low}–{high}). An estimate, not a promise.",
+    },
 }

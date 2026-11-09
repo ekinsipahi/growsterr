@@ -1,0 +1,1 @@
+"""Luxembourgish money pages."""

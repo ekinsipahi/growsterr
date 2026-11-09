@@ -57,7 +57,7 @@ class ResendEmailBackend(BaseEmailBackend):
                     RESEND_ENDPOINT,
                     json=payload,
                     headers={"Authorization": f"Bearer {self.api_key}"},
-                    timeout=20,
+                    timeout=10,
                 )
                 if resp.status_code >= 400:
                     raise RuntimeError(f"Resend error {resp.status_code}: {resp.text[:300]}")

@@ -1,10 +1,11 @@
-{% load static %}<!doctype html>
+{% load static growsterr %}{% comment %} The chrome speaks ui_lang when a page sets it (an English legal page reached from another
+   language), else the page's lang. Its strings: apps/core/i18n/<code>.py CHROME; its links: apps.core.i18n.site_links. {% endcomment %}{% site_ui ui_lang|default:lang as ui %}{% site_links ui_lang|default:lang as site_links %}<!doctype html>
 <html lang="{{ lang|default:'en' }}"{% if rtl %} dir="rtl"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}Growsterr: real growth for Instagram, TikTok and YouTube{% endblock %}</title>
-  <meta name="description" content="{% block description %}Monthly growth packages for creators on Instagram, TikTok and YouTube. Real people, never bots.{% endblock %}">
+  <title>{% block title %}{{ ui.meta_title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ ui.meta_description }}{% endblock %}">
   {% block robots %}{% endblock %}
   <link rel="canonical" href="{% block canonical %}{{ canonical_url }}{% endblock %}">
   {% block alternates %}{% for code, path in alternates %}<link rel="alternate" hreflang="{{ code }}" href="{{ SITE_URL }}{{ path }}">
@@ -12,56 +13,124 @@
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#FAF9FF" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0F0D1F" media="(prefers-color-scheme: dark)">
-  {# Set the saved theme before anything paints (no flash). No saved choice = follow the system. #}
-  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <meta property="og:site_name" content="Growsterr">
+  {% comment %} Set the saved theme before anything paints (no flash). No saved choice = follow the system.
+     The "js" class lets CSS show the enhanced layout (tabs) from the first paint.{% endcomment %}
+  <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="{% static 'img/favicon.svg' %}" type="image/svg+xml">
   <link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
   <link rel="manifest" href="{% static 'site.webmanifest' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Outfit:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'css/site.css' %}">
   {% block head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main"{% if ui_lang %} lang="{{ ui_lang }}"{% endif %}>{{ ui.skip }}</a>
   {% block header %}
-  <header class="site-header">
-    <div class="wrap site-header__inner">
-      <a href="{% url 'core:home' %}" class="brand" aria-label="Growsterr home">
+  <header class="site-header"{% if ui_lang %} lang="{{ ui_lang }}" dir="{% if ui_rtl %}rtl{% else %}ltr{% endif %}"{% endif %}>
+    <div class="wrap site-header__bar">
+      <a href="{{ site_links.home }}" class="brand" aria-label="{{ ui.home_label }}">
         {# Two artworks: the theme rules in site.css show the one that fits the background. #}
-        <img class="brand__logo only-light" src="{% static 'img/logo.svg' %}" alt="Growsterr" width="176" height="40">
-        <img class="brand__logo only-dark" src="{% static 'img/logo-dark.svg' %}" alt="" width="176" height="40">
+        <img class="brand__logo only-light" src="{% static 'img/logo.svg' %}" alt="Growsterr" width="141" height="40">
+        <img class="brand__logo only-dark" src="{% static 'img/logo-dark.svg' %}" alt="" width="141" height="40">
       </a>
-      <nav class="site-nav" aria-label="Main">
-        {% block nav %}{% endblock %}
-      </nav>
-      <div class="site-header__actions">
-        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch between light and dark mode">
-          <svg class="only-light" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a.5.5 0 0 0-.6-.6A9.5 9.5 0 1 0 21.6 15.1a.5.5 0 0 0-.6-.6Z"/></svg>
-          <svg class="only-dark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
-        </button>
-        {% if user.is_authenticated %}
-          <a class="btn btn--ghost" href="{% url 'growth:account' %}">My account</a>
-        {% else %}
-          <a class="btn btn--ghost" href="{% url 'growth:login' %}">Sign in</a>
-        {% endif %}
-        <a class="btn btn--primary" href="{% url 'growth:order' %}">Get started</a>
+      <a class="btn btn--primary btn--sm site-header__quick" href="{{ site_links.order }}">{{ ui.get_started }}</a>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="{{ ui.theme }}">
+        <svg class="only-light" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a.5.5 0 0 0-.6-.6A9.5 9.5 0 1 0 21.6 15.1a.5.5 0 0 0-.6-.6Z"/></svg>
+        <svg class="only-dark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+      </button>
+      {# Phones and tablets: the menu button opens the panel below (no JS needed; site.js adds Escape, outside click). #}
+      <details class="menu" data-menu>
+        <summary aria-controls="site-menu"><span class="sr-only">{{ ui.menu }}</span>{% icon "menu" cls="menu__open" %}{% icon "x" cls="menu__close" %}</summary>
+      </details>
+      <div class="site-header__panel" id="site-menu">
+        <nav class="site-nav" aria-label="{{ ui.main_nav }}">
+          {% block nav %}{% with p=request.path %}
+          <ul class="site-nav__list">
+            <li><a class="site-nav__link" href="{{ site_links.instagram }}"{% if nav_active == "instagram" or p == site_links.instagram %} aria-current="page"{% endif %}>{{ ui.nav_instagram }}</a></li>
+            <li><a class="site-nav__link" href="{{ site_links.tiktok }}"{% if nav_active == "tiktok" or p == site_links.tiktok %} aria-current="page"{% endif %}>{{ ui.nav_tiktok }}</a></li>
+            <li><a class="site-nav__link" href="{{ site_links.youtube }}"{% if nav_active == "youtube" or p == site_links.youtube %} aria-current="page"{% endif %}>{{ ui.nav_youtube }}</a></li>
+            <li><a class="site-nav__link" href="{{ site_links.pricing }}"{% if nav_active == "pricing" %} aria-current="page"{% endif %}>{{ ui.nav_pricing }}</a></li>
+            <li><a class="site-nav__link" href="{{ site_links.how }}"{% if nav_active == "how" %} aria-current="page"{% endif %}>{{ ui.nav_how }}</a></li>
+          </ul>
+          {% endwith %}{% endblock %}
+        </nav>
+        <div class="site-header__actions">
+          {% if lang_links %}{% include "partials/lang_menu.html" %}{% endif %}
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="{{ ui.theme }}">
+            <svg class="only-light" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3a.5.5 0 0 0-.6-.6A9.5 9.5 0 1 0 21.6 15.1a.5.5 0 0 0-.6-.6Z"/></svg>
+            <svg class="only-dark" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></svg>
+          </button>
+          {% if user.is_authenticated %}
+            <a class="btn btn--ghost" href="{{ site_links.account }}">{{ ui.my_account }}</a>
+          {% else %}
+            <a class="btn btn--ghost" href="{{ site_links.login }}">{{ ui.sign_in }}</a>
+          {% endif %}
+          <a class="btn btn--primary" href="{{ site_links.order }}">{{ ui.get_started }}</a>
+        </div>
       </div>
     </div>
   </header>
   {% endblock %}
-  <main id="main">{% block content %}{% endblock %}</main>
+  <main id="main" tabindex="-1">{% block content %}{% endblock %}</main>
   {% block footer %}
-  <footer class="site-footer">
-    <div class="wrap site-footer__inner">
-      <span>© Growsterr</span>
-      <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>
+  <footer class="site-footer"{% if ui_lang %} lang="{{ ui_lang }}" dir="{% if ui_rtl %}rtl{% else %}ltr{% endif %}"{% endif %}>
+    <div class="wrap">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a href="{{ site_links.home }}" class="brand" aria-label="{{ ui.home_label }}">
+            <img class="brand__logo only-light" src="{% static 'img/logo.svg' %}" alt="Growsterr" width="141" height="40" loading="lazy">
+            <img class="brand__logo only-dark" src="{% static 'img/logo-dark.svg' %}" alt="" width="141" height="40" loading="lazy">
+          </a>
+          <p>{{ ui.footer_tagline }}</p>
+          <p class="site-footer__by">{{ ui.product_of }} <a href="{{ company.sister_url }}" rel="noopener" target="_blank">{{ company.sister_brand }}</a></p>
+        </div>
+        <nav class="footer-col" aria-labelledby="footer-platforms">
+          <h2 id="footer-platforms">{{ ui.footer_platforms }}</h2>
+          <ul>
+            <li><a href="{{ site_links.instagram }}">{{ ui.nav_instagram }}</a></li>
+            <li><a href="{{ site_links.tiktok }}">{{ ui.nav_tiktok }}</a></li>
+            <li><a href="{{ site_links.youtube }}">{{ ui.nav_youtube }}</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-labelledby="footer-company">
+          <h2 id="footer-company">{{ ui.footer_company }}</h2>
+          <ul>
+            <li><a href="{{ site_links.about }}">{{ ui.nav_about }}</a></li>
+            <li><a href="{{ site_links.how }}">{{ ui.nav_how }}</a></li>
+            <li><a href="{{ site_links.pricing }}">{{ ui.nav_pricing }}</a></li>
+            <li><a href="mailto:{{ contact_email }}" aria-label="{{ ui.contact }}: {{ contact_email }}">{{ contact_email }}</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-col" aria-labelledby="footer-legal">
+          <h2 id="footer-legal">{{ ui.footer_legal }}</h2>
+          <ul>
+            <li><a href="{{ site_links.terms }}">{{ ui.terms }}</a></li>
+            <li><a href="{{ site_links.privacy }}">{{ ui.privacy }}</a></li>
+            <li><a href="{{ site_links.cookies }}">{{ ui.cookies }}</a></li>
+            <li><a href="{{ site_links.refunds }}">{{ ui.refunds }}</a></li>
+          </ul>
+        </nav>
+      </div>
+      {% if lang_links %}
+      <nav class="site-footer__langs" aria-labelledby="footer-langs">
+        <h2 id="footer-langs">{{ ui.language }}</h2>
+        {% include "partials/lang_list.html" %}
+      </nav>
+      {% endif %}
+      <div class="site-footer__bottom">
+        <p>© {% now "Y" %} Growsterr. {{ ui.rights }}</p>
+        <p class="site-footer__company">{{ ui.company_line }}</p>
+      </div>
     </div>
   </footer>
   {% endblock %}
+  {% block wa_float %}{% include "partials/wa_float.html" %}{% endblock %}
   <script src="{% static 'js/theme.js' %}" defer></script>
+  <script src="{% static 'js/site.js' %}" defer></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

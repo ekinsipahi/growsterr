@@ -1,0 +1,32 @@
+{% extends "growth/_layout.html" %}
+{# Cancel the renewal: confirm (GET), done (POST or already canceling), or an invalid link.
+   Context: accounts.cancel: sub, plan_name, done, error, invalid, cancel_text. #}
+{% block title %}{% if done %}{{ gu.cancel_done_title }}{% else %}{{ gu.cancel_title }}{% endif %} · Growsterr{% endblock %}
+{% block body_class %}growth growth--cancel{% endblock %}
+{% block content %}
+<section class="section section--tight g-auth">
+  <div class="wrap g-auth__grid">
+    <header class="g-auth__intro">
+      <p class="eyebrow">{% if sub %}{{ plan_name }} · {{ sub.platform_name }} · @{{ sub.handle }}{% else %}{{ gu.acc_title }}{% endif %}</p>
+      <h1 class="h1">{% if done %}{{ gu.cancel_done_title }}{% else %}{{ gu.cancel_title }}{% endif %}</h1>
+      {% if cancel_text %}<p class="lead">{{ cancel_text }}</p>{% endif %}
+    </header>
+    <div class="form-card g-auth__card">
+      {% if invalid %}
+      <div class="alert alert--error" role="alert">{{ gu.cancel_invalid }}</div>
+      <a class="btn btn--primary btn--lg btn--block" href="{% url 'growth:login' %}?lang={{ code }}">{{ gu.login_submit }}</a>
+      {% elif done %}
+      <a class="btn btn--primary btn--lg btn--block" href="{{ account_url }}">{{ gu.acc_title }}</a>
+      {% else %}
+      {% if error %}<div class="alert alert--error" role="alert">{{ gu.cancel_error }}</div>{% endif %}
+      <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="lang" value="{{ code }}">
+        <button class="btn btn--outline btn--lg btn--block g-cancel__yes" type="submit">{{ gu.cancel_yes }}</button>
+      </form>
+      <a class="btn btn--primary btn--lg btn--block" href="{{ account_url }}">{{ gu.cancel_keep }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

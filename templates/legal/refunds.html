@@ -1,0 +1,52 @@
+{% extends "legal/_base.html" %}
+{% load legal_tags %}
+{# Section titles and their order: apps/legal/pages.py. A plain summary of the terms: keep it in step with
+   the subscription, refunds and disputes sections of templates/legal/terms.html. #}
+{% block legal_body %}
+<div class="legal-summary">
+  <h2 class="legal-summary__title">The short version</h2>
+  <ul>
+    <li>Every package is a monthly subscription that renews until you cancel.</li>
+    <li>Cancel any time in your dashboard. Your package keeps running to the end of the month you've paid for.</li>
+    <li>The month you've paid for isn't refunded.</li>
+    <li>We email you 3 days before every renewal, so it's never a surprise.</li>
+  </ul>
+</div>
+
+{% section "paid-month" %}
+<p>Your package starts as soon as you pay: from the first day, we show your profile to real people, every day of the month. Because the work starts with the payment and can't be undone, the month you've paid for isn't refunded, in whole or in part, even if you cancel during it.</p>
+<p>The numbers on our website are typical monthly ranges, not promises: real people decide for themselves whether to follow you, so a quieter month isn't a reason for a refund.</p>
+{% endsection %}
+
+{% section "cancel" %}
+<p>Cancel any time in your <a href="{% url 'growth:account' %}">dashboard</a> with the “Cancel subscription” button, or under “Manage billing or cancel”. You don't need to call us or give a reason, and we confirm your cancellation by email right away.</p>
+<p>Canceling stops the next payment. Your package keeps running until the end of the month you've paid for, then it ends. Changed your mind? You can keep your subscription from your dashboard until that date.</p>
+{% endsection %}
+
+{% section "reminders" %}
+<p>We email you 3 days before each renewal with the renewal date, the amount and how to cancel. If you'd like to stop, cancel before the renewal date and you won't be charged again.</p>
+{% endsection %}
+
+{% section "failed-payments" %}
+<p>If a renewal payment doesn't go through, we pause your package and email you. Update your payment method under “Manage billing or cancel” in your dashboard, and delivery starts again as soon as the payment goes through. The month still ends on its usual date.</p>
+{% endsection %}
+
+{% section "when-we-refund" %}
+<ul>
+  <li><strong>We decline your order after you've paid:</strong> you get the whole payment back.</li>
+  <li><strong>We stop your package early for a reason that isn't your fault:</strong> you get the unused part of the month back.</li>
+  <li><strong>You were charged by mistake,</strong> for example twice for the same month: you get the mistaken charge back.</li>
+</ul>
+<p>Refunds go back to the payment method you paid with, through Stripe. Your bank may take 5 to 10 business days to show them.</p>
+{% endsection %}
+
+{% section "consumer-rights" %}
+<p>Nothing in this policy takes away the rights you have under the mandatory consumer laws of the country where you live.</p>
+{% endsection %}
+
+{% section "questions" %}
+<p>If a charge looks wrong, please write to us first at <a href="mailto:{{ contact_email }}">{{ contact_email }}</a>. Most things are sorted out quickly, and it's faster than a dispute through your bank.</p>
+<p>If you do open a dispute or chargeback, we answer it with the records described in our <a href="{% url 'legal:terms' %}#disputes">Terms of Service</a>. A dispute doesn't cancel your subscription: to stop future payments, cancel in your dashboard.</p>
+<p>The full rules are in the <a href="{% url 'legal:terms' %}#subscription">subscription section of our Terms of Service</a>.</p>
+{% endsection %}
+{% endblock %}

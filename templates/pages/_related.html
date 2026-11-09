@@ -1,0 +1,11 @@
+{# Cross-links: same platform other services, same service on other platforms, other goals and modifiers. #}
+{% if related %}
+<section class="section section--alt" id="related" aria-labelledby="related-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h2" id="related-title">{{ pu.related_title }}</h2>
+    </div>
+    {% include "pages/_links.html" with groups=related %}
+  </div>
+</section>
+{% endif %}

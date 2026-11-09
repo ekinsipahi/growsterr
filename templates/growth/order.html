@@ -1,0 +1,143 @@
+{% extends "growth/_layout.html" %}
+{# The order page (/order/). Context: views._order_ctx: form (OrderForm), gu (UI for the selected platform),
+   platforms, platform, plans (plan.for_page), selected_plan, selected_amount, platform_ui (texts that change
+   with the platform; static/js/app.js swaps them), payments, google, canceled, signed_in, login_url. #}
+{% block title %}{{ gu.cta }} · Growsterr{% endblock %}
+{% block description %}{{ gu.packages_lead }}{% endblock %}
+{% block body_class %}growth growth--order{% endblock %}
+{% block content %}
+<section class="section section--tight g-order">
+  <div class="wrap">
+    <header class="section-head g-order__head">
+      <p class="eyebrow" data-ui="eyebrow">{{ gu.eyebrow }}</p>
+      <h1 class="h1"><span data-ui="packages_title.0">{{ gu.packages_title.0 }}</span><span class="g-order__title-rest" data-ui="packages_title.1">{{ gu.packages_title.1 }}</span></h1>
+      <p class="lead" data-ui="packages_lead">{{ gu.packages_lead }}</p>
+    </header>
+
+    <form class="g-order__form" method="post" action="{% url 'growth:order' %}" novalidate data-growth-form data-form-id="order"
+          data-payments="{% if payments %}on{% else %}off{% endif %}"{% if form.errors %} data-form-errors="{{ form.errors.keys|join:',' }}"{% endif %}>
+      {% csrf_token %}
+      <input type="hidden" name="lang" value="{{ code }}">
+      <input type="hidden" name="source_page" value="{{ request.POST.source_page|default:'' }}">
+      <input type="hidden" name="landing_page" value="{{ request.POST.landing_page|default:'' }}">
+      <input type="hidden" name="referrer" value="{{ request.POST.referrer|default:'' }}">
+      <input type="hidden" name="first_visit_at" value="{{ request.POST.first_visit_at|default:'' }}">
+      <input type="hidden" name="utm_source" value="{{ request.POST.utm_source|default:'' }}">
+      <input type="hidden" name="utm_medium" value="{{ request.POST.utm_medium|default:'' }}">
+      <input type="hidden" name="utm_campaign" value="{{ request.POST.utm_campaign|default:'' }}">
+      <input type="hidden" name="gclid" value="{{ request.POST.gclid|default:'' }}">
+
+      {% if canceled %}<div class="alert alert--warning" role="status">{{ gu.canceled }}</div>{% endif %}
+      {% if form.non_field_errors %}<div class="alert alert--error" role="alert">{{ form.non_field_errors|join:" " }}</div>{% endif %}
+
+      <fieldset class="g-step">
+        <legend class="g-step__title"><span class="g-step__num" aria-hidden="true">1</span>{{ gu.step_platform }}</legend>
+        <div class="radio-cards radio-cards--3 g-platforms">
+          {% for p in platforms %}
+          <label class="radio-card">
+            <input type="radio" name="platform" value="{{ p.key }}"{% if p.checked %} checked{% endif %}>
+            <span class="radio-card__body"><span class="radio-card__title">{{ p.name }}</span><span class="radio-card__meta">{{ p.audience }}</span></span>
+          </label>
+          {% endfor %}
+        </div>
+        {{ form.platform.errors }}
+      </fieldset>
+
+      <fieldset class="g-step">
+        <legend class="g-step__title"><span class="g-step__num" aria-hidden="true">2</span>{{ gu.step_plan }}</legend>
+        <div class="g-plans">
+          {% for pk in plans %}
+          <div class="g-plan{% if pk.popular %} g-plan--popular{% endif %}" data-plan="{{ pk.key }}">
+            <input class="g-plan__radio" type="radio" id="plan-{{ pk.key }}" name="plan" value="{{ pk.key }}" aria-describedby="plan-{{ pk.key }}-desc"
+                   data-price="{{ pk.value }}" data-amount="{{ pk.amount }}" data-name="{{ pk.name }}"{% if pk.key == selected_plan %} checked{% endif %}>
+            <div class="g-plan__head">
+              <label class="g-plan__name" for="plan-{{ pk.key }}">{{ pk.name }}</label>
+              {% if pk.popular %}<span class="badge badge--accent">{{ gu.popular }}</span>{% endif %}
+            </div>
+            <p class="g-plan__price"><b>{{ pk.amount }}</b> <span>{{ gu.per_month }}</span></p>
+            <div class="g-plan__desc" id="plan-{{ pk.key }}-desc">
+              <p class="g-plan__for">{{ pk.for }}</p>
+              <p class="g-plan__headline" data-plan-headline>{{ pk.headline }}</p>
+              <ul class="g-plan__items" data-plan-items>{% for t in pk.items %}<li>{{ t }}</li>{% endfor %}</ul>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {{ form.plan.errors }}
+        <p class="form-note g-step__note" data-ui="estimate_note">{{ gu.estimate_note }}</p>
+      </fieldset>
+
+      <div class="g-order__grid">
+        <div class="form-card g-order__card">
+          <h2 class="g-step__title"><span class="g-step__num" aria-hidden="true">3</span>{{ gu.form_title }}</h2>
+          <div class="g-hp" aria-hidden="true"><label for="{{ form.fax.auto_id }}">Fax</label>{{ form.fax }}</div>
+          {# Enter in any field submits the normal order, not "Continue with Google". #}
+          <button class="sr-only" type="submit" tabindex="-1" aria-hidden="true"></button>
+
+          <div class="field{% if form.handle.errors %} field--error{% endif %}">
+            <label for="{{ form.handle.auto_id }}" data-ui="f_handle">{{ form.handle.label }}</label>
+            {{ form.handle }}{{ form.handle.errors }}
+          </div>
+          {# YouTube only: the video new viewers are sent to (static/js/app.js shows it for YouTube). #}
+          <div class="field{% if form.video_url.errors %} field--error{% endif %}" data-only-platform="youtube"{% if form.platform.value != "youtube" %} hidden{% endif %}>
+            <label for="{{ form.video_url.auto_id }}">{{ gu.f_video }}</label>
+            {{ form.video_url }}{{ form.video_url.errors }}
+            <p class="field__help">{{ gu.f_video_help }}</p>
+          </div>
+          <div class="field{% if form.location.errors %} field--error{% endif %}">
+            <label for="{{ form.location.auto_id }}" data-ui="f_location">{{ form.location.label }}</label>
+            {{ form.location }}
+            <p class="field__help" id="{{ form.location.auto_id }}_helptext" data-ui="f_location_help">{{ gu.f_location_help }}</p>
+            {{ form.location.errors }}
+          </div>
+          <div class="field{% if form.phone.errors %} field--error{% endif %}">
+            <label for="{{ form.phone.auto_id }}">{{ form.phone.label }}</label>
+            {{ form.phone }}
+            <p class="field__help" id="{{ form.phone.auto_id }}_helptext">{{ gu.f_phone_help }}</p>
+            {{ form.phone.errors }}
+          </div>
+
+          {% if form.email %}
+          {% if google %}
+          <button class="btn btn--outline btn--lg btn--block g-google" type="submit" name="via" value="google">{% include "growth/_google_icon.svg" %}<span>{{ gu.google_btn }}</span></button>
+          <p class="g-or"><span>{{ gu.or }}</span></p>
+          {% endif %}
+          <div class="field{% if form.email.errors %} field--error{% endif %}">
+            <label for="{{ form.email.auto_id }}">{{ form.email.label }}</label>
+            {{ form.email }}{{ form.email.errors }}
+          </div>
+          <div class="field{% if form.password.errors %} field--error{% endif %}">
+            <label for="{{ form.password.auto_id }}">{{ form.password.label }}</label>
+            {{ form.password }}
+            <p class="field__help" id="{{ form.password.auto_id }}_helptext">{{ gu.f_password_help }}</p>
+            {{ form.password.errors }}
+          </div>
+          {% else %}
+          <p class="g-signed-in">{{ signed_in }} · <a href="{{ account_url }}">{{ gu.acc_title }}</a></p>
+          {% endif %}
+
+          <div class="g-consent{% if form.consent.errors %} field--error{% endif %}">
+            <label class="consent">{{ form.consent }}<span>{{ form.consent.label }}</span></label>
+            <p class="form-note g-consent__links"><a href="{{ terms_url }}" target="_blank" rel="noopener">{{ gu.terms_link }}</a> · <a href="{{ privacy_url }}" target="_blank" rel="noopener">{{ gu.privacy_link }}</a></p>
+            {{ form.consent.errors }}
+          </div>
+
+          <button class="btn btn--primary btn--lg btn--block g-submit" type="submit">
+            <span>{% if payments %}{{ gu.submit }}{% else %}{{ gu.submit_request }}{% endif %}</span>
+            <span class="g-submit__amount"><span data-order-amount>{{ selected_amount }}</span> {{ gu.per_month }}</span>
+          </button>
+          <p class="form-note">{% if payments %}{{ gu.secure_note }}{% else %}{{ gu.request_note }}{% endif %}</p>
+          {% if not user.is_authenticated %}<p class="form-note">{{ gu.have_account }} <a href="{{ login_url }}">{{ gu.login_title }}</a></p>{% endif %}
+        </div>
+
+        <aside class="g-order__aside" aria-label="Growsterr">
+          <p class="g-order__agency">{{ gu.agency_line }}</p>
+          <ul class="g-check">{% for t in gu.trust %}<li data-ui="trust.{{ forloop.counter0 }}">{{ t }}</li>{% endfor %}</ul>
+          <p class="form-note">{{ gu.policy }}</p>
+        </aside>
+      </div>
+    </form>
+  </div>
+</section>
+{{ platform_ui|json_script:"growth-platform-ui" }}
+{% endblock %}

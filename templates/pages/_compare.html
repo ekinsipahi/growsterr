@@ -1,0 +1,10 @@
+{# Real people vs bots and instant services (templates/partials/compare_real.html draws the table). #}
+<section class="section" id="real-people" aria-labelledby="compare-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 class="h2" id="compare-title">{{ pu.compare_title }}</h2>
+      <p class="lead">{{ pu.compare_lead }}</p>
+    </div>
+    {% include "partials/compare_real.html" %}
+  </div>
+</section>

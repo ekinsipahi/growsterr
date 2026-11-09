@@ -1,10 +1,13 @@
-"""The influencer packages: monthly subscriptions, the same on Instagram and TikTok, each
-spread over 30 days. Real people choose to follow, so the numbers are typical monthly
-ranges, never a count we promise. The base: 1,000–4,000 followers a month, 2–3 likes per
-new follower, about one comment per 10 new followers; bigger packages scale that up."""
+"""The growth packages: monthly subscriptions, the same on Instagram, TikTok and YouTube, each
+spread over 30 days. Real people choose to follow (on YouTube: subscribe), so the numbers are
+typical monthly ranges, never a count we promise. The base: 1,000–4,000 followers a month,
+2–3 likes per new follower, about one comment per 10 new followers; bigger packages scale
+that up. Internal names say "followers" on every platform; the UI says subscribers on YouTube."""
 from decimal import Decimal
 
 from django.utils import formats, translation
+
+from apps.core.languages import django_locale
 
 LIKES_PER_FOLLOWER = (2, 3)
 FOLLOWERS_PER_COMMENT = 10
@@ -44,7 +47,7 @@ def cents(p):
 
 def count(n, code):
     """1000 -> '1,000' / '1.000' / '1 000' in the page language."""
-    with translation.override("nb" if code == "no" else code):
+    with translation.override(django_locale(code)):
         return formats.number_format(n, use_l10n=True, force_grouping=True)
 
 

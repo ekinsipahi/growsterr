@@ -1,0 +1,9 @@
+{% load static %}{% comment %} Header language menu, shown only when the page provides lang_links. Context: lang_links, lang, ui.
+   The panel scrolls inside itself (up to 41 languages); static/js/site.js scrolls the current one into view. {% endcomment %}
+<details class="lang-menu" data-dropdown>
+  <summary>{% for l, path in lang_links %}{% if l.code == lang %}<img class="flag" src="{% static l.flag %}" srcset="{% static l.flag_2x %} 2x" width="20" height="14" alt="">{% endif %}{% endfor %}<span aria-hidden="true">{{ lang }}</span><span class="sr-only">{{ ui.language }}</span></summary>
+  <div class="lang-menu__panel">
+    <p class="lang-menu__title" aria-hidden="true">{{ ui.language }}</p>
+    {% include "partials/lang_list.html" %}
+  </div>
+</details>

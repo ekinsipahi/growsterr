@@ -1,0 +1,9 @@
+{% load l10n %}{% comment %} An image slot of a money page (apps/pages/context.image). The brand placeholder always sits
+   underneath; the <img> is rendered once the file exists in static/ (then it covers the drawing).
+   Context: img = {url, alt, width, height, art, eager}, variant = violet|soft|coral. {% endcomment %}
+{% if img %}
+<figure class="media media--{{ variant|default:'soft' }} pg-media" style="--ratio: {{ img.width|unlocalize }} / {{ img.height|unlocalize }}">
+  <span class="media__ph" aria-hidden="true">{% include "pages/_art.html" with art=img.art %}</span>
+  {% if img.url %}<img src="{{ img.url }}" alt="{{ img.alt }}" width="{{ img.width|unlocalize }}" height="{{ img.height|unlocalize }}"{% if img.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">{% endif %}
+</figure>
+{% endif %}

@@ -1,0 +1,132 @@
+/* Legal pages: terms, privacy, cookies, refunds (templates/legal/). Every color is a token from
+   site.css, so light and dark mode follow on their own. */
+
+/* Page width if the shared .wrap ever goes away (zero specificity, so .wrap wins while it exists). */
+:where(.legal-wrap) { max-width: 1160px; margin-inline: auto; padding-inline: 16px; }
+
+/* --- Hero ---------------------------------------------------------------------------- */
+.legal-hero { border-bottom: 1px solid var(--border);
+              background: radial-gradient(900px 340px at 100% 0%, var(--brand-soft), transparent 72%); }
+.legal-hero__inner { padding-top: clamp(36px, 7vw, 72px); padding-bottom: 28px; }
+.legal-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 18px; padding: 7px 13px;
+                 border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--brand);
+                 font: 600 13px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+.legal-eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.legal-hero h1 { font-size: clamp(36px, 6.4vw, 60px); font-weight: 700; letter-spacing: -0.025em; }
+.legal-lead { max-width: 58ch; margin: 14px 0 0; color: var(--muted); font-size: clamp(17px, 2.2vw, 19px); }
+.legal-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 18px 0 0; color: var(--muted); font-size: 15px; }
+.legal-badge { padding: 4px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface);
+               color: var(--text); font: 600 13px/1.2 var(--display); letter-spacing: .01em; }
+/* The four legal pages as one segmented control; on phones it fills the width. */
+.legal-tabs { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; margin-top: 26px; padding: 4px;
+              border: 1px solid var(--border); border-radius: 999px; background: var(--surface); }
+.legal-tabs a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px;
+                color: var(--text); font: 600 15px/1 var(--display); text-decoration: none; transition: background .15s, color .15s; }
+.legal-tabs a:hover { background: var(--surface-2); color: var(--brand); }
+.legal-tabs a[aria-current="page"] { background: var(--brand-fill); color: var(--on-brand); }
+@media (max-width: 520px) {
+  .legal-tabs { display: grid; }
+  .legal-tabs a { padding: 0 6px; font-size: 14.5px; }
+}
+
+/* --- Table of contents + document ---------------------------------------------------- */
+.legal { display: grid; gap: 28px; padding-top: 28px; }
+.toc-side { display: none; }
+@media (min-width: 960px) {
+  .legal { grid-template-columns: 250px minmax(0, 720px); gap: 72px; padding-top: 56px; }
+  .toc-side { display: block; position: sticky; top: 96px; align-self: start; max-height: calc(100vh - 120px); overflow-y: auto; }
+  .toc-inline { display: none; }
+}
+.toc ol { margin: 0; padding: 0; list-style: none; }
+.toc-title { margin: 0 0 10px 10px; color: var(--muted); font: 600 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+.toc-link { display: block; padding: 7px 10px 7px 40px; text-indent: -30px; border-radius: 10px; color: var(--muted);
+            font-size: 15px; line-height: 1.4; text-decoration: none; }
+.toc-link:hover { background: var(--surface-2); color: var(--text); }
+/* Number + space = the 30px hanging indent, so a title's second line starts under its first. */
+.toc-num { display: inline-block; width: 26px; text-indent: 0; color: var(--brand); font: 600 14px/1 var(--display); }
+.toc-inline { border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--surface); }
+.toc-inline summary { display: flex; align-items: center; justify-content: space-between; min-height: 52px; padding: 0 18px;
+                      cursor: pointer; list-style: none; font: 600 16px/1 var(--display); }
+.toc-inline summary::-webkit-details-marker { display: none; }
+.toc-inline summary::after { content: ""; width: 8px; height: 8px; margin-top: -4px; border-right: 2px solid currentColor;
+                             border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .15s; }
+.toc-inline[open] summary::after { margin-top: 4px; transform: rotate(-135deg); }
+.toc-inline ol { padding: 8px; border-top: 1px solid var(--border); }
+.toc-inline .toc-link { padding-top: 12px; padding-bottom: 12px; }  /* 45px tall: a comfortable tap target */
+
+.legal-doc { min-width: 0; max-width: 720px; line-height: 1.7; }
+.legal-doc p { margin: 0 0 16px; }
+.legal-doc > :last-child > :last-child { margin-bottom: 0; }
+.legal-doc strong { font-weight: 600; }
+.legal-doc a { color: var(--brand); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px;
+               overflow-wrap: anywhere; }
+.legal-doc a:hover { text-decoration-thickness: 2px; }
+.legal-doc ul { display: grid; gap: 10px; margin: 0 0 18px; padding: 0; list-style: none; }
+.legal-doc ul > li { position: relative; padding-inline-start: 24px; }
+.legal-doc ul > li::before { content: ""; position: absolute; inset-inline-start: 6px; top: .72em; width: 6px; height: 6px;
+                             border-radius: 50%; background: var(--brand); }
+.legal-doc code { padding: 1px 6px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface-2);
+                  font: 500 .86em/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+
+.legal-section { margin-top: 44px; }
+.legal-doc > .legal-section:first-child { margin-top: 0; }
+.legal-section + .legal-section { padding-top: 44px; border-top: 1px solid var(--border); }
+.legal-section h2 { margin: 0 0 16px; padding-inline-start: 48px; text-indent: -48px; font-size: clamp(22px, 3.2vw, 28px);
+                    font-weight: 600; scroll-margin-top: 96px; }
+.legal-num { display: inline-grid; place-items: center; width: 36px; height: 36px; margin-inline-end: 4px; vertical-align: 2px;
+             text-indent: 0; border-radius: 11px; background: var(--brand-soft); color: var(--brand); font-size: 16px; font-weight: 700; }
+.legal-section h2:target .legal-num { background: var(--accent); color: var(--on-accent); }
+
+/* "The short version": a card with the brand's violet-to-coral line on top. */
+.legal-summary { position: relative; overflow: hidden; padding: 26px 26px 22px; border: 1px solid var(--border);
+                 border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+.legal-summary::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+                         background: linear-gradient(90deg, var(--brand-fill), var(--accent)); }
+.legal-summary__title { margin: 0 0 14px; font-size: 20px; font-weight: 600; }
+.legal-summary ul { margin: 0; }
+.legal-doc .legal-summary__note { margin: 16px 0 0; color: var(--muted); font-size: 14.5px; }
+@media (max-width: 520px) { .legal-summary { padding: 22px 18px 18px; } }
+
+/* Key rules (the subscription) as small cards. */
+.legal-points { display: grid; gap: 12px; margin: 0 0 18px; }
+.legal-points > div { padding: 18px 20px; border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--surface); }
+.legal-points dt { margin: 0 0 4px; font: 600 17px/1.35 var(--display); }
+.legal-points dd { margin: 0; }
+
+/* Tables become one card per row on phones. */
+.legal-table { width: 100%; margin: 4px 0 20px; border: 1px solid var(--border); border-radius: var(--radius-s);
+               border-collapse: separate; border-spacing: 0; overflow: hidden; background: var(--surface); font-size: 15.5px; line-height: 1.55; }
+.legal-table th, .legal-table td { padding: 12px 16px; border-top: 1px solid var(--border); text-align: start; vertical-align: top; }
+.legal-table thead th { border-top: 0; background: var(--surface-2); color: var(--muted); font: 600 12.5px/1.3 var(--display);
+                        letter-spacing: .05em; text-transform: uppercase; }
+.legal-table tbody th { font-weight: 400; }
+.legal-table--names tbody th { font-weight: 600; white-space: nowrap; }
+@media (max-width: 640px) {
+  .legal-table thead { display: none; }
+  .legal-table, .legal-table tbody, .legal-table tr, .legal-table th, .legal-table td { display: block; }
+  .legal-table tr + tr { border-top: 1px solid var(--border); }
+  .legal-table tbody th, .legal-table td { padding: 0 16px; border: 0; }
+  .legal-table tbody th { padding-top: 14px; font-weight: 600; white-space: normal; }
+  .legal-table td:last-child { padding-bottom: 14px; }
+  .legal-table td::before { content: attr(data-label); display: block; margin-top: 8px; color: var(--muted);
+                            font: 600 12px/1.5 var(--display); letter-spacing: .05em; text-transform: uppercase; }
+}
+
+/* Company details. */
+.legal-company { display: grid; grid-template-columns: max-content 1fr; gap: 10px 24px; margin: 0 0 18px; padding: 20px 22px;
+                 border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--surface); }
+.legal-company dt { color: var(--muted); }
+.legal-company dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 520px) {
+  .legal-company { grid-template-columns: 1fr; gap: 0; }
+  .legal-company dt { font-size: 14px; }
+  .legal-company dd + dt { margin-top: 10px; }
+}
+
+@media print {
+  body > header, body > footer, .skip, .legal-tabs, .toc { display: none !important; }
+  .legal { display: block; padding-top: 12px; }
+  .legal-hero { border: 0; background: none; }
+  .legal-summary, .legal-points > div, .legal-table, .legal-company { box-shadow: none; }
+  .legal-section h2 { break-after: avoid; }
+}

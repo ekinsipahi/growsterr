@@ -1,16 +1,19 @@
-{# Package cards. Context: plans (apps.growth.plan.for_page(lang, gu)), gu (apps.growth.content.ui_for(lang, platform)),
-   platform (instagram|tiktok|youtube), lang. Shared by the pricing page, the platform pages and the money pages. #}
+{% load growsterr %}{% comment %} Package cards. Context: plans (apps.growth.plan.for_page(lang, gu)), gu (apps.growth.content.ui_for(lang, platform)),
+   platform (instagram|tiktok|youtube), lang. Shared by the pricing page, the platform pages and the money pages.
+   Keys used: p.key, p.name, p.for, p.amount, p.headline, p.items, p.popular; gu.popular, gu.per_month, gu.cta.{% endcomment %}
 <div class="plans">
   {% for p in plans %}
   <article class="plan{% if p.popular %} plan--popular{% endif %}">
-    {% if p.popular %}<span class="plan__badge">{{ gu.popular }}</span>{% endif %}
-    <h3 class="plan__name">{{ p.name }}</h3>
+    <header class="plan__head">
+      <h3 class="plan__name">{{ p.name }}</h3>
+      {% if p.popular %}<span class="badge badge--accent plan__badge">{{ gu.popular }}</span>{% endif %}
+    </header>
     <p class="plan__for">{{ p.for }}</p>
-    <p class="plan__price"><b>{{ p.amount }}</b> <span>{{ gu.per_month }}</span></p>
-    <p class="plan__headline">{{ p.headline }}</p>
-    <ul class="plan__items">{% for item in p.items %}<li>{{ item }}</li>{% endfor %}</ul>
-    <a class="btn {% if p.popular %}btn--primary{% else %}btn--outline{% endif %} plan__cta"
-       href="{% url 'growth:order' %}?plan={{ p.key }}{% if platform %}&amp;platform={{ platform }}{% endif %}{% if lang %}&amp;lang={{ lang }}{% endif %}">{{ gu.cta }}</a>
+    <p class="plan__price"><span class="plan__amount">{{ p.amount }}</span> <span class="plan__per">{{ gu.per_month }}</span></p>
+    <p class="plan__headline">{% icon "rise" %}<span>{{ p.headline }}</span></p>
+    <ul class="plan__items">{% for item in p.items %}<li>{% icon "check" %}<span>{{ item }}</span></li>{% endfor %}</ul>
+    <a class="btn {% if p.popular %}btn--primary{% else %}btn--outline{% endif %} btn--lg plan__cta"
+       href="{% url 'growth:order' %}?plan={{ p.key }}{% if platform %}&amp;platform={{ platform }}{% endif %}{% if lang %}&amp;lang={{ lang }}{% endif %}">{{ gu.cta }}<span class="sr-only">: {{ p.name }}</span></a>
   </article>
   {% endfor %}
 </div>

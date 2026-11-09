@@ -1,0 +1,28 @@
+{% comment %} An illustration of the customer dashboard. It never shows numbers: values are placeholder bars,
+   the chart has no scale. Context: dash = {"labels": HOME["dash"] (apps/core/i18n), "bars": [heights in %], "caption"}.{% endcomment %}
+<figure class="dash" aria-labelledby="dash-caption">
+  <div class="dash__window" aria-hidden="true">
+    <div class="dash__bar"><i></i><i></i><i></i><span class="dash__url">growsterr.com/account</span></div>
+    <div class="dash__body">
+      <div class="dash__head">
+        <div class="dash__who"><span class="float__avatar"></span><div><b>{{ dash.labels.handle }}</b><span>{{ dash.labels.package }}</span></div></div>
+        <span class="status status--active">{{ dash.labels.active }}</span>
+      </div>
+      <div>
+        <p class="dash__label">{{ dash.labels.month }}</p>
+        <div class="dash__tiles">
+          {% for label in dash.labels.tiles %}<div class="metric"><span class="skel skel--num"></span><span class="metric__label">{{ label }}</span></div>{% endfor %}
+        </div>
+      </div>
+      <div>
+        <p class="dash__label">{{ dash.labels.chart }}</p>
+        <div class="dash__bars">{% for h in dash.bars %}<i style="--h: {{ h }}%"></i>{% endfor %}</div>
+      </div>
+      <div>
+        <p class="dash__label">{{ dash.labels.countries }}</p>
+        <div class="dash__chips"><span class="skel skel--chip"></span><span class="skel skel--chip"></span><span class="skel skel--chip"></span><span class="skel skel--chip"></span></div>
+      </div>
+    </div>
+  </div>
+  <figcaption id="dash-caption">{{ dash.caption }}</figcaption>
+</figure>

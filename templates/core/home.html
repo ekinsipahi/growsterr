@@ -1,17 +1,105 @@
-{% extends "base.html" %}
+{% extends "core/_layout.html" %}{% load growsterr %}
+{# Copy: HOME in apps/core/i18n/<code>.py; images and icons: apps/core/content.py. #}
 {% block content %}
-<section class="hero wrap">
-  <p class="eyebrow">Launching soon</p>
-  <h1>Grow your <span>Instagram</span>, <span>TikTok</span> and <span>YouTube</span>.</h1>
-  <p class="lead">Simple monthly packages for followers, subscribers, likes and views. Pick a platform, pick a package, and watch your account move.</p>
-  <a class="btn" href="mailto:{{ contact_email }}?subject=Growsterr">Get notified</a>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">{{ c.eyebrow }}</p>
+      <h1 class="display" id="hero-title">{{ c.h1.0 }}<span class="hl">{{ c.h1.1 }}</span>{{ c.h1.2 }}</h1>
+      <p class="lead">{{ c.lead }}</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--primary btn--lg" href="#packages">{{ c.cta_primary }} {% icon "arrow" %}</a>
+        <a class="btn btn--outline btn--lg" href="{{ site_links.how }}">{{ c.cta_secondary }}</a>
+      </div>
+      <ul class="trust">{% for t in c.trust %}<li>{% icon "check" %}<span>{{ t }}</span></li>{% endfor %}</ul>
+    </div>
+    <div class="hero__art">
+      {% image_slot hero_image alt=c.hero_alt width=1080 height=1350 variant="violet" art="people" eager=True %}
+      <div class="float float--profile" aria-hidden="true">
+        <span class="float__avatar"></span>
+        <span class="float__who"><b>{{ c.hero_profile.0 }}</b><small>{{ c.hero_profile.1 }}</small></span>
+        <span class="float__follow">{{ c.hero_profile.2 }}</span>
+      </div>
+      <div class="float float--chip float--a" aria-hidden="true"><span class="float__ic float__ic--brand">{% icon "user-plus" %}</span>{{ c.hero_chips.0 }}</div>
+      <div class="float float--chip float--b" aria-hidden="true"><span class="float__ic">{% icon "heart" %}</span>{{ c.hero_chips.1 }}</div>
+    </div>
+  </div>
 </section>
-<section class="platforms wrap">
-  {% for name, what in platforms %}
-  <article class="platform">
-    <h2>{{ name }}</h2>
-    <p>{{ what }}</p>
-  </article>
-  {% endfor %}
+
+<section class="section section--line" aria-labelledby="platforms-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <div><p class="eyebrow">{{ c.platforms_eyebrow }}</p><h2 class="h2" id="platforms-title">{{ c.platforms_title.0 }}<span class="hl">{{ c.platforms_title.1 }}</span></h2></div>
+      <p class="lead">{{ c.platforms_lead }}</p>
+    </div>
+    <div class="grid grid--3">
+      {% for p in platform_cards %}
+      <article class="card card--link platform-card">
+        {% image_slot p.image alt="" width=1200 height=750 variant=p.variant art="platform" glyph=p.key %}
+        <h3 class="h3"><a class="stretched" href="{{ p.url }}">{{ p.name }}</a></h3>
+        <p>{{ p.text }}</p>
+        <ul class="tags">{% for t in p.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+        <span class="card__foot link-arrow" aria-hidden="true">{{ p.link }} {% icon "arrow" %}</span>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
 </section>
+
+<section class="section section--alt" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">{{ c.how_eyebrow }}</p>
+      <h2 class="h2" id="how-title">{{ c.how_title.0 }}<span class="hl">{{ c.how_title.1 }}</span></h2>
+      <p class="lead">{{ c.how_lead }}</p>
+    </div>
+    <ol class="steps steps--4">
+      {% for title, text in steps %}<li class="step"><span class="step__num" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span><h3 class="step__title">{{ title }}</h3><p class="step__text">{{ text }}</p></li>{% endfor %}
+    </ol>
+    <p class="center mt-l"><a class="link-arrow" href="{{ site_links.how }}">{{ c.how_link }} {% icon "arrow" %}</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="real-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <div><p class="eyebrow">{{ c.real_eyebrow }}</p><h2 class="h2" id="real-title">{{ c.real_title.0 }}<span class="hl">{{ c.real_title.1 }}</span></h2></div>
+      <p class="lead">{{ c.real_lead }}</p>
+    </div>
+    {% include "partials/compare_real.html" %}
+  </div>
+</section>
+
+<section class="section section--alt" id="packages" aria-labelledby="packages-title">
+  <div class="wrap">
+    <div class="section-head section-head--center">
+      <p class="eyebrow">{{ c.packages_eyebrow }}</p>
+      <h2 class="h2" id="packages-title">{{ c.packages_title.0 }}<span class="hl">{{ c.packages_title.1 }}</span></h2>
+      <p class="lead">{{ c.packages_lead }}</p>
+    </div>
+    {% include "partials/packages_tabs.html" with tabs_label=c.tabs_label id_prefix="packages-" %}
+    <p class="center mt-s"><a class="link-arrow" href="{{ site_links.pricing }}">{{ c.packages_link }} {% icon "arrow" %}</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="dash-title">
+  <div class="wrap split split--even split--center">
+    <div>
+      <p class="eyebrow">{{ c.dash_eyebrow }}</p>
+      <h2 class="h2" id="dash-title">{{ c.dash_title.0 }}<span class="hl">{{ c.dash_title.1 }}</span></h2>
+      <p class="lead mt-s">{{ c.dash_lead }}</p>
+      <ul class="feature-list">{% for ic, t, x in dash.points %}<li><span class="card__icon">{% icon ic %}</span><div><b>{{ t }}</b><p>{{ x }}</p></div></li>{% endfor %}</ul>
+    </div>
+    {% include "partials/dashboard_preview.html" %}
+  </div>
+</section>
+
+<section class="section section--line" aria-labelledby="faq-title">
+  <div class="wrap split">
+    <div class="split__sticky"><p class="eyebrow">{{ c.faq_eyebrow }}</p><h2 class="h2" id="faq-title">{{ c.faq_title.0 }}<span class="hl">{{ c.faq_title.1 }}</span></h2></div>
+    {% include "partials/faq.html" %}
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
 {% endblock %}

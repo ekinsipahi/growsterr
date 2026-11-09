@@ -1,0 +1,23 @@
+{% load growsterr %}{% comment %} Real people vs instant/bot services. Context: compare = {"caption", "cols": (row label, bad, good),
+   "rows": [(label, bad, good), ...]}. Roles keep the table semantics when the phone layout turns rows into grids.{% endcomment %}
+<div class="table-card">
+  <table class="compare" role="table">
+    <caption class="sr-only">{{ compare.caption }}</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th scope="col" role="columnheader"><span class="sr-only">{{ compare.cols.0 }}</span></th>
+        <th scope="col" role="columnheader">{{ compare.cols.1 }}</th>
+        <th scope="col" role="columnheader" class="is-us">{% icon "rise" %}{{ compare.cols.2 }}</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      {% for label, bad, good in compare.rows %}
+      <tr role="row">
+        <th scope="row" role="rowheader">{{ label }}</th>
+        <td role="cell" class="compare__no"><span class="compare__cell">{% icon "x" %}<span>{{ bad }}</span></span></td>
+        <td role="cell" class="compare__yes is-us"><span class="compare__cell">{% icon "check" %}<span>{{ good }}</span></span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,78 @@
+{% extends "core/_layout.html" %}{% load growsterr %}
+{# Copy: ABOUT in apps/core/i18n/<code>.py; company facts: apps/core/company.py. #}
+{% block content %}
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="wrap">
+    <p class="eyebrow">{{ c.eyebrow }}</p>
+    <h1 class="h1" id="page-title" style="max-width: 980px">{{ c.h1.0 }}<span class="hl">{{ c.h1.1 }}</span></h1>
+    <p class="lead">{{ c.lead }}</p>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-label="{{ c.eyebrow }}">
+  <div class="wrap">
+    {% image_slot image alt=c.image_alt width=1600 height=800 variant="soft" art="people" cls="about-media" %}
+    <div class="facts mt-m">{% for value, label in c.facts %}<div><b>{{ value }}</b><span>{{ label }}</span></div>{% endfor %}</div>
+  </div>
+</section>
+
+<section class="section section--line" aria-labelledby="family-title">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">{{ c.family_eyebrow }}</p>
+      <h2 class="h2" id="family-title">{{ c.family_title.0 }}<span class="hl">{{ c.family_title.1 }}</span></h2>
+    </div>
+    <div>
+      {% for para in c.family_text %}<p class="lead{% if not forloop.first %} mt-s{% endif %}">{{ para }}</p>{% endfor %}
+      <p class="mt-m"><a class="link-arrow" href="{{ company.sister_url }}" rel="noopener" target="_blank">{{ c.family_link }} {% icon "arrow-up-right" %}</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="founder" aria-labelledby="founder-title">
+  <div class="wrap split">
+    <div>
+      <p class="eyebrow">{{ c.founder_eyebrow }}</p>
+      <h2 class="h2" id="founder-title">{{ c.founder_title.0 }}<span class="hl">{{ c.founder_title.1 }}</span></h2>
+      <a class="founder-card" href="https://www.instagram.com/{{ company.founder_instagram }}/" rel="noopener" target="_blank">
+        <span class="founder-card__avatar" aria-hidden="true">{{ company.founder|slice:":1" }}</span>
+        <span><b>{{ company.founder }}</b><span class="founder-card__handle">{% icon "instagram" size=16 %}@{{ company.founder_instagram }}</span></span>
+        <span class="sr-only">{{ c.founder_link }}</span>
+      </a>
+    </div>
+    <div>
+      {% for para in c.founder_text %}<p class="lead{% if not forloop.first %} mt-s{% endif %}">{{ para }}</p>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="values-title">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">{{ c.values_eyebrow }}</p>
+      <h2 class="h2" id="values-title">{{ c.values_title.0 }}<span class="hl">{{ c.values_title.1 }}</span></h2>
+    </div>
+    <div class="grid grid--3">
+      {% for ic, t, x in values %}<div class="card"><span class="card__icon">{% icon ic %}</span><h3 class="h3">{{ t }}</h3><p>{{ x }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--line" aria-label="{{ c.mission.0 }}{{ c.mission.1 }}">
+  <div class="wrap">
+    <p class="statement">{{ c.mission.0 }}<span class="hl">{{ c.mission.1 }}</span><span class="statement__dim">{{ c.mission.2 }}</span></p>
+  </div>
+</section>
+
+<section class="section section--line" aria-labelledby="company-title">
+  <div class="wrap split">
+    <div><h2 class="h2" id="company-title">{{ c.company_title }}</h2></div>
+    <table class="kv">
+      {% for label, value, url in rows %}<tr><th scope="row">{{ label }}</th><td>{% if url %}<a href="{{ url }}" rel="noopener" target="_blank">{{ value }}</a>{% else %}{{ value }}{% endif %}</td></tr>{% endfor %}
+      <tr><th scope="row">{{ c.contact_label }}</th><td><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></td></tr>
+    </table>
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}
