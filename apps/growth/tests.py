@@ -21,7 +21,7 @@ from django.utils import timezone
 from apps.core.languages import LANGS
 from apps.core.net import client_ip
 
-from . import billing, linksterr
+from . import billing, evidence, linksterr
 from .constants import PLATFORMS, TERMS_VERSION
 from .content import PLATFORM_UI, UI, platform_keys, ui_for
 from .forms import clean_handle, valid_handle
@@ -725,6 +725,30 @@ class DisputeTests(FreshCache, TestCase):
         stage.assert_not_called()
         self.assertFalse(Dispute.objects.exists())
         self.assertFalse(mail.outbox)
+
+    def test_canceled_subscription_evidence_keeps_growth_obligation(self):
+        self.sub.refresh_from_db()
+        self.sub.status = "canceled"
+        self.sub.cancel_requested_at = timezone.now()
+        self.sub.cancel_source = "stripe"
+        fields = evidence.build(self.sub)
+        for name in ("cancellation_rebuttal", "refund_refusal_explanation", "uncategorized_text"):
+            self.assertIn("remains owed", fields[name])
+            self.assertIn("no renewed subscription or payment is required", fields[name])
+            self.assertIn("illustration, not this customer's measured balance", fields[name])
+        self.assertIn("includes the growth shortfall policy", fields["uncategorized_text"])
+        self.assertNotIn("was delivered every day", fields["refund_refusal_explanation"])
+        self.assertNotIn("No payment was taken after that", fields["cancellation_rebuttal"])
+
+    def test_old_or_missing_acceptance_does_not_claim_new_policy_was_accepted(self):
+        self.sub.refresh_from_db()
+        for version, accepted_at in (("2026-11-08", self.sub.terms_accepted_at), ("", None), (TERMS_VERSION, None)):
+            with self.subTest(version=version, accepted_at=accepted_at):
+                self.sub.terms_version = version
+                self.sub.terms_accepted_at = accepted_at
+                text = evidence.build(self.sub)["uncategorized_text"]
+                self.assertIn("do not claim the customer accepted this later wording at purchase", text)
+                self.assertNotIn("includes the growth shortfall policy", text)
 
     def test_evidence_page_in_admin(self):
         admin = get_user_model().objects.create_superuser("boss", "boss@example.com", "pass-word-1")

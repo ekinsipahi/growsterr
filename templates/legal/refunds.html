@@ -16,11 +16,13 @@
 {% section "paid-month" %}
 <p>Your package starts as soon as you pay: from the first day, we show your profile to real people, every day of the month. Because the work starts with the payment and can't be undone, the month you've paid for isn't refunded, in whole or in part, even if you cancel during it.</p>
 <p>The numbers on our website are typical monthly ranges, not promises: real people decide for themselves whether to follow you, so a quieter month isn't a reason for a refund.</p>
+<p>If a paid month falls below its growth target, the shortfall is recorded as growth still owed and completed through additional promotion without an extra charge. The target and calculation are explained in the <a href="{% url 'legal:terms' %}#subscription">subscription terms</a>. This does not limit any refund or other remedy required by law.</p>
 {% endsection %}
 
 {% section "cancel" %}
 <p>Cancel any time in your <a href="{% url 'growth:account' %}">dashboard</a> with the “Cancel subscription” button, or under “Manage billing or cancel”. You don't need to call us or give a reason, and we confirm your cancellation by email right away.</p>
 <p>Canceling stops the next payment. Your package keeps running until the end of the month you've paid for, then it ends. Changed your mind? You can keep your subscription from your dashboard until that date.</p>
+<p>Any growth still owed from paid months remains due even after you cancel your Stripe subscription or remove a payment method. We total the remaining balance and complete it without requiring another payment or an active subscription, provided your profile remains public and available. This is additional growth, not a cash balance or Stripe credit.</p>
 {% endsection %}
 
 {% section "reminders" %}

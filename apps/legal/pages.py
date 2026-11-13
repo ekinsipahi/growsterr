@@ -22,7 +22,7 @@ class LegalPage:
         return [{"id": sid, "title": title, "number": n} for n, (sid, title) in enumerate(self.sections, 1)]
 
 
-UPDATED = date(2026, 11, 8)
+UPDATED = date(2026, 11, 13)
 
 PAGES = {page.key: page for page in (
     LegalPage(

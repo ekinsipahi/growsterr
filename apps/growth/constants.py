@@ -12,4 +12,5 @@ PROFILE_URL = {
 AUDIENCE = {"instagram": "followers", "tiktok": "followers", "youtube": "subscribers"}
 
 # Version of the terms a customer accepts on the order form; bump it when the terms change.
-TERMS_VERSION = "2026-11-08"
+TERMS_VERSION = "2026-11-13"
+CARRYOVER_TERMS_VERSION = "2026-11-13"

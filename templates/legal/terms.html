@@ -10,6 +10,7 @@
     <li>We grow Instagram, TikTok and YouTube accounts with real people. Never bots, never instant.</li>
     <li>We show your profile to real people throughout the month. Those who like it choose to follow, like, watch and comment.</li>
     <li>Our numbers are typical monthly ranges, not promises.</li>
+    <li>If a paid month falls below its growth target, we carry the shortfall forward and complete it without an extra charge, even after you cancel your Stripe subscription.</li>
     <li>We never ask for your Instagram, TikTok or YouTube password.</li>
     <li>Your package renews every month until you cancel, and we email you 3 days before each renewal.</li>
     <li>Cancel any time in your dashboard. Your package runs to the end of the month you've paid for, and that month isn't refunded.</li>
@@ -38,7 +39,7 @@
 {% section "real-people" %}
 <p>Every follower, like, view and comment comes from a real person who chose to engage with you. We don't use bots, fake accounts or automated engagement, and nothing arrives instantly: a real audience takes time to find you.</p>
 <p>Because real people make their own choices, the numbers on our website are typical monthly ranges, not promises. Results depend on your content, your niche, the location you choose and the platform itself, so every month is a little different. Any forecast in your dashboard, such as the estimate for the next 30 days, is an estimate too.</p>
-<p>What you pay for is the promotion of your profile to real people throughout your package, run and measured as these terms describe. We don't promise a particular number of followers, subscribers, likes, views or comments, or any particular result for your account.</p>
+<p>What you pay for is the promotion of your profile to real people throughout your package, run and measured as these terms describe. We don't promise that a particular number will arrive within a single month. Our obligation to complete a recorded growth shortfall continues as described in {% ref "subscription" %}.</p>
 {% endsection %}
 
 {% section "account" %}
@@ -82,12 +83,20 @@
     <dd>Canceling stops the next payment. Your package keeps running until the end of the period you've already paid for, and then it ends. Changed your mind? You can keep your subscription from your dashboard until that date.</dd>
   </div>
   <div>
+    <dt>Any growth still owed stays with us</dt>
+    <dd>Some months may fall below the growth target for your paid package. For this purpose, the target is the lower end of the package's monthly follower range (subscribers on YouTube), unless we confirmed a different target with you in writing. For example, if the monthly target is 1,000 new followers and we deliver 800, we record the remaining 200 as growth still owed to you. We add together any outstanding shortfalls from paid months and deduct only the additional growth delivered to make them up. While your subscription continues, this additional growth is separate from each new month's target and does not reduce it.</dd>
+  </div>
+  <div>
+    <dt>Canceling does not erase your outstanding balance</dt>
+    <dd>Canceling your subscription in Growsterr or Stripe, or removing a payment method from Stripe, does not erase growth we still owe you for paid months. We calculate the total remaining balance and continue the additional promotion needed to complete it, without requiring a new subscription, another payment or an active payment method. Your profile must remain public and available, and we need its current username to continue delivery. There is no fixed completion date because real people choose whether to follow. This balance is measured in followers or subscribers to be delivered, not money or a Stripe credit; it does not replace any refund or other remedy required by law. Removing a payment method alone does not cancel your subscription; use the cancellation options above to stop renewal.</dd>
+  </div>
+  <div>
     <dt>The paid month isn't refunded</dt>
     <dd>Your package starts with the payment and runs every day of the month, so the month you've paid for isn't refunded, in whole or in part, even if you cancel during it. The cases where we do refund are in {% ref "refunds" %}.</dd>
   </div>
   <div>
     <dt>A failed payment pauses delivery</dt>
-    <dd>If a renewal payment doesn't go through, we email you and pause your package until it's paid. Update your payment method under “Manage billing or cancel” in your dashboard, and delivery starts again as soon as the payment goes through. The month still ends on its usual date: paused days aren't added on. If the payment still can't be collected after Stripe's retries, we may end the subscription.</dd>
+    <dd>If a renewal payment doesn't go through, we email you and pause your package until it's paid. Update your payment method under “Manage billing or cancel” in your dashboard, and delivery starts again as soon as the payment goes through. The month still ends on its usual date: paused days aren't added on. If the payment still can't be collected after Stripe's retries, we may end the subscription. This pause does not remove our obligation to complete outstanding growth from paid months without another payment.</dd>
   </div>
 </dl>
 {% endsection %}
@@ -109,6 +118,7 @@
   <li><strong>Your order:</strong> when you accepted these terms, which version you accepted, and the IP address and browser you used.</li>
   <li><strong>Payments and emails:</strong> your payments, and the emails we sent you, such as the confirmation when your package started, renewal reminders and any cancellation confirmation.</li>
   <li><strong>Delivery records:</strong> what our delivery system measured each day: how many people your profile was shown to, the visits it got, the new followers counted and the countries the visits came from.</li>
+  <li><strong>Outstanding growth:</strong> the applicable growth target, any documented shortfall from paid months, additional growth delivered to make it up and the balance still owed, where recorded. An outstanding balance is not presented as growth already delivered. Cancellation does not erase our obligation to complete it.</li>
   <li><strong>Account activity:</strong> sign-ins, visits to your dashboard and visits to the cancel page, each with the time, IP address and browser.</li>
 </ul>
 <p>Opening a dispute doesn't cancel your subscription. To stop future payments, cancel in your dashboard. Our <a href="{% url 'legal:privacy' %}#retention">Privacy Policy</a> explains how long we keep these records.</p>
@@ -132,7 +142,7 @@
 {% endsection %}
 
 {% section "content" %}
-<p>Your account and your content stay yours. To run your package, you allow us and our delivery network to show your public username and a link to your profile to people, together with your public profile picture and name where we use them, for as long as your package runs. You confirm that you have the right to let us do that.</p>
+<p>Your account and your content stay yours. To run your package, you allow us and our delivery network to show your public username and a link to your profile to people, together with your public profile picture and name where we use them, for as long as your package runs and while we complete any outstanding growth from paid months after cancellation. You confirm that you have the right to let us do that.</p>
 <p>The Growsterr name, logo, website, text and design belong to {{ company.legal_name }} or its licensors. Please don't copy them without our written permission.</p>
 {% endsection %}
 

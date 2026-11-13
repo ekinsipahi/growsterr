@@ -151,6 +151,16 @@ class LegalPagesTests(TestCase):
         if getattr(settings, "WHATSAPP_NUMBER", ""):  # the contact card shows the WhatsApp line, as Sterr Agency's does
             self.assertIn(settings.WHATSAPP_DISPLAY, text)
 
+    def test_growth_shortfall_survives_cancellation_in_terms_and_refunds(self):
+        terms = self.doc("terms").text
+        for phrase in ("target is the lower end", "remaining 200", "add together any outstanding shortfalls",
+                       "does not erase growth we still owe you", "without requiring a new subscription",
+                       "An outstanding balance is not presented as growth already delivered"):
+            self.assertIn(phrase, terms)
+        refunds = self.doc("refunds").text
+        self.assertIn("remains due even after you cancel your Stripe subscription", refunds)
+        self.assertIn("not a cash balance or Stripe credit", refunds)
+
     def test_privacy_lists_the_data_and_every_service(self):
         text = self.doc("privacy").text
         for name in ("Stripe", "Google", "Resend", "Supabase", "Render", "Linksterr"):
