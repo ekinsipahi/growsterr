@@ -32,7 +32,7 @@ class DisputeInline(admin.TabularInline):
 
 @admin.register(AgencySubscription)
 class AgencySubscriptionAdmin(admin.ModelAdmin):
-    list_display = ("pk", "account", "platform", "status", "renews", "projection_text", "location", "email", "amount",
+    list_display = ("pk", "account", "platform", "status", "renews", "projection_text", "location", "email", "phone", "amount",
                     "source_page", "referrer", "created_at", "panel")
     list_filter = ("status", "platform", "cancel_at_period_end", "lang", "referrer", "utm_source", "created_at")
     search_fields = ("handle", "email", "phone", "location", "source_page", "landing_page", "referrer",
@@ -109,11 +109,21 @@ class AgencySubscriptionAdmin(admin.ModelAdmin):
 
 @admin.register(Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ("user", "email_verified", "lang", "created_at", "panel")
+    list_display = ("user", "phones", "email_verified", "lang", "created_at", "panel")
     list_filter = ("email_verified", "lang")
-    search_fields = ("user__email",)
+    search_fields = ("user__email", "user__growth_subscriptions__phone")
     raw_id_fields = ("user",)
-    readonly_fields = ("panel",)
+    readonly_fields = ("phones", "panel")
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related("user").prefetch_related("user__growth_subscriptions")
+
+    @admin.display(description="Telefon")
+    def phones(self, obj):
+        if not obj.user_id:
+            return "-"
+        numbers = dict.fromkeys(sub.phone for sub in obj.user.growth_subscriptions.all() if sub.phone)
+        return ", ".join(numbers) or "-"
 
     @admin.display(description="Müşteri paneli")
     def panel(self, obj):
