@@ -1,7 +1,7 @@
 """Polish copy of the core site (informal "Ty", capitalized as in the growth file). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Czy obserwujący to prawdziwi ludzie?", "Tak, co do jednego. Twój profil widzą prawdziwi ludzie, a obserwować zaczynają tylko ci, którym podoba się to, co widzą. Dlatego wzrost trwa miesiąc, a nie minutę."),
         ("Czy potrzebujecie mojego hasła?", "Nigdy. Potrzebujemy tylko nazwy użytkownika. Utrzymuj konto jako publiczne, dopóki trwa Twój pakiet."),
-        ("Ilu obserwujących zyskam?", "Każdy pakiet ma typowy miesięczny zakres: {starter} w Starter Creator, {rising} w Rising Influencer i {pro} w Pro Influencer. To typowe liczby, a nie stała ilość: prawdziwi ludzie decydują sami, więc każdy miesiąc wygląda trochę inaczej."),
+        ("Ilu obserwujących zyskam?", "Każdy pakiet ma typowy miesięczny zakres: {starter} w Starter Creator, {rising} w Rising Influencer i {pro} w Pro Influencer. To typowe liczby, a nie stała ilość: prawdziwi ludzie decydują sami, więc każdy miesiąc wygląda trochę inaczej. Tempo wzrostu może się różnić w poszczególnych miesiącach, a my śledzimy brakującą część. Na przykład, jeśli miesięczny cel wynosi 1 000 nowych obserwujących, a dotrzemy do 800, zapisujemy pozostałe 200 jako saldo do uzupełnienia. Uzupełniamy je w kolejnych miesiącach, dodatkowo do wzrostu z tych miesięcy; nie wliczamy go do nowego celu miesięcznego."),
         ("Czy mogę kupić same polubienia, wyświetlenia lub komentarze?", "Nie. Są w każdym pakiecie i pochodzą od tych samych prawdziwych ludzi, którzy Cię obserwują. Polubienia i komentarze, za którymi nie stoją prawdziwi odbiorcy, szkodzą kontu bardziej, niż pomagają."),
         ("Kiedy zobaczę efekty?", "Kampania rusza, gdy przejdzie pierwsza płatność, a pierwsze liczby pojawiają się w panelu w ciągu kilku dni. Potem wzrost narasta przez cały miesiąc."),
         ("Czy mogę wybrać, skąd pochodzą moi odbiorcy?", "Tak. Podaj miasto, region lub kraj, a skupimy tam Twoją kampanię. Jeśli najlepiej dopasowana publiczność jest gdzie indziej, część osób może przyjść stamtąd."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Czy pakiet odnawia się automatycznie?", "Tak. Pakiet odnawia się co miesiąc, dopóki go nie anulujesz, więc Twój wzrost wciąż narasta."),
         ("Jak zrezygnować?", "W dowolnym momencie, w swoim panelu. Anulowanie zatrzymuje kolejną płatność, a pakiet działa do końca już opłaconego miesiąca."),
         ("Czy mogę dostać zwrot za bieżący miesiąc?", "Nie. Opłacony miesiąc nie jest zwracany, bo jego kampania już trwa. Po anulowaniu po prostu dobiega końca i nie pobieramy kolejnych płatności."),
-        ("Czy liczby są stałe?", "Nie. To typowe miesięczne zakresy. Każdy obserwujący to prawdziwa osoba, która sama decyduje, czy Cię obserwować, więc każdy miesiąc wygląda trochę inaczej."),
+        ("Co się dzieje, jeśli miesięczny cel nie zostanie osiągnięty?", "Tempo wzrostu może się różnić w poszczególnych miesiącach, a my śledzimy brakującą część. Na przykład, jeśli miesięczny cel wynosi 1 000 nowych obserwujących, a dotrzemy do 800, zapisujemy pozostałe 200 jako saldo do uzupełnienia. Uzupełniamy je w kolejnych miesiącach, dodatkowo do wzrostu z tych miesięcy; nie wliczamy go do nowego celu miesięcznego."),
         ("Czy mogę kupić same polubienia, wyświetlenia lub komentarze?", "Nie. Są w każdym pakiecie i pochodzą od tych samych prawdziwych ludzi, którzy Cię obserwują."),
         ("Czy mogę rozwijać więcej niż jedną platformę?", "Tak. Każda platforma to osobna subskrypcja, a wszystkie widzisz w jednym panelu."),
     ],

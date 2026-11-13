@@ -1,7 +1,7 @@
 """Italian copy of the core site ("tu"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("I follower sono persone reali?", "Sì, tutti quanti. Il tuo profilo viene mostrato a persone reali, e solo chi apprezza ciò che vede sceglie di seguirti. Per questo la crescita richiede un mese, non un minuto."),
         ("Vi serve la mia password?", "Mai. Ci serve solo il tuo nome utente. Tieni il tuo account pubblico finché il pacchetto è attivo."),
-        ("Quanti follower otterrò?", "Ogni pacchetto ha un intervallo mensile tipico: {starter} con Starter Creator, {rising} con Rising Influencer e {pro} con Pro Influencer. Sono numeri tipici, non una quantità fissa: le persone reali decidono da sole, quindi ogni mese è un po' diverso."),
+        ("Quanti follower otterrò?", "Ogni pacchetto ha un intervallo mensile tipico: {starter} con Starter Creator, {rising} con Rising Influencer e {pro} con Pro Influencer. Sono numeri tipici, non una quantità fissa: le persone reali decidono da sole, quindi ogni mese è un po' diverso. La crescita può variare da un mese all’altro e teniamo traccia della parte ancora da completare. Per esempio, se l’obiettivo mensile è di 1.000 nuovi follower e ne raggiungiamo 800, registriamo i 200 rimanenti come saldo da completare. Li recuperiamo nei mesi successivi, in aggiunta alla crescita di quei mesi, senza conteggiarli nel nuovo obiettivo mensile."),
         ("Posso comprare like, visualizzazioni o commenti da soli?", "No. Sono inclusi in ogni pacchetto e arrivano dalle stesse persone reali che ti seguono. Like e commenti che non arrivano da un pubblico reale fanno a un account più danni che benefici."),
         ("Quando vedrò i risultati?", "La tua campagna parte appena il primo pagamento va a buon fine, e i primi numeri compaiono nella tua dashboard entro pochi giorni. Poi la crescita si costruisce nel corso del mese."),
         ("Posso scegliere da dove arriva il mio pubblico?", "Sì. Indicaci una città, una regione o un paese e concentriamo lì la tua campagna. Se il pubblico più adatto si trova altrove, una parte maggiore può arrivare da lì."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Il pacchetto si rinnova automaticamente?", "Sì. Il tuo pacchetto si rinnova ogni mese finché non disdici, così la tua crescita continua."),
         ("Come disdico?", "Quando vuoi, dalla tua dashboard. La disdetta blocca il pagamento successivo, e il tuo pacchetto resta attivo fino alla fine del mese già pagato."),
         ("Posso avere un rimborso per il mese in corso?", "No. Il mese già pagato non viene rimborsato, perché la sua campagna è già in corso. Se disdici, arriva semplicemente alla fine e non vengono addebitati altri pagamenti."),
-        ("I numeri sono fissi?", "No. Sono intervalli mensili tipici. Ogni follower è una persona reale che sceglie di seguirti, quindi ogni mese è un po' diverso."),
+        ("Cosa succede se non si raggiunge l’obiettivo mensile?", "La crescita può variare da un mese all’altro e teniamo traccia della parte ancora da completare. Per esempio, se l’obiettivo mensile è di 1.000 nuovi follower e ne raggiungiamo 800, registriamo i 200 rimanenti come saldo da completare. Li recuperiamo nei mesi successivi, in aggiunta alla crescita di quei mesi, senza conteggiarli nel nuovo obiettivo mensile."),
         ("Posso comprare like, visualizzazioni o commenti da soli?", "No. Sono inclusi in ogni pacchetto e arrivano dalle stesse persone reali che ti seguono."),
         ("Posso crescere su più di una piattaforma?", "Sì. Ogni piattaforma è un abbonamento a sé, e le vedi tutte in un'unica dashboard."),
     ],

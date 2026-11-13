@@ -1,7 +1,7 @@
 """Finnish copy of the core site (informal "sinä", like apps/growth/i18n/fi.py). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Ovatko seuraajat oikeita ihmisiä?", "Kyllä, jokainen. Profiiliasi näytetään oikeille ihmisille, ja vain ne, jotka pitävät näkemästään, päättävät seurata. Siksi kasvu vie kuukauden eikä minuuttia."),
         ("Tarvitsetteko salasanani?", "Emme koskaan. Tarvitsemme vain käyttäjänimesi. Pidä tilisi julkisena niin kauan kuin pakettisi on käynnissä."),
-        ("Kuinka monta seuraajaa saan?", "Jokaisella paketilla on tyypillinen kuukausittainen vaihteluväli: {starter} Starter Creator -paketilla, {rising} Rising Influencer -paketilla ja {pro} Pro Influencer -paketilla. Nämä ovat tyypillisiä lukuja, eivät kiinteä määrä: oikeat ihmiset päättävät itse, joten jokainen kuukausi on vähän erilainen."),
+        ("Kuinka monta seuraajaa saan?", "Jokaisella paketilla on tyypillinen kuukausittainen vaihteluväli: {starter} Starter Creator -paketilla, {rising} Rising Influencer -paketilla ja {pro} Pro Influencer -paketilla. Nämä ovat tyypillisiä lukuja, eivät kiinteä määrä: oikeat ihmiset päättävät itse, joten jokainen kuukausi on vähän erilainen. Kasvuvauhti voi vaihdella kuukausittain, ja pidämme kirjaa puuttuvasta osuudesta. Jos kuukausitavoitteesi on esimerkiksi 1 000 uutta seuraajaa ja saavutamme 800, kirjaamme loput 200 täydennettäväksi saldoksi. Täydennämme sen seuraavina kuukausina kyseisten kuukausien kasvun lisäksi; sitä ei lasketa mukaan uuden kuukauden tavoitteeseen."),
         ("Voinko ostaa tykkäyksiä, katselukertoja tai kommentteja erikseen?", "Et. Ne kuuluvat jokaiseen pakettiin ja tulevat samoilta oikeilta ihmisiltä, jotka seuraavat sinua. Tykkäykset ja kommentit, jotka eivät tule oikealta yleisöltä, tekevät tilille enemmän haittaa kuin hyötyä."),
         ("Milloin näen tuloksia?", "Kampanjasi alkaa, kun ensimmäinen maksusi on mennyt läpi, ja ensimmäiset luvut näkyvät hallintapaneelissasi muutamassa päivässä. Sen jälkeen kasvu kertyy kuukauden mittaan."),
         ("Voinko valita, mistä yleisöni tulee?", "Voit. Kerro kaupunki, alue tai maa, niin kohdistamme kampanjasi sinne. Jos parhaiten sopiva yleisö on muualla, sitä voi tulla enemmän sieltä."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Uusiutuuko pakettini automaattisesti?", "Kyllä. Pakettisi uusiutuu joka kuukausi, kunnes perut sen, joten kasvusi jatkuu."),
         ("Miten peruutan?", "Milloin tahansa hallintapaneelissasi. Peruutus pysäyttää seuraavan maksun, ja pakettisi jatkuu sen kuukauden loppuun, josta olet jo maksanut."),
         ("Saanko hyvityksen kuluvasta kuukaudesta?", "Et. Jo maksettua kuukautta ei hyvitetä, koska sen kampanja on jo käynnissä. Kun perut, kuukausi vain jatkuu loppuun, eikä uusia maksuja veloiteta."),
-        ("Ovatko luvut kiinteitä?", "Eivät. Ne ovat tyypillisiä kuukausittaisia vaihteluvälejä. Jokainen seuraaja on oikea ihminen, joka päättää itse seurata, joten jokainen kuukausi on vähän erilainen."),
+        ("Mitä tapahtuu, jos kuukausitavoite jää saavuttamatta?", "Kasvuvauhti voi vaihdella kuukausittain, ja pidämme kirjaa puuttuvasta osuudesta. Jos kuukausitavoitteesi on esimerkiksi 1 000 uutta seuraajaa ja saavutamme 800, kirjaamme loput 200 täydennettäväksi saldoksi. Täydennämme sen seuraavina kuukausina kyseisten kuukausien kasvun lisäksi; sitä ei lasketa mukaan uuden kuukauden tavoitteeseen."),
         ("Voinko ostaa tykkäyksiä, katselukertoja tai kommentteja erikseen?", "Et. Ne kuuluvat jokaiseen pakettiin ja tulevat samoilta oikeilta ihmisiltä, jotka seuraavat sinua."),
         ("Voinko kasvattaa useampaa alustaa?", "Voit. Jokainen alusta on oma tilauksensa, ja näet ne kaikki yhdessä hallintapaneelissa."),
     ],

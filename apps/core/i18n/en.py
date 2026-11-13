@@ -31,7 +31,7 @@ Brand and product names stay as they are: Growsterr, Sterr Agency, Instagram, Ti
 Stripe, Apple Pay, Google Pay, WhatsApp and the package names."""
 from datetime import date
 
-UPDATED = date(2026, 11, 8)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -179,7 +179,7 @@ HOME = {
     "faqs": [
         ("Are the followers real people?", "Yes, every one of them. Your profile is shown to real people, and only those who like what they see choose to follow. That's why growth takes the month instead of a minute."),
         ("Do you need my password?", "Never. We only need your username. Keep your account public while your package runs."),
-        ("How many followers will I get?", "Each package has a typical monthly range: {starter} with Starter Creator, {rising} with Rising Influencer and {pro} with Pro Influencer. These are typical numbers, not a fixed count: real people decide for themselves, so every month is a little different."),
+        ("How many followers will I get?", "Each package has a typical monthly range: {starter} with Starter Creator, {rising} with Rising Influencer and {pro} with Pro Influencer. These are typical numbers, not a fixed count: real people decide for themselves, so every month is a little different. Growth can vary from month to month, and we keep track of any shortfall for you. For example, if your monthly target is 1,000 new followers and we reach 800, we record the remaining 200 as a balance to complete. We make up that balance in later months, on top of those months' growth; it does not count towards the new month's target."),
         ("Can I buy likes, views or comments on their own?", "No. They come inside every package, from the same real people who follow you. Likes and comments that don't come from a real audience do an account more harm than good."),
         ("When will I see results?", "Your campaign starts once your first payment goes through, and the first numbers appear in your dashboard within a few days. Growth then builds through the month."),
         ("Can I choose where my audience comes from?", "Yes. Tell us a city, region or country and we focus your campaign there. When the best-matching audience is somewhere else, more of it may come from there."),
@@ -241,7 +241,7 @@ PRICING = {
         ("Does my package renew automatically?", "Yes. Your package renews every month until you cancel, so your growth keeps building."),
         ("How do I cancel?", "Any time, in your dashboard. Canceling stops the next payment, and your package keeps running until the end of the month you've already paid for."),
         ("Can I get a refund for the current month?", "No. The month you've paid for isn't refunded, because its campaign is already running. When you cancel, it simply runs to its end and no further payments are taken."),
-        ("Are the numbers fixed?", "No. They are typical monthly ranges. Every follower is a real person who chooses to follow, so every month is a little different."),
+        ("What happens if a month falls short of the target?", "Growth can vary from month to month, and we keep track of any shortfall for you. For example, if your monthly target is 1,000 new followers and we reach 800, we record the remaining 200 as a balance to complete. We make up that balance in later months, on top of those months' growth; it does not count towards the new month's target."),
         ("Can I buy likes, views or comments on their own?", "No. They come inside every package, from the same real people who follow you."),
         ("Can I grow more than one platform?", "Yes. Each platform is its own subscription, and you see all of them in one dashboard."),
     ],

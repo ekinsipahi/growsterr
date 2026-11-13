@@ -1,7 +1,7 @@
 """Latvian copy of the core site (polite "jūs"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Vai sekotāji ir īsti cilvēki?", "Jā, katrs no tiem. Jūsu profils tiek parādīts īstiem cilvēkiem, un sekot izvēlas tikai tie, kuriem redzētais patīk. Tāpēc izaugsme prasa mēnesi, nevis minūti."),
         ("Vai jums vajag manu paroli?", "Nekad. Mums vajag tikai jūsu lietotājvārdu. Kamēr pakete darbojas, turiet savu kontu publisku."),
-        ("Cik sekotāju es saņemšu?", "Katrai paketei ir tipisks mēneša diapazons: {starter} ar Starter Creator, {rising} ar Rising Influencer un {pro} ar Pro Influencer. Tie ir tipiski skaitļi, nevis fiksēts skaits: īsti cilvēki izlemj paši, tāpēc katrs mēnesis ir mazliet citāds."),
+        ("Cik sekotāju es saņemšu?", "Katrai paketei ir tipisks mēneša diapazons: {starter} ar Starter Creator, {rising} ar Rising Influencer un {pro} ar Pro Influencer. Tie ir tipiski skaitļi, nevis fiksēts skaits: īsti cilvēki izlemj paši, tāpēc katrs mēnesis ir mazliet citāds. Izaugsmes temps katru mēnesi var atšķirties, un mēs uzskaitām vēl sasniedzamo daļu. Piemēram, ja jūsu mēneša mērķis ir 1 000 jaunu sekotāju un sasniedzam 800, atlikušos 200 reģistrējam kā papildināmo atlikumu. To papildinām nākamajos mēnešos papildus šo mēnešu izaugsmei; tas netiek ieskaitīts jaunā mēneša mērķī."),
         ("Vai varu nopirkt patīk atzīmes, skatījumus vai komentārus atsevišķi?", "Nē. Tie ir iekļauti katrā paketē, no tiem pašiem īstajiem cilvēkiem, kas jums seko. Patīk atzīmes un komentāri, kas nenāk no īstas auditorijas, kontam nodara vairāk ļauna nekā laba."),
         ("Kad es redzēšu rezultātus?", "Jūsu kampaņa sākas, tiklīdz pirmais maksājums ir veikts, un pirmie skaitļi pārskatā parādās dažu dienu laikā. Pēc tam izaugsme pieņemas spēkā visa mēneša garumā."),
         ("Vai varu izvēlēties, no kurienes nāk mana auditorija?", "Jā. Norādiet pilsētu, reģionu vai valsti, un mēs kampaņu koncentrēsim tur. Ja vispiemērotākā auditorija ir citur, lielāka tās daļa var nākt no turienes."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Vai mana pakete atjaunojas automātiski?", "Jā. Jūsu pakete atjaunojas katru mēnesi, līdz to atceļat, tāpēc jūsu izaugsme turpinās."),
         ("Kā atcelt?", "Jebkurā laikā savā pārskatā. Atcelšana aptur nākamo maksājumu, un jūsu pakete darbojas līdz jau apmaksātā mēneša beigām."),
         ("Vai varu saņemt atmaksu par pašreizējo mēnesi?", "Nē. Par apmaksāto mēnesi nauda netiek atmaksāta, jo tā kampaņa jau notiek. Ja atceļat, tas vienkārši turpinās līdz beigām, un vairāk maksājumi netiek iekasēti."),
-        ("Vai skaitļi ir fiksēti?", "Nē. Tie ir tipiski mēneša diapazoni. Katrs sekotājs ir īsts cilvēks, kurš pats izvēlas sekot, tāpēc katrs mēnesis ir mazliet citāds."),
+        ("Kas notiek, ja mēneša mērķis netiek sasniegts?", "Izaugsmes temps katru mēnesi var atšķirties, un mēs uzskaitām vēl sasniedzamo daļu. Piemēram, ja jūsu mēneša mērķis ir 1 000 jaunu sekotāju un sasniedzam 800, atlikušos 200 reģistrējam kā papildināmo atlikumu. To papildinām nākamajos mēnešos papildus šo mēnešu izaugsmei; tas netiek ieskaitīts jaunā mēneša mērķī."),
         ("Vai varu nopirkt patīk atzīmes, skatījumus vai komentārus atsevišķi?", "Nē. Tie ir iekļauti katrā paketē, no tiem pašiem īstajiem cilvēkiem, kas jums seko."),
         ("Vai varu augt vairāk nekā vienā platformā?", "Jā. Katra platforma ir atsevišķs abonements, un visas tās redzat vienā pārskatā."),
     ],

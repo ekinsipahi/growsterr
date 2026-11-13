@@ -1,7 +1,7 @@
 """Slovenian copy of the core site (formal "vi"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("So sledilci resnični ljudje?", "Da, vsi do zadnjega. Vaš profil pokažemo resničnim ljudem, slediti pa se odločijo samo tisti, ki jim je všeč, kar vidijo. Zato rast traja ves mesec in ne ene minute."),
         ("Ali potrebujete moje geslo?", "Nikoli. Potrebujemo samo vaše uporabniško ime. Med trajanjem paketa naj bo vaš račun javen."),
-        ("Koliko novih sledilcev lahko pričakujem?", "Vsak paket ima tipičen mesečni razpon: {starter} s paketom Starter Creator, {rising} s paketom Rising Influencer in {pro} s paketom Pro Influencer. To so tipične številke, ne fiksno število: resnični ljudje se odločajo sami, zato je vsak mesec malo drugačen."),
+        ("Koliko novih sledilcev lahko pričakujem?", "Vsak paket ima tipičen mesečni razpon: {starter} s paketom Starter Creator, {rising} s paketom Rising Influencer in {pro} s paketom Pro Influencer. To so tipične številke, ne fiksno število: resnični ljudje se odločajo sami, zato je vsak mesec malo drugačen. Hitrost rasti se lahko spreminja iz meseca v mesec, mi pa spremljamo del, ki ga je še treba nadoknaditi. Če je na primer vaš mesečni cilj 1.000 novih sledilcev in jih dosežemo 800, preostalih 200 zabeležimo kot preostanek za dopolnitev. Nadoknadimo ga v naslednjih mesecih, poleg rasti v teh mesecih; ne šteje v novi mesečni cilj."),
         ("Lahko kupim samo všečke, oglede ali komentarje?", "Ne. Vključeni so v vsak paket, od istih resničnih ljudi, ki vam sledijo. Všečki in komentarji, ki ne prihajajo od resničnega občinstva, računu bolj škodijo kot koristijo."),
         ("Kdaj se pokažejo rezultati?", "Kampanja se začne, ko je vaše prvo plačilo opravljeno, prve številke pa se na nadzorni plošči pokažejo v nekaj dneh. Rast se nato gradi skozi ves mesec."),
         ("Lahko izberem, od kod prihaja moje občinstvo?", "Da. Navedite mesto, regijo ali državo in kampanjo usmerimo tja. Kadar je najbolj ujemajoče se občinstvo drugje, ga lahko več pride od tam."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Se moj paket samodejno podaljša?", "Da. Paket se podaljša vsak mesec, dokler ga ne prekličete, zato se vaša rast nadaljuje."),
         ("Kako prekličem?", "Kadar koli, na nadzorni plošči. Preklic ustavi naslednje plačilo, paket pa teče do konca meseca, ki ste ga že plačali."),
         ("Lahko dobim vračilo za tekoči mesec?", "Ne. Plačani mesec se ne vrača, ker njegova kampanja že teče. Ko prekličete, preprosto teče do konca in nadaljnjih plačil ne zaračunamo."),
-        ("So številke fiksne?", "Ne. To so tipični mesečni razponi. Vsak sledilec je resnična oseba, ki se sama odloči, da vam bo sledila, zato je vsak mesec malo drugačen."),
+        ("Kaj se zgodi, če mesečnega cilja ne dosežemo?", "Hitrost rasti se lahko spreminja iz meseca v mesec, mi pa spremljamo del, ki ga je še treba nadoknaditi. Če je na primer vaš mesečni cilj 1.000 novih sledilcev in jih dosežemo 800, preostalih 200 zabeležimo kot preostanek za dopolnitev. Nadoknadimo ga v naslednjih mesecih, poleg rasti v teh mesecih; ne šteje v novi mesečni cilj."),
         ("Lahko kupim samo všečke, oglede ali komentarje?", "Ne. Vključeni so v vsak paket, od istih resničnih ljudi, ki vam sledijo."),
         ("Lahko rastem na več platformah?", "Da. Vsaka platforma je ločena naročnina, vse pa vidite na eni nadzorni plošči."),
     ],

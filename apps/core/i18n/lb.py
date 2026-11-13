@@ -1,7 +1,7 @@
 """Luxembourgish copy of the core site (formal "Dir", Eifel n-rule applied). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Sinn d'Follower echt Mënschen?", "Jo, jidderee vun hinnen. Äre Profil gëtt echte Mënsche gewisen, an nëmmen déi, deenen et gefält, wat se gesinn, decidéiere sech, Iech ze follegen. Dofir dauert de Wuesstem e Mount an net eng Minutt."),
         ("Braucht Dir mäi Passwuert?", "Ni. Mir brauchen nëmmen Äre Benotzernumm. Loosst Äre Kont ëffentlech, soulaang Äert Paket leeft."),
-        ("Wéi vill Follower kréien ech?", "All Paket huet eng typesch Spann pro Mount: {starter} mat Starter Creator, {rising} mat Rising Influencer a {pro} mat Pro Influencer. Dat sinn typesch Zuelen, keng fix Zuel: Echt Mënschen decidéiere selwer, dofir ass all Mount e bësse anescht."),
+        ("Wéi vill Follower kréien ech?", "All Paket huet eng typesch Spann pro Mount: {starter} mat Starter Creator, {rising} mat Rising Influencer a {pro} mat Pro Influencer. Dat sinn typesch Zuelen, keng fix Zuel: Echt Mënschen decidéiere selwer, dofir ass all Mount e bësse anescht. De Wuesstem ka vu Mount zu Mount variéieren, a mir halen deen Deel fest, deen nach feelt. Wann Äert Monatszil zum Beispill 1.000 nei Follower ass a mir 800 erreechen, notéiere mir déi verbleiwend 200 als Rescht, deen nach nozeliwweren ass. Mir huelen dat an de folgende Méint zousätzlech zum Wuesstem vun deene Méint no; et gëtt net op dat neit Monatszil ugerechent."),
         ("Kann ech Likes, Views oder Kommentaren eleng kafen?", "Nee. Si sinn an all Paket abegraff, vun deene selwechten echte Mënschen, déi Iech follegen. Likes a Kommentaren, déi net vun engem echte Publikum kommen, schueden engem Kont méi, wéi se him notzen."),
         ("Wéini gesinn ech Resultater?", "Är Campagne start, soubal Är éischt Bezuelung duerch ass, an déi éischt Zuelen erschénge bannent e puer Deeg an Ärem Dashboard. Duerno wiisst de Wuesstem iwwer de Mount."),
         ("Kann ech wielen, vu wou mäi Publikum kënnt?", "Jo. Sot eis eng Stad, eng Regioun oder e Land, a mir riichten Är Campagne dohinner aus. Wann dat passendst Publikum anzwousch ass, kann en Deel dovun och vun do kommen."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Verlängert sech mäi Paket automatesch?", "Jo. Äert Paket verlängert sech all Mount, bis Dir et kënnegt, sou datt Äre Wuesstem weidergeet."),
         ("Wéi kënnegen ech?", "All Moment an Ärem Dashboard. D'Kënnegung stoppt déi nächst Bezuelung, an Äert Paket leeft bis zum Enn vum Mount, deen Dir scho bezuelt hutt."),
         ("Kréien ech de laafende Mount rembourséiert?", "Nee. De bezuelte Mount gëtt net rembourséiert, well seng Campagne scho leeft. Wann Dir kënnegt, leeft en einfach bis zum Schluss, an et gi keng weider Bezuelungen ofgebucht."),
-        ("Sinn d'Zuele fix?", "Nee. Et sinn typesch Spanne pro Mount. All Follower ass en echte Mënsch, dee sech selwer decidéiert, ze follegen, dofir ass all Mount e bësse anescht."),
+        ("Wat geschitt, wann d’Monatszil net erreecht gëtt?", "De Wuesstem ka vu Mount zu Mount variéieren, a mir halen deen Deel fest, deen nach feelt. Wann Äert Monatszil zum Beispill 1.000 nei Follower ass a mir 800 erreechen, notéiere mir déi verbleiwend 200 als Rescht, deen nach nozeliwweren ass. Mir huelen dat an de folgende Méint zousätzlech zum Wuesstem vun deene Méint no; et gëtt net op dat neit Monatszil ugerechent."),
         ("Kann ech Likes, Views oder Kommentaren eleng kafen?", "Nee. Si sinn an all Paket abegraff, vun deene selwechten echte Mënschen, déi Iech follegen."),
         ("Kann ech op méi wéi enger Plattform wuessen?", "Jo. All Plattform ass en eegent Abonnement, an Dir gesitt se all an engem Dashboard."),
     ],

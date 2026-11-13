@@ -1,7 +1,7 @@
 """Lithuanian copy of the core site (polite "jūs"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Ar sekėjai yra tikri žmonės?", "Taip, kiekvienas. Jūsų profilis rodomas tikriems žmonėms, ir sekti nusprendžia tik tie, kuriems patinka tai, ką mato. Todėl augimas trunka mėnesį, o ne minutę."),
         ("Ar jums reikia mano slaptažodžio?", "Niekada. Mums reikia tik jūsų naudotojo vardo. Kol veikia paketas, laikykite paskyrą viešą."),
-        ("Kiek sekėjų gausiu?", "Kiekvienas paketas turi tipinį mėnesio intervalą: {starter} su Starter Creator, {rising} su Rising Influencer ir {pro} su Pro Influencer. Tai tipiniai skaičiai, o ne fiksuotas kiekis: tikri žmonės sprendžia patys, todėl kiekvienas mėnuo šiek tiek skiriasi."),
+        ("Kiek sekėjų gausiu?", "Kiekvienas paketas turi tipinį mėnesio intervalą: {starter} su Starter Creator, {rising} su Rising Influencer ir {pro} su Pro Influencer. Tai tipiniai skaičiai, o ne fiksuotas kiekis: tikri žmonės sprendžia patys, todėl kiekvienas mėnuo šiek tiek skiriasi. Augimo tempas kiekvieną mėnesį gali skirtis, o mes stebime dar nepasiektą dalį. Pavyzdžiui, jei jūsų mėnesio tikslas yra 1 000 naujų sekėjų, o pasiekiame 800, likusius 200 įrašome kaip likutį, kurį reikia papildyti. Jį papildome kitais mėnesiais, be tų mėnesių augimo; jis neįskaičiuojamas į naujo mėnesio tikslą."),
         ("Ar galiu atskirai pirkti patiktukų, peržiūrų ar komentarų?", "Ne. Jie yra kiekviename pakete, iš tų pačių tikrų žmonių, kurie jus seka. Patiktukai ir komentarai, kurie neateina iš tikros auditorijos, paskyrai daugiau kenkia nei padeda."),
         ("Kada pamatysiu rezultatus?", "Jūsų kampanija prasideda, kai tik atliktas pirmasis mokėjimas, o pirmieji skaičiai skydelyje pasirodo per kelias dienas. Toliau augimas stiprėja visą mėnesį."),
         ("Ar galiu pasirinkti, iš kur bus mano auditorija?", "Taip. Nurodykite miestą, regioną ar šalį, ir mes sutelksime kampaniją ten. Jei labiausiai tinkanti auditorija yra kitur, daugiau jos gali ateiti iš ten."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Ar mano paketas atsinaujina automatiškai?", "Taip. Jūsų paketas atsinaujina kas mėnesį, kol jį atšauksite, todėl augimas nesustoja."),
         ("Kaip atšaukti?", "Bet kada, savo skydelyje. Atšaukus sustabdomas kitas mokėjimas, o paketas veikia iki jau apmokėto mėnesio pabaigos."),
         ("Ar galiu atgauti pinigus už einamąjį mėnesį?", "Ne. Už apmokėtą mėnesį pinigai negrąžinami, nes jo kampanija jau vyksta. Kai atšaukiate, jis tiesiog tęsiasi iki pabaigos, ir daugiau mokėjimų neimama."),
-        ("Ar skaičiai fiksuoti?", "Ne. Tai tipiniai mėnesio intervalai. Kiekvienas sekėjas yra tikras žmogus, kuris pats nusprendžia sekti, todėl kiekvienas mėnuo šiek tiek skiriasi."),
+        ("Kas nutinka, jei mėnesio tikslas nepasiekiamas?", "Augimo tempas kiekvieną mėnesį gali skirtis, o mes stebime dar nepasiektą dalį. Pavyzdžiui, jei jūsų mėnesio tikslas yra 1 000 naujų sekėjų, o pasiekiame 800, likusius 200 įrašome kaip likutį, kurį reikia papildyti. Jį papildome kitais mėnesiais, be tų mėnesių augimo; jis neįskaičiuojamas į naujo mėnesio tikslą."),
         ("Ar galiu atskirai pirkti patiktukų, peržiūrų ar komentarų?", "Ne. Jie yra kiekviename pakete, iš tų pačių tikrų žmonių, kurie jus seka."),
         ("Ar galiu augti keliose platformose?", "Taip. Kiekviena platforma yra atskira prenumerata, o visas jas matote viename skydelyje."),
     ],

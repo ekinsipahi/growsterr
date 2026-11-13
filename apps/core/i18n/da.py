@@ -1,7 +1,7 @@
 """Danish copy of the core site (informal "du", like apps/growth/i18n/da.py). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Er følgerne rigtige mennesker?", "Ja, hver eneste. Din profil bliver vist for rigtige mennesker, og kun dem, der kan lide det, de ser, vælger at følge. Derfor tager væksten en måned og ikke et minut."),
         ("Har I brug for min adgangskode?", "Aldrig. Vi skal kun bruge dit brugernavn. Hold din konto offentlig, mens din pakke kører."),
-        ("Hvor mange følgere får jeg?", "Hver pakke har et typisk interval pr. måned: {starter} med Starter Creator, {rising} med Rising Influencer og {pro} med Pro Influencer. Det er typiske tal, ikke et fast antal: rigtige mennesker bestemmer selv, så hver måned er lidt forskellig."),
+        ("Hvor mange følgere får jeg?", "Hver pakke har et typisk interval pr. måned: {starter} med Starter Creator, {rising} med Rising Influencer og {pro} med Pro Influencer. Det er typiske tal, ikke et fast antal: rigtige mennesker bestemmer selv, så hver måned er lidt forskellig. Væksten kan variere fra måned til måned, og vi holder styr på den del, der mangler. Hvis målet for eksempel er 1.000 nye følgere om måneden, og vi når 800, registrerer vi de resterende 200 som en saldo, der skal indhentes. Vi indhenter den i de følgende måneder ud over væksten i de måneder; den tæller ikke med i den nye måneds mål."),
         ("Kan jeg købe likes, visninger eller kommentarer for sig?", "Nej. De følger med i hver pakke, fra de samme rigtige mennesker, der følger dig. Likes og kommentarer, der ikke kommer fra et rigtigt publikum, gør mere skade end gavn for en konto."),
         ("Hvornår ser jeg resultater?", "Din kampagne starter, når din første betaling er gået igennem, og de første tal dukker op i dit dashboard inden for få dage. Derefter bygger væksten sig op hen over måneden."),
         ("Kan jeg vælge, hvor mit publikum kommer fra?", "Ja. Fortæl os en by, en region eller et land, så fokuserer vi din kampagne dér. Hvis det bedst matchende publikum er et andet sted, kan mere af det komme derfra."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Fornyes min pakke automatisk?", "Ja. Din pakke fornyes hver måned, indtil du opsiger den, så din vækst bliver ved med at bygge sig op."),
         ("Hvordan opsiger jeg?", "Når som helst, i dit dashboard. En opsigelse stopper næste betaling, og din pakke kører videre til slutningen af den måned, du allerede har betalt for."),
         ("Kan jeg få pengene tilbage for den aktuelle måned?", "Nej. Den måned, du har betalt for, refunderes ikke, fordi kampagnen allerede kører. Når du opsiger, kører den bare til ende, og der trækkes ikke flere betalinger."),
-        ("Er tallene faste?", "Nej. Det er typiske intervaller pr. måned. Hver følger er et rigtigt menneske, der selv vælger at følge, så hver måned er lidt forskellig."),
+        ("Hvad sker der, hvis månedens mål ikke nås?", "Væksten kan variere fra måned til måned, og vi holder styr på den del, der mangler. Hvis målet for eksempel er 1.000 nye følgere om måneden, og vi når 800, registrerer vi de resterende 200 som en saldo, der skal indhentes. Vi indhenter den i de følgende måneder ud over væksten i de måneder; den tæller ikke med i den nye måneds mål."),
         ("Kan jeg købe likes, visninger eller kommentarer for sig?", "Nej. De følger med i hver pakke, fra de samme rigtige mennesker, der følger dig."),
         ("Kan jeg vokse på mere end én platform?", "Ja. Hver platform er sit eget abonnement, og du ser dem alle i ét dashboard."),
     ],

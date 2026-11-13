@@ -1,7 +1,7 @@
 """German copy of the core site (formal "Sie"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Sind die Follower echte Menschen?", "Ja, jeder einzelne. Ihr Profil wird echten Menschen gezeigt, und nur wer mag, was er sieht, entscheidet sich fürs Folgen. Deshalb dauert Wachstum einen Monat und nicht eine Minute."),
         ("Brauchen Sie mein Passwort?", "Nie. Wir brauchen nur Ihren Benutzernamen. Lassen Sie Ihr Konto öffentlich, solange Ihr Paket läuft."),
-        ("Wie viele Follower bekomme ich?", "Jedes Paket hat eine typische Monatsspanne: {starter} mit Starter Creator, {rising} mit Rising Influencer und {pro} mit Pro Influencer. Das sind typische Werte, keine feste Anzahl: Echte Menschen entscheiden selbst, deshalb ist jeder Monat etwas anders."),
+        ("Wie viele Follower bekomme ich?", "Jedes Paket hat eine typische Monatsspanne: {starter} mit Starter Creator, {rising} mit Rising Influencer und {pro} mit Pro Influencer. Das sind typische Werte, keine feste Anzahl: Echte Menschen entscheiden selbst, deshalb ist jeder Monat etwas anders. Das Wachstum kann von Monat zu Monat schwanken. Wir behalten den noch offenen Anteil für Sie im Blick. Liegt Ihr Monatsziel zum Beispiel bei 1.000 neuen Followern und wir erreichen 800, halten wir die übrigen 200 als noch ausstehenden Zuwachs fest. Diesen holen wir in den folgenden Monaten zusätzlich zum jeweiligen Monatswachstum nach; er wird nicht auf das neue Monatsziel angerechnet."),
         ("Kann ich Likes, Aufrufe oder Kommentare einzeln kaufen?", "Nein. Sie sind in jedem Paket enthalten und kommen von denselben echten Menschen, die Ihnen folgen. Likes und Kommentare, die nicht von einem echten Publikum stammen, schaden einem Konto mehr, als sie nützen."),
         ("Wann sehe ich Ergebnisse?", "Ihre Kampagne startet, sobald Ihre erste Zahlung eingegangen ist, und die ersten Zahlen erscheinen innerhalb weniger Tage in Ihrem Dashboard. Danach baut sich das Wachstum über den Monat auf."),
         ("Kann ich wählen, woher mein Publikum kommt?", "Ja. Nennen Sie uns eine Stadt, eine Region oder ein Land, und wir richten Ihre Kampagne darauf aus. Wenn das passendste Publikum anderswo ist, kann mehr davon von dort kommen."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Verlängert sich mein Paket automatisch?", "Ja. Ihr Paket verlängert sich jeden Monat, bis Sie kündigen, damit Ihr Wachstum weitergeht."),
         ("Wie kündige ich?", "Jederzeit in Ihrem Dashboard. Eine Kündigung stoppt die nächste Zahlung, und Ihr Paket läuft bis zum Ende des bereits bezahlten Monats weiter."),
         ("Bekomme ich den laufenden Monat erstattet?", "Nein. Der bezahlte Monat wird nicht erstattet, weil seine Kampagne bereits läuft. Wenn Sie kündigen, läuft er einfach bis zu seinem Ende, und es wird nichts mehr abgebucht."),
-        ("Sind die Zahlen fest?", "Nein. Es sind typische Monatsspannen. Jeder Follower ist ein echter Mensch, der sich selbst fürs Folgen entscheidet, deshalb ist jeder Monat etwas anders."),
+        ("Was passiert, wenn das Monatsziel nicht erreicht wird?", "Das Wachstum kann von Monat zu Monat schwanken. Wir behalten den noch offenen Anteil für Sie im Blick. Liegt Ihr Monatsziel zum Beispiel bei 1.000 neuen Followern und wir erreichen 800, halten wir die übrigen 200 als noch ausstehenden Zuwachs fest. Diesen holen wir in den folgenden Monaten zusätzlich zum jeweiligen Monatswachstum nach; er wird nicht auf das neue Monatsziel angerechnet."),
         ("Kann ich Likes, Aufrufe oder Kommentare einzeln kaufen?", "Nein. Sie sind in jedem Paket enthalten und kommen von denselben echten Menschen, die Ihnen folgen."),
         ("Kann ich auf mehr als einer Plattform wachsen?", "Ja. Jede Plattform ist ein eigenes Abo, und Sie sehen alle in einem Dashboard."),
     ],

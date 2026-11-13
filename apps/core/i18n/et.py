@@ -1,7 +1,7 @@
 """Estonian copy of the core site (informal "sa"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Kas jälgijad on päris inimesed?", "Jah, igaüks neist. Sinu profiili näidatakse päris inimestele ja jälgima hakkavad ainult need, kellele nähtu meeldib. Seepärast võtab kasv terve kuu, mitte minuti."),
         ("Kas teil on vaja minu parooli?", "Mitte kunagi. Meil on vaja ainult sinu kasutajanime. Hoia oma konto paketi kehtimise ajal avalikuna."),
-        ("Kui palju jälgijaid ma saan?", "Igal paketil on tüüpiline kuuvahemik: {starter} paketiga Starter Creator, {rising} paketiga Rising Influencer ja {pro} paketiga Pro Influencer. Need on tüüpilised numbrid, mitte kindel arv: päris inimesed otsustavad ise, nii et iga kuu on veidi erinev."),
+        ("Kui palju jälgijaid ma saan?", "Igal paketil on tüüpiline kuuvahemik: {starter} paketiga Starter Creator, {rising} paketiga Rising Influencer ja {pro} paketiga Pro Influencer. Need on tüüpilised numbrid, mitte kindel arv: päris inimesed otsustavad ise, nii et iga kuu on veidi erinev. Kasvutempo võib kuude lõikes erineda ja me peame puuduva osa üle arvestust. Kui teie kuu eesmärk on näiteks 1 000 uut jälgijat ja jõuame 800-ni, märgime ülejäänud 200 täitmist ootava jäägina. Täidame selle järgmistel kuudel lisaks nende kuude kasvule; seda ei arvestata uue kuu eesmärgi sisse."),
         ("Kas saan osta meeldimisi, vaatamisi või kommentaare eraldi?", "Ei. Need tulevad iga paketiga kaasa, samadelt päris inimestelt, kes sind jälgivad. Meeldimised ja kommentaarid, mis ei tule päris publikult, teevad kontole rohkem kahju kui kasu."),
         ("Millal ma tulemusi näen?", "Sinu kampaania algab, kui esimene makse on läbi läinud, ja esimesed numbrid ilmuvad töölauale mõne päeva jooksul. Seejärel kogub kasv kuu jooksul hoogu."),
         ("Kas saan valida, kust minu publik pärit on?", "Jah. Ütle meile linn, piirkond või riik ja me suuname sinu kampaania sinna. Kui kõige paremini sobiv publik on mujal, võib suurem osa sellest tulla sealt."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Kas minu pakett uueneb automaatselt?", "Jah. Sinu pakett uueneb igal kuul, kuni sa selle tühistad, nii et sinu kasv aina jätkub."),
         ("Kuidas tühistada?", "Igal ajal oma töölaual. Tühistamine peatab järgmise makse ja sinu pakett töötab edasi kuni juba makstud kuu lõpuni."),
         ("Kas saan jooksva kuu eest raha tagasi?", "Ei. Juba makstud kuud ei hüvitata, sest selle kampaania käib juba. Kui tühistad, kestab see lihtsalt lõpuni ja rohkem makseid ei võeta."),
-        ("Kas numbrid on kindlad?", "Ei. Need on tüüpilised kuuvahemikud. Iga jälgija on päris inimene, kes otsustab ise sind jälgida, nii et iga kuu on veidi erinev."),
+        ("Mis juhtub, kui kuu eesmärk jääb saavutamata?", "Kasvutempo võib kuude lõikes erineda ja me peame puuduva osa üle arvestust. Kui teie kuu eesmärk on näiteks 1 000 uut jälgijat ja jõuame 800-ni, märgime ülejäänud 200 täitmist ootava jäägina. Täidame selle järgmistel kuudel lisaks nende kuude kasvule; seda ei arvestata uue kuu eesmärgi sisse."),
         ("Kas saan osta meeldimisi, vaatamisi või kommentaare eraldi?", "Ei. Need tulevad iga paketiga kaasa, samadelt päris inimestelt, kes sind jälgivad."),
         ("Kas saan kasvatada rohkem kui ühte platvormi?", "Jah. Iga platvorm on eraldi tellimus ja kõiki näed ühel töölaual."),
     ],

@@ -1,7 +1,7 @@
 """Serbian copy of the core site (Latin script, ekavian, formal "vi"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Da li su pratioci pravi ljudi?", "Da, svaki od njih. Vaš profil prikazujemo pravim ljudima, a da vas prate odlučuju samo oni kojima se dopadne ono što vide. Zato rast traje ceo mesec, a ne jedan minut."),
         ("Da li vam treba moja lozinka?", "Nikada. Treba nam samo vaše korisničko ime. Neka vaš nalog bude javan dok paket traje."),
-        ("Koliko ću pratilaca dobiti?", "Svaki paket ima tipičan mesečni raspon: {starter} uz Starter Creator, {rising} uz Rising Influencer i {pro} uz Pro Influencer. To su tipične brojke, a ne fiksan broj: pravi ljudi odlučuju sami, pa je svaki mesec malo drugačiji."),
+        ("Koliko ću pratilaca dobiti?", "Svaki paket ima tipičan mesečni raspon: {starter} uz Starter Creator, {rising} uz Rising Influencer i {pro} uz Pro Influencer. To su tipične brojke, a ne fiksan broj: pravi ljudi odlučuju sami, pa je svaki mesec malo drugačiji. Tempo rasta može da se menja iz meseca u mesec, a mi pratimo deo koji još treba nadoknaditi. Na primer, ako je vaš mesečni cilj 1.000 novih pratilaca, a dostignemo 800, preostalih 200 beležimo kao saldo za nadoknadu. Nadoknađujemo ga u narednim mesecima, uz rast u tim mesecima; ne uračunava se u novi mesečni cilj."),
         ("Mogu li da kupim samo lajkove, preglede ili komentare?", "Ne. Dolaze u svakom paketu, od istih pravih ljudi koji vas prate. Lajkovi i komentari koji ne dolaze od prave publike nalogu više štete nego što koriste."),
         ("Kada ću videti rezultate?", "Kampanja počinje čim prođe vaša prva uplata, a prve brojke se pojavljuju na kontrolnoj tabli u roku od nekoliko dana. Rast se zatim gradi tokom meseca."),
         ("Mogu li da izaberem odakle dolazi moja publika?", "Da. Navedite grad, region ili zemlju i usmerićemo kampanju tamo. Kada je publika koja vam najviše odgovara negde drugde, više ljudi može da stigne odande."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Da li se moj paket automatski obnavlja?", "Da. Paket se obnavlja svakog meseca dok ga ne otkažete, pa se vaš rast nastavlja."),
         ("Kako da otkažem?", "U bilo kom trenutku, na kontrolnoj tabli. Otkazivanje zaustavlja sledeću uplatu, a paket radi do kraja meseca koji ste već platili."),
         ("Mogu li da dobijem povraćaj novca za tekući mesec?", "Ne. Plaćeni mesec se ne vraća, jer njegova kampanja već traje. Kada otkažete, on jednostavno traje do kraja i ništa vam više ne naplaćujemo."),
-        ("Da li su brojke fiksne?", "Ne. To su tipični mesečni rasponi. Svaki pratilac je prava osoba koja sama odluči da vas prati, pa je svaki mesec malo drugačiji."),
+        ("Šta ako ne ostvarimo mesečni cilj?", "Tempo rasta može da se menja iz meseca u mesec, a mi pratimo deo koji još treba nadoknaditi. Na primer, ako je vaš mesečni cilj 1.000 novih pratilaca, a dostignemo 800, preostalih 200 beležimo kao saldo za nadoknadu. Nadoknađujemo ga u narednim mesecima, uz rast u tim mesecima; ne uračunava se u novi mesečni cilj."),
         ("Mogu li da kupim samo lajkove, preglede ili komentare?", "Ne. Dolaze u svakom paketu, od istih pravih ljudi koji vas prate."),
         ("Mogu li da rastem na više platformi?", "Da. Svaka platforma ima zasebnu pretplatu, a sve ih vidite na jednoj kontrolnoj tabli."),
     ],

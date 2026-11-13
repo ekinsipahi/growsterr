@@ -1,7 +1,7 @@
 """Welsh copy of the core site (formal "chi"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Ydy'r dilynwyr yn bobl go iawn?", "Ydyn, pob un ohonyn nhw. Mae eich proffil yn cael ei ddangos i bobl go iawn, a dim ond y rhai sy'n hoffi'r hyn maen nhw'n ei weld sy'n dewis dilyn. Dyna pam mae twf yn cymryd y mis yn hytrach na munud."),
         ("Oes angen fy nghyfrinair arnoch chi?", "Byth. Dim ond eich enw defnyddiwr sydd ei angen arnon ni. Cadwch eich cyfrif yn gyhoeddus tra bo'ch pecyn yn rhedeg."),
-        ("Faint o ddilynwyr fydda i'n eu cael?", "Mae gan bob pecyn ystod fisol nodweddiadol: {starter} gyda Starter Creator, {rising} gyda Rising Influencer a {pro} gyda Pro Influencer. Niferoedd nodweddiadol yw'r rhain, nid nifer sefydlog: mae pobl go iawn yn penderfynu drostyn nhw eu hunain, felly mae pob mis ychydig yn wahanol."),
+        ("Faint o ddilynwyr fydda i'n eu cael?", "Mae gan bob pecyn ystod fisol nodweddiadol: {starter} gyda Starter Creator, {rising} gyda Rising Influencer a {pro} gyda Pro Influencer. Niferoedd nodweddiadol yw'r rhain, nid nifer sefydlog: mae pobl go iawn yn penderfynu drostyn nhw eu hunain, felly mae pob mis ychydig yn wahanol. Gall cyflymder y twf amrywio o fis i fis, ac rydym yn cadw cofnod o’r rhan sydd ar ôl i’w chyflawni. Er enghraifft, os yw eich targed misol yn 1,000 o ddilynwyr newydd a’n bod yn cyrraedd 800, rydym yn cofnodi’r 200 sy’n weddill fel balans i’w gwblhau. Rydym yn ei gwblhau yn y misoedd dilynol, yn ychwanegol at dwf y misoedd hynny; nid yw’n cyfrif tuag at darged y mis newydd."),
         ("Alla i brynu hoffiadau, gwyliadau neu sylwadau ar eu pen eu hunain?", "Na. Maen nhw'n dod ym mhob pecyn, gan yr un bobl go iawn sy'n eich dilyn. Mae hoffiadau a sylwadau nad ydyn nhw'n dod gan gynulleidfa go iawn yn gwneud mwy o ddrwg nag o les i gyfrif."),
         ("Pryd bydda i'n gweld canlyniadau?", "Mae eich ymgyrch yn dechrau unwaith y bydd eich taliad cyntaf wedi mynd drwodd, ac mae'r niferoedd cyntaf yn ymddangos yn eich dangosfwrdd o fewn ychydig ddyddiau. Yna mae'r twf yn cynyddu drwy'r mis."),
         ("Alla i ddewis o ble mae fy nghynulleidfa'n dod?", "Gallwch. Dywedwch wrthon ni am ddinas, rhanbarth neu wlad ac fe wnawn ni ganolbwyntio eich ymgyrch yno. Pan fydd y gynulleidfa sy'n cyfateb orau yn rhywle arall, gall mwy ohoni ddod oddi yno."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Ydy fy mhecyn yn adnewyddu'n awtomatig?", "Ydy. Mae eich pecyn yn adnewyddu bob mis nes i chi ei ganslo, felly mae eich twf yn parhau i gynyddu."),
         ("Sut ydw i'n canslo?", "Unrhyw bryd, yn eich dangosfwrdd. Mae canslo yn atal y taliad nesaf, ac mae eich pecyn yn parhau tan ddiwedd y mis rydych chi eisoes wedi talu amdano."),
         ("Alla i gael ad-daliad am y mis presennol?", "Na. Dydy'r mis rydych chi wedi talu amdano ddim yn cael ei ad-dalu, oherwydd bod ei ymgyrch eisoes ar waith. Pan fyddwch chi'n canslo, mae'n rhedeg i'w ddiwedd a dydyn ni ddim yn cymryd rhagor o daliadau."),
-        ("Ydy'r niferoedd yn sefydlog?", "Nac ydyn. Ystodau misol nodweddiadol ydyn nhw. Mae pob dilynwr yn berson go iawn sy'n dewis eich dilyn, felly mae pob mis ychydig yn wahanol."),
+        ("Beth sy’n digwydd os na chyrhaeddir y targed misol?", "Gall cyflymder y twf amrywio o fis i fis, ac rydym yn cadw cofnod o’r rhan sydd ar ôl i’w chyflawni. Er enghraifft, os yw eich targed misol yn 1,000 o ddilynwyr newydd a’n bod yn cyrraedd 800, rydym yn cofnodi’r 200 sy’n weddill fel balans i’w gwblhau. Rydym yn ei gwblhau yn y misoedd dilynol, yn ychwanegol at dwf y misoedd hynny; nid yw’n cyfrif tuag at darged y mis newydd."),
         ("Alla i brynu hoffiadau, gwyliadau neu sylwadau ar eu pen eu hunain?", "Na. Maen nhw'n dod ym mhob pecyn, gan yr un bobl go iawn sy'n eich dilyn."),
         ("Alla i dyfu ar fwy nag un platfform?", "Gallwch. Mae pob platfform yn danysgrifiad ar wahân, ac rydych chi'n gweld pob un ohonyn nhw mewn un dangosfwrdd."),
     ],

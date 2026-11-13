@@ -1,7 +1,7 @@
 """Icelandic copy of the core site (informal "þú", like apps/growth/i18n/is.py). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Eru fylgjendurnir raunverulegt fólk?", "Já, hver og einn. Prófíllinn þinn er sýndur raunverulegu fólki og aðeins þau sem kunna að meta það sem þau sjá velja að fylgja. Þess vegna tekur vöxturinn mánuð en ekki mínútu."),
         ("Þurfið þið lykilorðið mitt?", "Aldrei. Við þurfum bara notandanafnið þitt. Hafðu reikninginn þinn opinn á meðan pakkinn þinn er í gangi."),
-        ("Hversu marga fylgjendur fæ ég?", "Hver pakki hefur dæmigert bil á mánuði: {starter} með Starter Creator, {rising} með Rising Influencer og {pro} með Pro Influencer. Þetta eru dæmigerðar tölur, ekki föst tala: raunverulegt fólk ákveður sjálft, svo hver mánuður er aðeins ólíkur."),
+        ("Hversu marga fylgjendur fæ ég?", "Hver pakki hefur dæmigert bil á mánuði: {starter} með Starter Creator, {rising} með Rising Influencer og {pro} með Pro Influencer. Þetta eru dæmigerðar tölur, ekki föst tala: raunverulegt fólk ákveður sjálft, svo hver mánuður er aðeins ólíkur. Vöxturinn getur verið mismikill milli mánaða og við höldum utan um það sem vantar upp á. Ef mánaðarmarkmiðið er til dæmis 1.000 nýir fylgjendur og við náum 800, skráum við þá 200 sem eftir eru sem eftirstöðvar til að bæta upp. Við bætum þær upp á næstu mánuðum, til viðbótar við vöxt þeirra mánaða; þær teljast ekki með í markmiði nýja mánaðarins."),
         ("Get ég keypt læk, áhorf eða athugasemdir sér?", "Nei. Þau fylgja hverjum pakka, frá sama raunverulega fólkinu og fylgir þér. Læk og athugasemdir sem koma ekki frá raunverulegum markhópi gera reikningi meira ógagn en gagn."),
         ("Hvenær sé ég árangur?", "Herferðin þín hefst þegar fyrsta greiðslan þín hefur farið í gegn og fyrstu tölurnar birtast á stjórnborðinu innan fárra daga. Svo byggist vöxturinn upp yfir mánuðinn."),
         ("Get ég valið hvaðan markhópurinn minn kemur?", "Já. Nefndu borg, svæði eða land og við beinum herferðinni þinni þangað. Ef markhópurinn sem passar best er annars staðar getur meira af honum komið þaðan."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Endurnýjast pakkinn minn sjálfkrafa?", "Já. Pakkinn þinn endurnýjast í hverjum mánuði þar til þú segir honum upp, svo vöxturinn heldur áfram að byggjast upp."),
         ("Hvernig segi ég upp?", "Hvenær sem er, á stjórnborðinu. Uppsögn stöðvar næstu greiðslu og pakkinn þinn heldur áfram til loka mánaðarins sem þú hefur þegar greitt fyrir."),
         ("Get ég fengið endurgreitt fyrir yfirstandandi mánuð?", "Nei. Mánuðurinn sem þú hefur greitt fyrir er ekki endurgreiddur, því herferð hans er þegar í gangi. Þegar þú segir upp gildir hann einfaldlega til enda og engar frekari greiðslur eru teknar."),
-        ("Eru tölurnar fastar?", "Nei. Þetta eru dæmigerð bil á mánuði. Hver fylgjandi er raunveruleg manneskja sem velur sjálf að fylgja, svo hver mánuður er aðeins ólíkur."),
+        ("Hvað gerist ef mánaðarmarkmiðið næst ekki?", "Vöxturinn getur verið mismikill milli mánaða og við höldum utan um það sem vantar upp á. Ef mánaðarmarkmiðið er til dæmis 1.000 nýir fylgjendur og við náum 800, skráum við þá 200 sem eftir eru sem eftirstöðvar til að bæta upp. Við bætum þær upp á næstu mánuðum, til viðbótar við vöxt þeirra mánaða; þær teljast ekki með í markmiði nýja mánaðarins."),
         ("Get ég keypt læk, áhorf eða athugasemdir sér?", "Nei. Þau fylgja hverjum pakka, frá sama raunverulega fólkinu og fylgir þér."),
         ("Get ég vaxið á fleiri en einum miðli?", "Já. Hver miðill er sérstök áskrift og þú sérð þá alla á einu stjórnborði."),
     ],

@@ -1,7 +1,7 @@
 """Maltese copy of the core site (informal "int"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Is-segwaċi huma nies veri?", "Iva, kull wieħed minnhom. Il-profil tiegħek jintwera lil nies veri, u jsegwuk biss dawk li jogħġobhom dak li jaraw. Għalhekk it-tkabbir jieħu xahar u mhux minuta."),
         ("Għandkom bżonn il-password tiegħi?", "Qatt. Għandna bżonn biss l-isem tal-utent tiegħek. Żomm il-kont tiegħek pubbliku sakemm il-pakkett ikun għaddej."),
-        ("Kemm-il segwaċ se nieħu?", "Kull pakkett għandu firxa tipika ta' kull xahar: {starter} b'Starter Creator, {rising} b'Rising Influencer u {pro} b'Pro Influencer. Dawn huma numri tipiċi, mhux għadd fiss: in-nies veri jiddeċiedu huma stess, għalhekk kull xahar ikun xi ftit differenti."),
+        ("Kemm-il segwaċ se nieħu?", "Kull pakkett għandu firxa tipika ta' kull xahar: {starter} b'Starter Creator, {rising} b'Rising Influencer u {pro} b'Pro Influencer. Dawn huma numri tipiċi, mhux għadd fiss: in-nies veri jiddeċiedu huma stess, għalhekk kull xahar ikun xi ftit differenti. Ir-ritmu tat-tkabbir jista’ jvarja minn xahar għal ieħor, u nżommu kont tal-parti li jkun għad fadal. Pereżempju, jekk il-mira ta’ kull xahar tkun ta’ 1,000 segwaċi ġdid u nilħqu 800, nirreġistraw il-200 li jifdal bħala bilanċ li għad irid jitlesta. Inlestuh fix-xhur ta’ wara, flimkien mat-tkabbir ta’ dawk ix-xhur; ma jingħaddx mal-mira tax-xahar il-ġdid."),
         ("Nista' nixtri likes, veduti jew kummenti weħidhom?", "Le. Jiġu ġewwa kull pakkett, mill-istess nies veri li jsegwuk. Likes u kummenti li ma jiġux minn udjenza vera jagħmlu aktar ħsara milli ġid lil kont."),
         ("Meta se nara r-riżultati?", "Il-kampanja tiegħek tibda hekk kif jgħaddi l-ewwel ħlas, u l-ewwel numri jidhru fil-pannell fi ftit jiem. Imbagħad it-tkabbir jibni matul ix-xahar."),
         ("Nista' nagħżel minn fejn tiġi l-udjenza tiegħi?", "Iva. Għidilna belt, reġjun jew pajjiż u niffokaw il-kampanja tiegħek hemm. Meta l-udjenza li l-aħjar taqbel tkun x'imkien ieħor, aktar minnha tista' tiġi minn hemm."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Il-pakkett tiegħi jiġġedded waħdu?", "Iva. Il-pakkett tiegħek jiġġedded kull xahar sakemm tikkanċellah, biex it-tkabbir tiegħek ikompli jibni."),
         ("Kif nikkanċella?", "Meta trid, mill-pannell tiegħek. Il-kanċellazzjoni twaqqaf il-ħlas li jmiss, u l-pakkett tiegħek ikompli sal-aħħar tax-xahar li diġà ħallast għalih."),
         ("Nista' nieħu rifużjoni għax-xahar kurrenti?", "Le. Ix-xahar li ħallast għalih ma jiġix rimborsat, għax il-kampanja tiegħu tkun diġà għaddejja. Meta tikkanċella, sempliċement jibqa' sa tmiemu u ma jittieħdu l-ebda ħlasijiet oħra."),
-        ("In-numri huma fissi?", "Le. Huma firxiet tipiċi ta' kull xahar. Kull segwaċ huwa persuna vera li tagħżel hi stess li ssegwik, għalhekk kull xahar ikun xi ftit differenti."),
+        ("X’jiġri jekk ma nilħqux il-mira ta’ kull xahar?", "Ir-ritmu tat-tkabbir jista’ jvarja minn xahar għal ieħor, u nżommu kont tal-parti li jkun għad fadal. Pereżempju, jekk il-mira ta’ kull xahar tkun ta’ 1,000 segwaċi ġdid u nilħqu 800, nirreġistraw il-200 li jifdal bħala bilanċ li għad irid jitlesta. Inlestuh fix-xhur ta’ wara, flimkien mat-tkabbir ta’ dawk ix-xhur; ma jingħaddx mal-mira tax-xahar il-ġdid."),
         ("Nista' nixtri likes, veduti jew kummenti weħidhom?", "Le. Jiġu ġewwa kull pakkett, mill-istess nies veri li jsegwuk."),
         ("Nista' nikber fuq aktar minn pjattaforma waħda?", "Iva. Kull pjattaforma hija abbonament għaliha, u tarahom kollha f'pannell wieħed."),
     ],

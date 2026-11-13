@@ -1,7 +1,7 @@
 """Hungarian copy of the core site (informal "te", as in the growth file). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Valódi emberek a követők?", "Igen, mind egy szálig. A profilodat valódi embereknek mutatjuk meg, és csak azok követnek, akiknek tetszik, amit látnak. Ezért tart a növekedés egy hónapig, és nem egy percig."),
         ("Szükségetek van a jelszavamra?", "Soha. Csak a felhasználónevedre van szükségünk. Amíg a csomagod fut, tartsd nyilvánosan a fiókodat."),
-        ("Hány követőt kapok?", "Minden csomagnak van egy jellemző havi tartománya: a Starter Creator csomaggal {starter}, a Rising Influencer csomaggal {rising}, a Pro Influencer csomaggal {pro}. Ezek jellemző számok, nem fix mennyiség: valódi emberek döntenek maguktól, így minden hónap kicsit más."),
+        ("Hány követőt kapok?", "Minden csomagnak van egy jellemző havi tartománya: a Starter Creator csomaggal {starter}, a Rising Influencer csomaggal {rising}, a Pro Influencer csomaggal {pro}. Ezek jellemző számok, nem fix mennyiség: valódi emberek döntenek maguktól, így minden hónap kicsit más. A növekedés üteme hónapról hónapra változhat, és nyilvántartjuk a még hiányzó részt. Ha például a havi cél 1 000 új követő, és 800-at érünk el, a fennmaradó 200-at pótlandó egyenlegként rögzítjük. Ezt a következő hónapokban, az adott hónapok növekedésén felül pótoljuk; nem számítjuk bele az új havi célba."),
         ("Vehetek külön lájkot, megtekintést vagy kommentet?", "Nem. Minden csomagban benne vannak, ugyanazoktól a valódi emberektől, akik követnek. A nem valódi közönségtől érkező lájkok és kommentek többet ártanak egy fióknak, mint használnak."),
         ("Mikor látok eredményt?", "A kampányod az első fizetés teljesülésekor indul, az első számok pedig néhány napon belül megjelennek az irányítópultodon. A növekedés aztán a hónap során épül fel."),
         ("Megválaszthatom, honnan érkezzen a közönségem?", "Igen. Adj meg egy várost, régiót vagy országot, és oda összpontosítjuk a kampányodat. Ha a legjobban illő közönség máshol van, egy része onnan is érkezhet."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Automatikusan megújul a csomagom?", "Igen. A csomagod minden hónapban megújul, amíg le nem mondod, így a növekedésed folytatódik."),
         ("Hogyan mondhatom le?", "Bármikor, az irányítópultodon. A lemondás leállítja a következő fizetést, a csomagod pedig a már kifizetett hónap végéig fut."),
         ("Visszakaphatom a pénzem az aktuális hónapra?", "Nem. A kifizetett hónapért nem jár visszatérítés, mert a kampánya már fut. Ha lemondod, egyszerűen a végéig fut, és több fizetés nem történik."),
-        ("Fixek a számok?", "Nem. Ezek jellemző havi tartományok. Minden követő valódi ember, aki maga dönt a követésről, így minden hónap kicsit más."),
+        ("Mi történik, ha nem érjük el a havi célt?", "A növekedés üteme hónapról hónapra változhat, és nyilvántartjuk a még hiányzó részt. Ha például a havi cél 1 000 új követő, és 800-at érünk el, a fennmaradó 200-at pótlandó egyenlegként rögzítjük. Ezt a következő hónapokban, az adott hónapok növekedésén felül pótoljuk; nem számítjuk bele az új havi célba."),
         ("Vehetek külön lájkot, megtekintést vagy kommentet?", "Nem. Minden csomagban benne vannak, ugyanazoktól a valódi emberektől, akik követnek."),
         ("Több platformon is növekedhetek?", "Igen. Minden platform külön előfizetés, és mindet egyetlen irányítópulton látod."),
     ],

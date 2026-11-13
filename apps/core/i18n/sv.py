@@ -1,7 +1,7 @@
 """Swedish copy of the core site (informal "du", like apps/growth/i18n/sv.py). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Är följarna riktiga människor?", "Ja, varenda en. Din profil visas för riktiga människor, och bara de som gillar det de ser väljer att följa. Därför tar tillväxten en månad i stället för en minut."),
         ("Behöver ni mitt lösenord?", "Aldrig. Vi behöver bara ditt användarnamn. Håll ditt konto offentligt medan ditt paket pågår."),
-        ("Hur många följare får jag?", "Varje paket har ett typiskt intervall per månad: {starter} med Starter Creator, {rising} med Rising Influencer och {pro} med Pro Influencer. Det är typiska siffror, inget fast antal: riktiga människor bestämmer själva, så varje månad blir lite olika."),
+        ("Hur många följare får jag?", "Varje paket har ett typiskt intervall per månad: {starter} med Starter Creator, {rising} med Rising Influencer och {pro} med Pro Influencer. Det är typiska siffror, inget fast antal: riktiga människor bestämmer själva, så varje månad blir lite olika. Tillväxten kan variera från månad till månad, och vi håller reda på den del som återstår. Om månadsmålet till exempel är 1 000 nya följare och vi når 800, registrerar vi de återstående 200 som ett saldo att fylla på. Vi tar igen det under kommande månader, utöver de månadernas tillväxt; det räknas inte in i den nya månadens mål."),
         ("Kan jag köpa likes, visningar eller kommentarer separat?", "Nej. De ingår i varje paket och kommer från samma riktiga människor som följer dig. Likes och kommentarer som inte kommer från en riktig publik gör mer skada än nytta för ett konto."),
         ("När ser jag resultat?", "Din kampanj startar när din första betalning har gått igenom, och de första siffrorna dyker upp i din översikt inom några dagar. Sedan byggs tillväxten upp under månaden."),
         ("Kan jag välja var min publik kommer ifrån?", "Ja. Ange en stad, en region eller ett land så fokuserar vi din kampanj dit. Om den publik som passar bäst finns någon annanstans kan mer av den komma därifrån."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Förnyas mitt paket automatiskt?", "Ja. Ditt paket förnyas varje månad tills du säger upp det, så att din tillväxt fortsätter att byggas upp."),
         ("Hur säger jag upp?", "När du vill, i din översikt. Uppsägningen stoppar nästa betalning, och ditt paket fortsätter till slutet av den månad du redan har betalat för."),
         ("Kan jag få pengarna tillbaka för innevarande månad?", "Nej. Månaden du har betalat för återbetalas inte, eftersom kampanjen redan är igång. När du säger upp löper den helt enkelt till sitt slut och inga fler betalningar dras."),
-        ("Är siffrorna fasta?", "Nej. Det är typiska intervall per månad. Varje följare är en riktig människa som själv väljer att följa, så varje månad blir lite olika."),
+        ("Vad händer om månadsmålet inte nås?", "Tillväxten kan variera från månad till månad, och vi håller reda på den del som återstår. Om månadsmålet till exempel är 1 000 nya följare och vi når 800, registrerar vi de återstående 200 som ett saldo att fylla på. Vi tar igen det under kommande månader, utöver de månadernas tillväxt; det räknas inte in i den nya månadens mål."),
         ("Kan jag köpa likes, visningar eller kommentarer separat?", "Nej. De ingår i varje paket och kommer från samma riktiga människor som följer dig."),
         ("Kan jag växa på mer än en plattform?", "Ja. Varje plattform är en egen prenumeration, och du ser alla i en och samma översikt."),
     ],

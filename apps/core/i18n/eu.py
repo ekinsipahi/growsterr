@@ -1,7 +1,7 @@
 """Basque copy of the core site ("zu"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Jarraitzaileak pertsona errealak dira?", "Bai, guztiak. Zure profila pertsona errealei erakusten diegu, eta ikusten dutena gustuko dutenek bakarrik erabakitzen dute zuri jarraitzea. Horregatik behar du hazkundeak hilabete bat, eta ez minutu bat."),
         ("Nire pasahitza behar duzue?", "Inoiz ez. Zure erabiltzaile-izena besterik ez dugu behar. Eduki zure kontua publiko paketea martxan dagoen bitartean."),
-        ("Zenbat jarraitzaile lortuko ditut?", "Pakete bakoitzak hileko tarte ohiko bat du: {starter} Starter Creator paketearekin, {rising} Rising Influencer paketearekin eta {pro} Pro Influencer paketearekin. Zenbaki ohikoak dira, ez kopuru finko bat: pertsona errealek beren kabuz erabakitzen dute, eta horregatik hilabete bakoitza apur bat desberdina da."),
+        ("Zenbat jarraitzaile lortuko ditut?", "Pakete bakoitzak hileko tarte ohiko bat du: {starter} Starter Creator paketearekin, {rising} Rising Influencer paketearekin eta {pro} Pro Influencer paketearekin. Zenbaki ohikoak dira, ez kopuru finko bat: pertsona errealek beren kabuz erabakitzen dute, eta horregatik hilabete bakoitza apur bat desberdina da. Hazkunde-erritmoa hilabete batetik bestera alda daiteke, eta falta den zatiaren jarraipena egiten dugu. Adibidez, hileko helburua 1.000 jarraitzaile berri bada eta 800 lortzen baditugu, gainerako 200ak osatzeko dagoen saldo gisa erregistratzen ditugu. Hurrengo hilabeteetan osatzen dugu saldo hori, hilabete horietako hazkundeaz gain; ez da hilabete berriko helburuaren barruan zenbatzen."),
         ("Atsegiteak, ikustaldiak edo iruzkinak bereiz eros ditzaket?", "Ez. Pakete guztietan daude barne, eta zuri jarraitzen dizuten pertsona erreal berengandik datoz. Benetako publiko batetik ez datozen atsegiteek eta iruzkinek mesede baino kalte gehiago egiten diote kontu bati."),
         ("Noiz ikusiko ditut emaitzak?", "Zure kanpaina lehen ordainketa egin bezain laster hasten da, eta lehen zenbakiak egun gutxiren buruan agertzen dira zure panelean. Gero, hazkundea hilabetean zehar eraikitzen da."),
         ("Aukera dezaket nondik etorriko den nire publikoa?", "Bai. Esaguzu hiri, eskualde edo herrialde bat, eta hara bideratuko dugu zure kanpaina. Publikorik egokiena beste nonbait badago, handik etor daiteke gehiago."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Nire paketea automatikoki berritzen da?", "Bai. Zure paketea hilero berritzen da harpidetza utzi arte, zure hazkundeak aurrera jarrai dezan."),
         ("Nola utz dezaket harpidetza?", "Nahi duzunean, zure paneletik. Harpidetza uzteak hurrengo ordainketa geldiarazten du, eta zure paketeak martxan jarraitzen du dagoeneko ordaindutako hilabetearen amaierara arte."),
         ("Uneko hilabetearen dirua itzul diezadakezue?", "Ez. Ordaindutako hilabetea ez da itzultzen, haren kanpaina martxan dagoelako jada. Harpidetza uzten baduzu, hilabeteak amaierara arte jarraitzen du, besterik gabe, eta ez da ordainketa gehiagorik kobratzen."),
-        ("Zenbakiak finkoak dira?", "Ez. Hileko tarte ohikoak dira. Jarraitzaile bakoitza jarraitzea erabakitzen duen pertsona erreal bat da, eta horregatik hilabete bakoitza apur bat desberdina da."),
+        ("Zer gertatzen da hileko helburua lortzen ez bada?", "Hazkunde-erritmoa hilabete batetik bestera alda daiteke, eta falta den zatiaren jarraipena egiten dugu. Adibidez, hileko helburua 1.000 jarraitzaile berri bada eta 800 lortzen baditugu, gainerako 200ak osatzeko dagoen saldo gisa erregistratzen ditugu. Hurrengo hilabeteetan osatzen dugu saldo hori, hilabete horietako hazkundeaz gain; ez da hilabete berriko helburuaren barruan zenbatzen."),
         ("Atsegiteak, ikustaldiak edo iruzkinak bereiz eros ditzaket?", "Ez. Pakete guztietan daude barne, eta zuri jarraitzen dizuten pertsona erreal berengandik datoz."),
         ("Plataforma batean baino gehiagotan haz naiteke?", "Bai. Plataforma bakoitza harpidetza bereizi bat da, eta denak panel bakar batean ikusten dituzu."),
     ],

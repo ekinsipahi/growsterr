@@ -1,7 +1,7 @@
 """Galician copy of the core site ("ti"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Os seguidores son persoas reais?", "Si, todos e cada un. Amosamos o teu perfil a persoas reais, e só quen goza do que ve decide seguirte. Por iso o crecemento leva un mes e non un minuto."),
         ("Necesitades o meu contrasinal?", "Nunca. Só necesitamos o teu nome de usuario. Mantén a túa conta pública mentres o paquete estea activo."),
-        ("Cantos seguidores conseguirei?", "Cada paquete ten un intervalo mensual habitual: {starter} con Starter Creator, {rising} con Rising Influencer e {pro} con Pro Influencer. Son cifras habituais, non unha cantidade fixa: as persoas reais deciden por si mesmas, así que cada mes é un pouco diferente."),
+        ("Cantos seguidores conseguirei?", "Cada paquete ten un intervalo mensual habitual: {starter} con Starter Creator, {rising} con Rising Influencer e {pro} con Pro Influencer. Son cifras habituais, non unha cantidade fixa: as persoas reais deciden por si mesmas, así que cada mes é un pouco diferente. O ritmo de crecemento pode variar dun mes a outro e facemos un seguimento da parte pendente. Por exemplo, se o seu obxectivo mensual é de 1.000 novos seguidores e chegamos a 800, rexistramos os 200 restantes como saldo pendente de completar. Completámolo nos meses seguintes, ademais do crecemento deses meses; non se conta dentro do novo obxectivo mensual."),
         ("Podo mercar gústames, visualizacións ou comentarios por separado?", "Non. Veñen incluídos en todos os paquetes, das mesmas persoas reais que te seguen. Os gústames e os comentarios que non veñen dun público real fanlle máis mal ca ben a unha conta."),
         ("Cando verei resultados?", "A túa campaña arranca en canto se procesa o primeiro pagamento, e as primeiras cifras aparecen no teu panel en poucos días. Despois, o crecemento vaise construíndo ao longo do mes."),
         ("Podo escoller de onde vén o meu público?", "Si. Indícanos unha cidade, unha rexión ou un país e centramos aí a túa campaña. Se o público que mellor encaixa está noutro lugar, pode chegar máis xente de alí."),
@@ -211,7 +211,7 @@ PRICING = {
         ("O meu paquete renóvase automaticamente?", "Si. O teu paquete renóvase cada mes ata que o canceles, para que o teu crecemento siga sumando."),
         ("Como cancelo?", "Cando queiras, desde o teu panel. Ao cancelar detense o seguinte pagamento, e o teu paquete segue activo ata o final do mes que xa pagaches."),
         ("Podedes reembolsarme o mes en curso?", "Non. O mes que xa pagaches non se reembolsa, porque a súa campaña xa está en marcha. Se cancelas, simplemente chega ao seu fin e non se fan máis cobros."),
-        ("As cifras son fixas?", "Non. Son intervalos mensuais habituais. Cada seguidor é unha persoa real que decide seguirte, así que cada mes é un pouco diferente."),
+        ("Que ocorre se non se alcanza o obxectivo mensual?", "O ritmo de crecemento pode variar dun mes a outro e facemos un seguimento da parte pendente. Por exemplo, se o seu obxectivo mensual é de 1.000 novos seguidores e chegamos a 800, rexistramos os 200 restantes como saldo pendente de completar. Completámolo nos meses seguintes, ademais do crecemento deses meses; non se conta dentro do novo obxectivo mensual."),
         ("Podo mercar gústames, visualizacións ou comentarios por separado?", "Non. Veñen incluídos en todos os paquetes, das mesmas persoas reais que te seguen."),
         ("Podo medrar en máis dunha plataforma?", "Si. Cada plataforma é unha subscrición independente, e vesas todas nun mesmo panel."),
     ],

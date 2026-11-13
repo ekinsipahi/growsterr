@@ -1,7 +1,7 @@
 """Turkish copy of the core site (formal "siz", like apps/growth/i18n/tr.py). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Takipçiler gerçek insanlar mı?", "Evet, her biri. Profiliniz gerçek insanlara gösterilir ve yalnızca gördüğünü beğenenler takip etmeyi seçer. Bu yüzden büyüme bir dakikada değil, bir ay boyunca gerçekleşir."),
         ("Şifreme ihtiyacınız var mı?", "Asla. Yalnızca kullanıcı adınıza ihtiyacımız var. Paketiniz devam ettiği sürece hesabınızı herkese açık tutun."),
-        ("Kaç takipçi kazanırım?", "Her paketin tipik bir aylık aralığı vardır: Starter Creator ile {starter}, Rising Influencer ile {rising}, Pro Influencer ile {pro}. Bunlar sabit bir sayı değil, tipik rakamlardır: gerçek insanlar kararı kendileri verir, bu yüzden her ay biraz farklı geçer."),
+        ("Kaç takipçi kazanırım, aylık hedefin altında kalınırsa ne olur?", "Her paketin tipik bir aylık aralığı vardır: Starter Creator ile {starter}, Rising Influencer ile {rising}, Pro Influencer ile {pro}. Gerçek insanlar takip etmeyi kendileri seçtiği için büyüme hızı aydan aya değişebilir. Örneğin aylık hedefiniz 1.000 yeni takipçiyse ve o ay 800 kişiye ulaşırsak, kalan 200 kişiyi sizin için tamamlanacak bakiye olarak kaydederiz. Bu bakiye, sonraki aylardaki büyümenize ek olarak tamamlanır; yeni ayın hedefinden düşülmez."),
         ("Beğeni, izlenme ya da yorumu ayrı satın alabilir miyim?", "Hayır. Hepsi her paketin içinde, sizi takip eden aynı gerçek insanlardan gelir. Gerçek bir kitleden gelmeyen beğeni ve yorumlar bir hesaba faydadan çok zarar verir."),
         ("Sonuçları ne zaman görürüm?", "Kampanyanız ilk ödemeniz gerçekleştiğinde başlar ve ilk rakamlar birkaç gün içinde panelinizde görünür. Ardından büyüme ay boyunca artarak sürer."),
         ("Kitlemin nereden geleceğini seçebilir miyim?", "Evet. Bize bir şehir, bölge ya da ülke söyleyin, kampanyanızı oraya odaklayalım. En uygun kitle başka bir yerdeyse daha fazlası oradan da gelebilir."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Paketim otomatik olarak yenilenir mi?", "Evet. Paketiniz siz iptal edene kadar her ay yenilenir, böylece büyümeniz devam eder."),
         ("Nasıl iptal ederim?", "İstediğiniz zaman, panelinizden. İptal bir sonraki ödemeyi durdurur; paketiniz ödemesini yaptığınız ayın sonuna kadar devam eder."),
         ("İçinde bulunduğum ay için iade alabilir miyim?", "Hayır. Ödemesini yaptığınız ay iade edilmez, çünkü o ayın kampanyası zaten yürümektedir. İptal ettiğinizde ay sonuna kadar devam eder ve başka ödeme alınmaz."),
-        ("Rakamlar sabit mi?", "Hayır. Bunlar tipik aylık aralıklardır. Her takipçi, takip etmeyi kendisi seçen gerçek bir insandır, bu yüzden her ay biraz farklı geçer."),
+        ("Bir ay hedefin altında kalırsak ne olur?", "Büyüme hızı aydan aya değişebilir; eksik kalan kısmı sizin için takip ederiz. Örneğin aylık 1.000 yeni takipçi hedefinde 800 kişiye ulaşırsak, kalan 200 kişiyi tamamlanacak bakiye olarak kaydederiz. Sonraki aylarda bu bakiye, o ayların büyümesine ek olarak tamamlanır; yeni ayın hedefinden düşülmez."),
         ("Beğeni, izlenme ya da yorumu ayrı satın alabilir miyim?", "Hayır. Hepsi her paketin içinde, sizi takip eden aynı gerçek insanlardan gelir."),
         ("Birden fazla platformda büyüyebilir miyim?", "Evet. Her platform ayrı bir aboneliktir ve hepsini tek bir panelde görürsünüz."),
     ],

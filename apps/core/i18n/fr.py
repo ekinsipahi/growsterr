@@ -1,7 +1,7 @@
 """French copy of the core site ("vous"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Les abonnés sont-ils de vraies personnes ?", "Oui, chacun d'entre eux. Votre profil est présenté à de vraies personnes, et seules celles qui aiment ce qu'elles voient choisissent de s'abonner. C'est pourquoi la croissance se fait sur un mois, et non en une minute."),
         ("Avez-vous besoin de mon mot de passe ?", "Jamais. Nous avons seulement besoin de votre nom d'utilisateur. Gardez votre compte public pendant toute la durée de votre pack."),
-        ("Combien d'abonnés vais-je gagner ?", "Chaque pack a une fourchette mensuelle habituelle : {starter} avec Starter Creator, {rising} avec Rising Influencer et {pro} avec Pro Influencer. Ce sont des chiffres habituels, pas un nombre fixe : de vraies personnes décident par elles-mêmes, donc chaque mois est un peu différent."),
+        ("Combien d'abonnés vais-je gagner ?", "Chaque pack a une fourchette mensuelle habituelle : {starter} avec Starter Creator, {rising} avec Rising Influencer et {pro} avec Pro Influencer. Ce sont des chiffres habituels, pas un nombre fixe : de vraies personnes décident par elles-mêmes, donc chaque mois est un peu différent. La croissance peut varier d’un mois à l’autre, et nous suivons pour vous la part qui reste à compléter. Par exemple, si votre objectif mensuel est de 1 000 nouveaux abonnés et que nous en atteignons 800, nous enregistrons les 200 restants comme un solde à compléter. Ce solde est rattrapé au cours des mois suivants, en plus de la croissance de ces mois ; il n’est pas déduit du nouvel objectif mensuel."),
         ("Puis-je acheter des likes, des vues ou des commentaires à part ?", "Non. Ils sont inclus dans chaque pack et viennent des mêmes vraies personnes qui vous suivent. Des likes et des commentaires qui ne viennent pas d'une vraie audience font plus de mal que de bien à un compte."),
         ("Quand vais-je voir des résultats ?", "Votre campagne démarre dès que votre premier paiement est validé, et les premiers chiffres apparaissent dans votre tableau de bord en quelques jours. La croissance se construit ensuite au fil du mois."),
         ("Puis-je choisir d'où vient mon audience ?", "Oui. Indiquez-nous une ville, une région ou un pays, et nous concentrons votre campagne sur ce lieu. Si l'audience la plus adaptée se trouve ailleurs, une plus grande partie peut venir de là."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Mon pack se renouvelle-t-il automatiquement ?", "Oui. Votre pack se renouvelle chaque mois jusqu'à ce que vous résiliiez, pour que votre croissance continue."),
         ("Comment résilier ?", "À tout moment, depuis votre tableau de bord. La résiliation arrête le prochain paiement, et votre pack continue jusqu'à la fin du mois déjà payé."),
         ("Le mois en cours peut-il être remboursé ?", "Non. Le mois payé n'est pas remboursé, car sa campagne est déjà en cours. Si vous résiliez, il va simplement jusqu'à son terme et aucun autre paiement n'est prélevé."),
-        ("Les chiffres sont-ils fixes ?", "Non. Ce sont des fourchettes mensuelles habituelles. Chaque abonné est une vraie personne qui choisit de vous suivre, donc chaque mois est un peu différent."),
+        ("Que se passe-t-il si l’objectif mensuel n’est pas atteint ?", "La croissance peut varier d’un mois à l’autre, et nous suivons pour vous la part qui reste à compléter. Par exemple, si votre objectif mensuel est de 1 000 nouveaux abonnés et que nous en atteignons 800, nous enregistrons les 200 restants comme un solde à compléter. Ce solde est rattrapé au cours des mois suivants, en plus de la croissance de ces mois ; il n’est pas déduit du nouvel objectif mensuel."),
         ("Puis-je acheter des likes, des vues ou des commentaires à part ?", "Non. Ils sont inclus dans chaque pack et viennent des mêmes vraies personnes qui vous suivent."),
         ("Puis-je grandir sur plusieurs plateformes ?", "Oui. Chaque plateforme est un abonnement distinct, et vous les retrouvez toutes dans un seul tableau de bord."),
     ],

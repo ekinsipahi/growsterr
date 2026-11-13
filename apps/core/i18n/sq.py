@@ -1,7 +1,7 @@
 """Albanian copy of the core site (formal "ju"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("A janë ndjekësit njerëz të vërtetë?", "Po, secili prej tyre. Profilin tuaj ua shfaqim njerëzve të vërtetë dhe vetëm ata që pëlqejnë atë që shohin zgjedhin t'ju ndjekin. Prandaj rritja kërkon gjithë muajin dhe jo një minutë."),
         ("A ju nevojitet fjalëkalimi im?", "Kurrë. Na nevojitet vetëm emri juaj i përdoruesit. Mbajeni llogarinë publike sa kohë që paketa është aktive."),
-        ("Sa ndjekës do të marr?", "Çdo paketë ka një interval tipik mujor: {starter} me Starter Creator, {rising} me Rising Influencer dhe {pro} me Pro Influencer. Këto janë shifra tipike, jo një numër i caktuar: njerëzit e vërtetë vendosin vetë, ndaj çdo muaj është pak ndryshe."),
+        ("Sa ndjekës do të marr?", "Çdo paketë ka një interval tipik mujor: {starter} me Starter Creator, {rising} me Rising Influencer dhe {pro} me Pro Influencer. Këto janë shifra tipike, jo një numër i caktuar: njerëzit e vërtetë vendosin vetë, ndaj çdo muaj është pak ndryshe. Ritmi i rritjes mund të ndryshojë nga muaji në muaj dhe ne ndjekim pjesën që mbetet për t’u plotësuar. Për shembull, nëse objektivi juaj mujor është 1.000 ndjekës të rinj dhe arrijmë 800, i regjistrojmë 200 të mbetur si bilanc për t’u plotësuar. E plotësojmë në muajt pasues, krahas rritjes së atyre muajve; nuk llogaritet brenda objektivit të muajit të ri."),
         ("A mund të blej vetëm pëlqime, shikime apo komente?", "Jo. Ato vijnë brenda çdo pakete, nga të njëjtët njerëz të vërtetë që ju ndjekin. Pëlqimet dhe komentet që nuk vijnë nga një publik i vërtetë i bëjnë një llogarie më shumë dëm se dobi."),
         ("Kur do të shoh rezultate?", "Fushata nis sapo të kalojë pagesa juaj e parë, dhe shifrat e para shfaqen në panel brenda pak ditësh. Pastaj rritja ndërtohet gjatë muajit."),
         ("A mund të zgjedh nga vjen publiku im?", "Po. Na tregoni një qytet, rajon ose shtet dhe e fokusojmë fushatën atje. Kur publiku që ju përshtatet më mirë ndodhet diku tjetër, më shumë njerëz mund të vijnë prej andej."),
@@ -211,7 +211,7 @@ PRICING = {
         ("A rinovohet paketa ime automatikisht?", "Po. Paketa juaj rinovohet çdo muaj derisa ta anuloni, kështu që rritja juaj vazhdon të ndërtohet."),
         ("Si ta anuloj?", "Kur të doni, nga paneli. Anulimi ndalon pagesën e radhës, dhe paketa juaj vazhdon deri në fund të muajit që keni paguar tashmë."),
         ("A mund të marr rimbursim për muajin aktual?", "Jo. Muaji që keni paguar nuk rimbursohet, sepse fushata e tij është tashmë në zhvillim. Kur anuloni, ai thjesht vazhdon deri në fund dhe nuk merren pagesa të tjera."),
-        ("A janë shifrat fikse?", "Jo. Ato janë intervale tipike mujore. Çdo ndjekës është një njeri i vërtetë që zgjedh t'ju ndjekë, ndaj çdo muaj është pak ndryshe."),
+        ("Çfarë ndodh nëse nuk arrihet objektivi mujor?", "Ritmi i rritjes mund të ndryshojë nga muaji në muaj dhe ne ndjekim pjesën që mbetet për t’u plotësuar. Për shembull, nëse objektivi juaj mujor është 1.000 ndjekës të rinj dhe arrijmë 800, i regjistrojmë 200 të mbetur si bilanc për t’u plotësuar. E plotësojmë në muajt pasues, krahas rritjes së atyre muajve; nuk llogaritet brenda objektivit të muajit të ri."),
         ("A mund të blej vetëm pëlqime, shikime apo komente?", "Jo. Ato vijnë brenda çdo pakete, nga të njëjtët njerëz të vërtetë që ju ndjekin."),
         ("A mund të rritem në më shumë se një platformë?", "Po. Çdo platformë është një abonim më vete, dhe të gjitha i shihni në një panel të vetëm."),
     ],

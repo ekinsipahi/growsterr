@@ -1,7 +1,7 @@
 """Catalan copy of the core site ("tu"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Els seguidors són persones reals?", "Sí, tots i cadascun. Mostrem el teu perfil a persones reals, i només qui gaudeix del que veu decideix seguir-te. Per això el creixement necessita un mes i no un minut."),
         ("Necessiteu la meva contrasenya?", "Mai. Només necessitem el teu nom d'usuari. Mantén el compte públic mentre el paquet estigui actiu."),
-        ("Quants seguidors aconseguiré?", "Cada paquet té un interval mensual habitual: {starter} amb Starter Creator, {rising} amb Rising Influencer i {pro} amb Pro Influencer. Són xifres habituals, no una quantitat fixa: les persones reals decideixen per si mateixes, així que cada mes és una mica diferent."),
+        ("Quants seguidors aconseguiré?", "Cada paquet té un interval mensual habitual: {starter} amb Starter Creator, {rising} amb Rising Influencer i {pro} amb Pro Influencer. Són xifres habituals, no una quantitat fixa: les persones reals decideixen per si mateixes, així que cada mes és una mica diferent. El ritme de creixement pot variar d’un mes a l’altre i fem un seguiment de la part pendent. Per exemple, si el vostre objectiu mensual és de 1.000 seguidors nous i arribem a 800, registrem els 200 restants com un saldo pendent de completar. El completem els mesos següents, a més del creixement d’aquells mesos; no es compta dins del nou objectiu mensual."),
         ("Puc comprar m'agrades, visualitzacions o comentaris per separat?", "No. Venen inclosos en tots els paquets, de les mateixes persones reals que et segueixen. Els m'agrades i els comentaris que no venen d'un públic real fan més mal que bé a un compte."),
         ("Quan veuré resultats?", "La teva campanya arrenca tan bon punt es processa el primer pagament, i les primeres xifres apareixen al teu tauler en pocs dies. Després, el creixement es va construint al llarg del mes."),
         ("Puc triar d'on ve el meu públic?", "Sí. Indica'ns una ciutat, una regió o un país i hi centrem la teva campanya. Si el públic que hi encaixa millor és en un altre lloc, en pot arribar més d'allà."),
@@ -211,7 +211,7 @@ PRICING = {
         ("El meu paquet es renova automàticament?", "Sí. El teu paquet es renova cada mes fins que el cancel·lis, perquè el teu creixement continuï."),
         ("Com cancel·lo?", "Quan vulguis, des del teu tauler. Si cancel·les, s'atura el pagament següent, i el teu paquet continua actiu fins al final del mes que ja has pagat."),
         ("Em podeu reemborsar el mes en curs?", "No. El mes que ja has pagat no es reemborsa, perquè la seva campanya ja està en marxa. Si cancel·les, simplement arriba al final i no es fan més cobraments."),
-        ("Les xifres són fixes?", "No. Són intervals mensuals habituals. Cada seguidor és una persona real que decideix seguir-te, així que cada mes és una mica diferent."),
+        ("Què passa si no s’assoleix l’objectiu mensual?", "El ritme de creixement pot variar d’un mes a l’altre i fem un seguiment de la part pendent. Per exemple, si el vostre objectiu mensual és de 1.000 seguidors nous i arribem a 800, registrem els 200 restants com un saldo pendent de completar. El completem els mesos següents, a més del creixement d’aquells mesos; no es compta dins del nou objectiu mensual."),
         ("Puc comprar m'agrades, visualitzacions o comentaris per separat?", "No. Venen inclosos en tots els paquets, de les mateixes persones reals que et segueixen."),
         ("Puc créixer en més d'una plataforma?", "Sí. Cada plataforma és una subscripció independent, i les veus totes en un sol tauler."),
     ],

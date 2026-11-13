@@ -1,7 +1,7 @@
 """Romanian copy of the core site (informal "tu", as in the growth file). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Urmăritorii sunt oameni reali?", "Da, fiecare dintre ei. Profilul tău e arătat unor oameni reali și doar cei cărora le place ce văd aleg să te urmărească. De aceea creșterea durează o lună, nu un minut."),
         ("Aveți nevoie de parola mea?", "Niciodată. Ne trebuie doar numele de utilizator. Păstrează contul public cât timp rulează pachetul."),
-        ("Câți urmăritori voi primi?", "Fiecare pachet are un interval lunar obișnuit: {starter} cu Starter Creator, {rising} cu Rising Influencer și {pro} cu Pro Influencer. Sunt cifre obișnuite, nu un număr fix: oamenii reali decid singuri, așa că fiecare lună e puțin diferită."),
+        ("Câți urmăritori voi primi?", "Fiecare pachet are un interval lunar obișnuit: {starter} cu Starter Creator, {rising} cu Rising Influencer și {pro} cu Pro Influencer. Sunt cifre obișnuite, nu un număr fix: oamenii reali decid singuri, așa că fiecare lună e puțin diferită. Ritmul de creștere poate varia de la o lună la alta, iar noi urmărim partea rămasă de completat. De exemplu, dacă obiectivul lunar este de 1.000 de urmăritori noi și ajungem la 800, înregistrăm cei 200 rămași ca sold de completat. Îl completăm în lunile următoare, în plus față de creșterea din acele luni; nu îl includem în noul obiectiv lunar."),
         ("Pot cumpăra separat like-uri, vizualizări sau comentarii?", "Nu. Ele vin în fiecare pachet, de la aceiași oameni reali care te urmăresc. Like-urile și comentariile care nu vin de la un public real fac mai mult rău decât bine unui cont."),
         ("Când văd rezultatele?", "Campania pornește după ce trece prima plată, iar primele cifre apar în panou în câteva zile. Apoi creșterea se construiește pe parcursul lunii."),
         ("Pot alege de unde vine publicul meu?", "Da. Spune-ne un oraș, o regiune sau o țară și ne concentrăm campania acolo. Când publicul cel mai potrivit e în altă parte, o parte din el poate veni de acolo."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Pachetul se reînnoiește automat?", "Da. Pachetul se reînnoiește în fiecare lună până când îl anulezi, așa că creșterea ta continuă."),
         ("Cum anulez?", "Oricând, din panoul tău. Anularea oprește plata următoare, iar pachetul rulează până la finalul lunii deja plătite."),
         ("Pot primi banii înapoi pentru luna curentă?", "Nu. Luna plătită nu se rambursează, pentru că campania ei rulează deja. Când anulezi, pur și simplu merge până la capăt și nu se mai fac alte plăți."),
-        ("Cifrele sunt fixe?", "Nu. Sunt intervale lunare obișnuite. Fiecare urmăritor e un om real care alege să te urmărească, așa că fiecare lună e puțin diferită."),
+        ("Ce se întâmplă dacă obiectivul lunar nu este atins?", "Ritmul de creștere poate varia de la o lună la alta, iar noi urmărim partea rămasă de completat. De exemplu, dacă obiectivul lunar este de 1.000 de urmăritori noi și ajungem la 800, înregistrăm cei 200 rămași ca sold de completat. Îl completăm în lunile următoare, în plus față de creșterea din acele luni; nu îl includem în noul obiectiv lunar."),
         ("Pot cumpăra separat like-uri, vizualizări sau comentarii?", "Nu. Ele vin în fiecare pachet, de la aceiași oameni reali care te urmăresc."),
         ("Pot crește pe mai multe platforme?", "Da. Fiecare platformă are propriul abonament și le vezi pe toate într-un singur panou."),
     ],

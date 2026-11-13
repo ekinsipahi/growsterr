@@ -1,7 +1,7 @@
 """Irish copy of the core site ("tú"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("An daoine fíora iad na leantóirí?", "Is ea, gach duine acu. Taispeántar do phróifíl do dhaoine fíora, agus ní leanann thú ach iad siúd ar maith leo an rud a fheiceann siad. Sin é an fáth a dtógann an fás mí seachas nóiméad."),
         ("An dteastaíonn mo phasfhocal uaibh?", "Ní theastaíonn, riamh. Níl uainn ach d'ainm úsáideora. Coinnigh do chuntas poiblí fad atá do phacáiste ar siúl."),
-        ("Cé mhéad leantóir a gheobhaidh mé?", "Tá raon tipiciúil míosúil ag gach pacáiste: {starter} le Starter Creator, {rising} le Rising Influencer agus {pro} le Pro Influencer. Uimhreacha tipiciúla iad seo, ní líon seasta: socraíonn daoine fíora dóibh féin, mar sin bíonn gach mí beagán difriúil."),
+        ("Cé mhéad leantóir a gheobhaidh mé?", "Tá raon tipiciúil míosúil ag gach pacáiste: {starter} le Starter Creator, {rising} le Rising Influencer agus {pro} le Pro Influencer. Uimhreacha tipiciúla iad seo, ní líon seasta: socraíonn daoine fíora dóibh féin, mar sin bíonn gach mí beagán difriúil. Féadfaidh luas an fháis athrú ó mhí go mí, agus coinnímid cuntas ar an gcuid atá fós le comhlíonadh. Mar shampla, más é 1,000 leantóir nua do sprioc mhíosúil agus má shroichimid 800, déanaimid an 200 eile a thaifeadadh mar iarmhéid le comhlíonadh. Comhlíonaimid é sna míonna ina dhiaidh sin, sa bhreis ar fhás na míonna sin; ní áirítear é i sprioc na míosa nua."),
         ("An féidir liom ‘is maith liom’, féachaintí nó tráchtanna a cheannach ar leith?", "Ní féidir. Tagann siad i ngach pacáiste, ó na daoine fíora céanna a leanann thú. Déanann ‘is maith liom’ agus tráchtanna nach dtagann ó lucht féachana fíor níos mó dochair ná maitheasa do chuntas."),
         ("Cathain a fheicfidh mé torthaí?", "Tosaíonn d'fheachtas chomh luath is a théann do chéad íocaíocht tríd, agus feictear na chéad uimhreacha i do dheais laistigh de chúpla lá. Ansin téann an fás i dtreise i rith na míosa."),
         ("An féidir liom a roghnú cá as a dtiocfaidh mo lucht féachana?", "Is féidir. Inis dúinn cathair, réigiún nó tír agus dírímid d'fheachtas ansin. Nuair atá an lucht féachana is fearr a oireann in áit eile, d'fhéadfadh níos mó acu teacht as sin."),
@@ -211,7 +211,7 @@ PRICING = {
         ("An athnuaitear mo phacáiste go huathoibríoch?", "Athnuaitear. Athnuaitear do phacáiste gach mí go dtí go gcealaíonn tú é, ionas go leanann d'fhás ar aghaidh."),
         ("Conas a chealaím?", "Am ar bith, i do dheais. Stopann an cealú an chéad íocaíocht eile, agus leanann do phacáiste ar aghaidh go deireadh na míosa atá íoctha agat cheana."),
         ("An féidir aisíocaíocht a fháil ar an mí reatha?", "Ní féidir. Ní aisíoctar an mhí atá íoctha agat, mar tá a feachtas ar siúl cheana féin. Nuair a chealaíonn tú, leanann sí go dtí a deireadh agus ní ghlactar aon íocaíocht eile."),
-        ("An bhfuil na huimhreacha seasta?", "Níl. Is raonta tipiciúla míosúla iad. Is duine fíor gach leantóir a shocraíonn féin thú a leanúint, mar sin bíonn gach mí beagán difriúil."),
+        ("Cad a tharlaíonn mura mbaintear sprioc na míosa amach?", "Féadfaidh luas an fháis athrú ó mhí go mí, agus coinnímid cuntas ar an gcuid atá fós le comhlíonadh. Mar shampla, más é 1,000 leantóir nua do sprioc mhíosúil agus má shroichimid 800, déanaimid an 200 eile a thaifeadadh mar iarmhéid le comhlíonadh. Comhlíonaimid é sna míonna ina dhiaidh sin, sa bhreis ar fhás na míonna sin; ní áirítear é i sprioc na míosa nua."),
         ("An féidir liom ‘is maith liom’, féachaintí nó tráchtanna a cheannach ar leith?", "Ní féidir. Tagann siad i ngach pacáiste, ó na daoine fíora céanna a leanann thú."),
         ("An féidir liom fás ar níos mó ná ardán amháin?", "Is féidir. Is síntiús ar leith gach ardán, agus feiceann tú iad uile in aon deais amháin."),
     ],

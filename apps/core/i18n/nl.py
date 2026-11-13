@@ -1,7 +1,7 @@
 """Dutch copy of the core site (formal "u"). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Zijn de volgers echte mensen?", "Ja, stuk voor stuk. Uw profiel wordt aan echte mensen getoond, en alleen wie leuk vindt wat hij ziet, kiest ervoor te volgen. Daarom duurt groei een maand en geen minuut."),
         ("Heeft u mijn wachtwoord nodig?", "Nooit. We hebben alleen uw gebruikersnaam nodig. Houd uw account openbaar zolang uw pakket loopt."),
-        ("Hoeveel volgers krijg ik?", "Elk pakket heeft een typisch maandbereik: {starter} met Starter Creator, {rising} met Rising Influencer en {pro} met Pro Influencer. Dat zijn typische aantallen, geen vast getal: echte mensen beslissen zelf, dus elke maand is net iets anders."),
+        ("Hoeveel volgers krijg ik?", "Elk pakket heeft een typisch maandbereik: {starter} met Starter Creator, {rising} met Rising Influencer en {pro} met Pro Influencer. Dat zijn typische aantallen, geen vast getal: echte mensen beslissen zelf, dus elke maand is net iets anders. De groei kan per maand verschillen. Wij houden het resterende deel voor u bij. Is uw maanddoel bijvoorbeeld 1.000 nieuwe volgers en bereiken we er 800, dan noteren we de resterende 200 als nog aan te vullen groei. Die vullen we in latere maanden aan, boven op de groei van die maanden; ze tellen niet mee voor het nieuwe maanddoel."),
         ("Kan ik likes, views of reacties los kopen?", "Nee. Ze zitten in elk pakket, van dezelfde echte mensen die u volgen. Likes en reacties die niet van een echt publiek komen, doen een account meer kwaad dan goed."),
         ("Wanneer zie ik resultaat?", "Uw campagne start zodra uw eerste betaling binnen is, en de eerste cijfers verschijnen binnen een paar dagen in uw dashboard. Daarna bouwt de groei zich op door de maand heen."),
         ("Kan ik kiezen waar mijn publiek vandaan komt?", "Ja. Noem een stad, regio of land en we richten uw campagne daarop. Zit het best passende publiek ergens anders, dan kan er meer van daar komen."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Wordt mijn pakket automatisch verlengd?", "Ja. Uw pakket wordt elke maand verlengd tot u opzegt, zodat uw groei blijft doorgaan."),
         ("Hoe zeg ik op?", "Altijd, in uw dashboard. Opzeggen stopt de volgende betaling, en uw pakket loopt door tot het einde van de maand die u al betaald heeft."),
         ("Krijg ik de lopende maand terugbetaald?", "Nee. De maand die u betaald heeft wordt niet terugbetaald, omdat de campagne al loopt. Zegt u op, dan loopt die maand gewoon af en worden er geen betalingen meer afgeschreven."),
-        ("Liggen de aantallen vast?", "Nee. Het zijn typische maandbereiken. Elke volger is een echt mens die er zelf voor kiest te volgen, dus elke maand is net iets anders."),
+        ("Wat als het maanddoel niet wordt gehaald?", "De groei kan per maand verschillen. Wij houden het resterende deel voor u bij. Is uw maanddoel bijvoorbeeld 1.000 nieuwe volgers en bereiken we er 800, dan noteren we de resterende 200 als nog aan te vullen groei. Die vullen we in latere maanden aan, boven op de groei van die maanden; ze tellen niet mee voor het nieuwe maanddoel."),
         ("Kan ik likes, views of reacties los kopen?", "Nee. Ze zitten in elk pakket, van dezelfde echte mensen die u volgen."),
         ("Kan ik op meer dan één platform groeien?", "Ja. Elk platform is een eigen abonnement, en u ziet ze allemaal in één dashboard."),
     ],

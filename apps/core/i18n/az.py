@@ -1,7 +1,7 @@
 """Azerbaijani copy of the core site (formal "siz", like apps/growth/i18n/az.py). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("İzləyicilər real insanlardır?", "Bəli, hər biri. Profiliniz real insanlara göstərilir və yalnız gördüyünü bəyənənlər izləməyi seçir. Buna görə böyümə bir dəqiqəyə deyil, bir aya yayılır."),
         ("Şifrəmə ehtiyacınız var?", "Heç vaxt. Bizə yalnız istifadəçi adınız lazımdır. Paketiniz davam etdikcə hesabınızı açıq saxlayın."),
-        ("Neçə izləyici qazanacağam?", "Hər paketin adi aylıq aralığı var: Starter Creator ilə {starter}, Rising Influencer ilə {rising}, Pro Influencer ilə {pro}. Bunlar sabit say deyil, adi rəqəmlərdir: real insanlar qərarı özləri verir, ona görə hər ay bir az fərqli olur."),
+        ("Neçə izləyici qazanacağam?", "Hər paketin adi aylıq aralığı var: Starter Creator ilə {starter}, Rising Influencer ilə {rising}, Pro Influencer ilə {pro}. Bunlar sabit say deyil, adi rəqəmlərdir: real insanlar qərarı özləri verir, ona görə hər ay bir az fərqli olur. Artım tempi aydan aya dəyişə bilər və biz çatışmayan hissəni sizin üçün izləyirik. Məsələn, aylıq hədəfiniz 1.000 yeni izləyicidirsə və 800 nəfərə çatsaq, qalan 200 nəfəri tamamlanacaq qalıq kimi qeyd edirik. Bu qalıq sonrakı aylarda həmin ayların artımına əlavə olaraq tamamlanır; yeni ayın hədəfinə daxil edilmir."),
         ("Bəyənmə, baxış və ya şərhi ayrıca ala bilərəm?", "Xeyr. Hamısı hər paketin içində, sizi izləyən eyni real insanlardan gəlir. Real auditoriyadan gəlməyən bəyənmə və şərhlər hesaba xeyirdən çox ziyan verir."),
         ("Nəticələri nə vaxt görəcəyəm?", "Kampaniyanız ilk ödənişiniz keçəndə başlayır və ilk rəqəmlər bir neçə gün ərzində panelinizdə görünür. Sonra böyümə ay boyu artaraq davam edir."),
         ("Auditoriyamın haradan gələcəyini seçə bilərəm?", "Bəli. Bizə şəhər, region və ya ölkə deyin, kampaniyanızı ora yönəldək. Ən uyğun auditoriya başqa yerdədirsə, daha çoxu oradan da gələ bilər."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Paketim avtomatik yenilənir?", "Bəli. Paketiniz siz ləğv edənə qədər hər ay yenilənir, beləliklə böyüməniz davam edir."),
         ("Necə ləğv edim?", "İstənilən vaxt, panelinizdən. Ləğv növbəti ödənişi dayandırır, paketiniz isə ödədiyiniz ayın sonuna qədər işləməyə davam edir."),
         ("Cari ay üçün pulu geri ala bilərəm?", "Xeyr. Ödənilmiş ay geri qaytarılmır, çünki onun kampaniyası artıq işləyir. Ləğv etdikdə ay sadəcə sonuna qədər davam edir və başqa ödəniş alınmır."),
-        ("Rəqəmlər sabitdir?", "Xeyr. Bunlar adi aylıq aralıqlardır. Hər izləyici izləməyi özü seçən real insandır, ona görə hər ay bir az fərqli olur."),
+        ("Aylıq hədəfə çatmasaq nə baş verir?", "Artım tempi aydan aya dəyişə bilər və biz çatışmayan hissəni sizin üçün izləyirik. Məsələn, aylıq hədəfiniz 1.000 yeni izləyicidirsə və 800 nəfərə çatsaq, qalan 200 nəfəri tamamlanacaq qalıq kimi qeyd edirik. Bu qalıq sonrakı aylarda həmin ayların artımına əlavə olaraq tamamlanır; yeni ayın hədəfinə daxil edilmir."),
         ("Bəyənmə, baxış və ya şərhi ayrıca ala bilərəm?", "Xeyr. Hamısı hər paketin içində, sizi izləyən eyni real insanlardan gəlir."),
         ("Birdən çox platformada böyüyə bilərəm?", "Bəli. Hər platforma ayrıca abunəlikdir və hamısını bir paneldə görürsünüz."),
     ],

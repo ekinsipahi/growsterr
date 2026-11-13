@@ -1,7 +1,7 @@
 """Slovak copy of the core site (formal "vy", lowercase as in the growth file). Mirrors en.py."""
 from datetime import date
 
-UPDATED = date(2026, 11, 9)
+UPDATED = date(2026, 11, 13)
 
 CHROME = {
     # <title> and description of a page that sets none of its own
@@ -149,7 +149,7 @@ HOME = {
     "faqs": [
         ("Sú sledovatelia skutoční ľudia?", "Áno, do jedného. Váš profil sa ukazuje skutočným ľuďom a sledovať vás začnú len tí, ktorých zaujme, čo vidia. Preto rast trvá mesiac, a nie minútu."),
         ("Potrebujete moje heslo?", "Nikdy. Potrebujeme len vaše používateľské meno. Kým balík beží, majte účet verejný."),
-        ("Koľko sledovateľov získam?", "Každý balík má typické mesačné rozpätie: {starter} so Starter Creator, {rising} s Rising Influencer a {pro} s Pro Influencer. Sú to typické čísla, nie pevný počet: skutoční ľudia sa rozhodujú sami, takže každý mesiac je trochu iný."),
+        ("Koľko sledovateľov získam?", "Každý balík má typické mesačné rozpätie: {starter} so Starter Creator, {rising} s Rising Influencer a {pro} s Pro Influencer. Sú to typické čísla, nie pevný počet: skutoční ľudia sa rozhodujú sami, takže každý mesiac je trochu iný. Tempo rastu sa môže z mesiaca na mesiac líšiť a my pre vás sledujeme zostávajúcu časť. Ak je napríklad mesačným cieľom 1 000 nových sledovateľov a získame ich 800, zvyšných 200 zaznamenáme ako zostatok na doplnenie. Doplníme ho v nasledujúcich mesiacoch nad rámec rastu za tieto mesiace; do nového mesačného cieľa sa nezapočítava."),
         ("Môžem si kúpiť samotné lajky, zhliadnutia alebo komentáre?", "Nie. Sú súčasťou každého balíka a pochádzajú od tých istých skutočných ľudí, ktorí vás sledujú. Lajky a komentáre, za ktorými nestojí skutočné publikum, účtu viac škodia, ako pomáhajú."),
         ("Kedy uvidím výsledky?", "Kampaň sa spustí, hneď ako prejde prvá platba, a prvé čísla sa vo vašom prehľade objavia v priebehu niekoľkých dní. Rast potom počas mesiaca postupne silnie."),
         ("Môžem si vybrať, odkiaľ bude moje publikum?", "Áno. Napíšte nám mesto, región alebo krajinu a kampaň zameriame tam. Ak je najlepšie zodpovedajúce publikum inde, jeho časť môže prísť odtiaľ."),
@@ -211,7 +211,7 @@ PRICING = {
         ("Obnovuje sa balík automaticky?", "Áno. Balík sa obnovuje každý mesiac, kým ho nezrušíte, takže váš rast pokračuje."),
         ("Ako predplatné zruším?", "Kedykoľvek vo svojom prehľade. Zrušením zastavíte ďalšiu platbu a balík beží až do konca mesiaca, ktorý už máte zaplatený."),
         ("Môžem dostať peniaze späť za aktuálny mesiac?", "Nie. Zaplatený mesiac sa nevracia, pretože jeho kampaň už beží. Keď predplatné zrušíte, mesiac jednoducho dobehne do konca a žiadne ďalšie platby sa už nestrhnú."),
-        ("Sú čísla pevné?", "Nie. Sú to typické mesačné rozpätia. Každý sledovateľ je skutočný človek, ktorý sa sám rozhodne vás sledovať, takže každý mesiac je trochu iný."),
+        ("Čo sa stane, ak mesačný cieľ nedosiahneme?", "Tempo rastu sa môže z mesiaca na mesiac líšiť a my pre vás sledujeme zostávajúcu časť. Ak je napríklad mesačným cieľom 1 000 nových sledovateľov a získame ich 800, zvyšných 200 zaznamenáme ako zostatok na doplnenie. Doplníme ho v nasledujúcich mesiacoch nad rámec rastu za tieto mesiace; do nového mesačného cieľa sa nezapočítava."),
         ("Môžem si kúpiť samotné lajky, zhliadnutia alebo komentáre?", "Nie. Sú súčasťou každého balíka a pochádzajú od tých istých skutočných ľudí, ktorí vás sledujú."),
         ("Môžem rásť na viacerých platformách?", "Áno. Každá platforma má vlastné predplatné a všetky vidíte v jednom prehľade."),
     ],
